@@ -1,3 +1,31 @@
 .home{
     height: 100vh;
+    padding-top: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5vw;
+    .left{
+        width: 40%;
+        margin-top: 15vh;
+        height:60%;
+        /* border: 1px solid white; */
+        display: flex;
+        flex-direction: column;
+        gap:2vh;
+
+    }
+    .right{
+        /* border: 1px solid rgb(224, 219, 219); */
+        width: 30%;
+        height:75%;
+        position: relative;
+        box-shadow: 1px 1px 20px gray;
+        margin-top: 10vh;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       border-radius: 30%;
+       overflow: hidden;
+    }
 }

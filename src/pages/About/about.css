@@ -1,3 +1,146 @@
-.about{
-    height: 100vh;
+.about {
+    height: 86vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    background: linear-gradient(to right, #1c1c1c, #292929);
+    overflow: hidden;
 }
+
+.about-content {
+    padding: 0 50px;
+    /* font-size:25px; */
+    width: 40%;
+    height: 100%;
+  
+    line-height: 30px;
+   
+    /* background-color: #e50f95; */
+    /* border-radius: 20px; */
+    color: rgb(254, 248, 248);
+    /* font-weight: bold; */
+    animation: slideInLeft 2s ease-in-out;
+    /* box-shadow: 0px 4px 15px rgba(135, 206, 235, 0.5); */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 2px 2px 10px skyblue;
+    p {
+        font-family: 'Arial', sans-serif; /* Use a clean, professional font */
+        font-size: 20px; /* Adjust font size for readability */
+        line-height: 1.8; /* Increase line height for spacing between lines */
+       
+        padding: 20px; /* Add space around the text for better focus */
+        border-radius: 8px; /* Soften the edges of the paragraph container */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        max-width: 800px; /* Restrict paragraph width for optimal reading length */
+        margin: 20px auto; /* Center align with spacing around */
+        text-align: justify; /* Align text evenly for polished look */
+      }
+      
+}
+
+.about-content:hover {
+  
+    background-color: black;
+    transform: scale(1.03);
+    h1{
+        color: black;
+    }
+}
+
+.skills {
+
+    width: 70%;
+    padding-left: 100px;
+    /* padding: 10vh 0; */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    animation: slideInRight 2s ease-in-out;
+}
+
+.skills .soft {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.skills .soft div {
+    border: 1px solid #e50f95;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 2px 2px 100px inset #e50f95;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.skills .soft div:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 2px 2px 100px #e50f95;
+    background-color: rgba(229, 15, 149, 0.1);
+}
+
+/* Keyframes for entrance animations */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframes for glowing animation on soft skills */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #e50f95;
+    }
+    50% {
+        box-shadow: 0 0 50px #e50f95;
+    }
+    100% {
+        box-shadow: 0 0 10px #e50f95;
+    }
+}
+.tech{ 
+    display: flex;
+    gap:20px;
+    contain: content;
+    flex-wrap: wrap;
+    svg {
+    animation: easeInOut 5s infinite;
+    /* border:1px solid #e50f95; */
+    /* padding: 10px; */
+    /* border-radius: 50%; */
+  }
+}
+  @keyframes easeInOut {
+    0%, 100% {
+      transform: rotate(20deg);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  

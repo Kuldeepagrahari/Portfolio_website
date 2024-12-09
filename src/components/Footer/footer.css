@@ -1,0 +1,14 @@
+.footer{
+    position: fixed;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1.5vw;
+    a{
+        text-decoration: none;
+        list-style: none;
+    }
+    /* top:90vh; */
+}

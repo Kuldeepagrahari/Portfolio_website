@@ -1,20 +1,18 @@
 import React from 'react'
 import "./index.css"
-import Home from "./pages/Home/Home.jsx"
-import About from "./pages/About/About.jsx"
-import Experience from "./pages/Experience/Experience.jsx"
-import Projects from "./pages/Projects/Projects.jsx"
-import Contact from "./pages/Contact/Contact.jsx"
-import Nav from './components/Navbar/Nav.jsx'
+import Nav from './components/Navbar/Nav'
+import Footer from './components/Footer/Footer'
+import Display from './Display'
+
 const App = () => {
   return (
     <div className='app'>
-      <Nav></Nav>
-      <Home></Home>
-      <About></About>
-      <Experience></Experience>
-      <Projects></Projects>
-      <Contact></Contact>
+    <Nav></Nav>
+    <div className="content">
+      <Display></Display>
+    </div>
+    {/* <Display></Display> */}
+    <Footer></Footer>
     </div>
   )
 }
