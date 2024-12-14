@@ -17,7 +17,7 @@ const Contact = () => {
     />
         </div>
         <div className="right">
-               <h1 style={{fontSize:"80px", color:"rgb(45, 72, 246)", textAlign:"center"}}>Contact Me</h1>
+               <h1 style={{fontSize:"80px", color:"var(--theme-color)", textAlign:"center"}}>Contact Me</h1>
             <form >
                 <input type="text" name="name" placeholder="Your Name"/>
                 <input type="email" name="email" placeholder="Your Email"/>

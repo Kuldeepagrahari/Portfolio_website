@@ -72,10 +72,10 @@
 }
 
 .skills .soft div {
-    border: 1px solid #e50f95;
+    border: 1px solid var(--theme-color);
     color: white;
     padding: 10px 20px;
-    box-shadow: 2px 2px 20px inset #e50f95;
+    box-shadow: 2px 2px 20px inset var(--theme-color);
     border-radius: 10px;
     display: flex;
     align-items: center;

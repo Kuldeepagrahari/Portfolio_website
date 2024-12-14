@@ -7,6 +7,9 @@
   font-style: normal;
 
 }
+:root{
+  --theme-color: tomato;
+}
 ::-webkit-scrollbar{
   display: none;
 }
