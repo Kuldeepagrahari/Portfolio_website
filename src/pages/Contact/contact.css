@@ -11,6 +11,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        .lottie{
+            width: 100%;
+        }
     }
     .right{
         background-color: rgb(17, 17, 17);
@@ -76,6 +79,11 @@
     .contact{
         display: flex;
         flex-direction: column;
+        .left{
+            .lottie{
+                width: 800px;
+            }
+        }
         .right{
             width: 90%;
             

@@ -11,7 +11,8 @@ const Contact = () => {
       src="https://lottie.host/1917724c-db86-4dc9-8962-f76abc901890/ZocLPJWaB5.lottie"
       loop
       autoplay
-      style={{width:"800px"}}
+      className='lottie'
+     
      
     />
         </div>
