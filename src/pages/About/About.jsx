@@ -5,15 +5,17 @@ import { Typewriter } from 'react-simple-typewriter'
 const About = () => {
    
   return (
-    <div name="about" className='about'>
+    <div className='about'>
+      <div className="left">
+       <h1 style={{fontSize:"80px", textAlign:"center", color:"#e50f95", marginBottom:"20px"}}>About Me</h1>
       <div className='about-content'>
-        <h1 style={{fontSize:"80px", textAlign:"center", color:"#e50f95"}}>About Me</h1>
+       
         <p>
-      I am Kuldeep Agrahari, a pre-final year undergraduate student in Computer Science and Engineering at <span></span>
-      IIIT Jabalpur. I hail from Prayagraj, Uttar Pradesh, <span></span>India.
+      I'm <span>Kuldeep Agrahari</span>, a pre-final year undergraduate student in Computer Science and Engineering at <span>
+      IIIT Jabalpur</span>. I hail from <span>Prayagraj, Uttar Pradesh, India.</span><br/>
 
-With a strong passion for software development, I am dedicated to continuous learning and innovation, staying updated with emerging technologies daily. I am eager to contribute my skills and knowledge to an organization where I can create meaningful impact and grow professionally.</p>
-      </div>
+With a strong passion for <span> software Development</span>, I'm dedicated to continuous learning and innovation, staying updated with emerging technologies daily. </p>
+      </div></div>
       <div className="skills">
         <div className="soft">
             <div>Software Engineering</div>
