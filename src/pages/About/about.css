@@ -85,7 +85,7 @@
 
 .skills .soft div:hover {
     transform: scale(1.1) rotate(3deg);
-    box-shadow: 2px 2px 40px #e50f95;
+    box-shadow: 2px 2px 40px var(--theme-color);
     background-color: rgba(229, 15, 149, 0.1);
 }
 

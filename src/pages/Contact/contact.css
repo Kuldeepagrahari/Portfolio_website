@@ -13,6 +13,7 @@
         justify-content: center;
         .lottie{
             width: 100%;
+            color:tomato;
         }
     }
     .right{
