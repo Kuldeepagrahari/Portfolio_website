@@ -32,7 +32,7 @@ const Projects = () => {
   return (
     <div name="projects" className="pro">
      
-      <h1 style={{ fontSize: '80px', color: 'tomato' }}>My Recent Projects</h1>
+      <h1>My Recent Projects</h1>
 
       {/* Project Cards */}
       <div className="projectCardCollection">

@@ -3,4 +3,15 @@
    padding: 50px 10vw;
    /* padding: 0 5vw; */
    /* background-color: rgb(31, 32, 32); */
+   h1{
+      font-size: 80px;
+      color: var(--theme-color);
+   }
+}
+@media screen and (max-width: 768px) {
+   .pro{
+      h1{
+         font-size: 50px;
+      }
+   }
 }

@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className='about'>
       <div className="left">
-       <h1 style={{fontSize:"80px", textAlign:"center", color:"var(--theme-color)", marginBottom:"20px"}}>About Me</h1>
+       <h1>About Me</h1>
       <div className='about-content'>
        
         <p>
