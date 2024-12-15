@@ -62,11 +62,14 @@
     flex-direction: column;
     gap: 40px;
     animation: slideInRight 2s ease-in-out;
-
+    
     @media screen and (max-width: 768px) {
         width: 100%;
         padding-left: 10vw;
         gap: 20px;
+        h1{
+            height:100px;
+        }
     }
 }
 
