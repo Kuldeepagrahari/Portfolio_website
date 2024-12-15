@@ -16,7 +16,7 @@
   
   .nav ul {
     display: flex;
-    width: 40%;
+    gap:40px;
     align-items: center;
     justify-content: space-around;
     transition: all 0.3s ease;

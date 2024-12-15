@@ -47,16 +47,17 @@
        display: flex;
        align-items: center;
        justify-content: center;
-       border-radius: 30%;
+       border-radius: 50px;
        overflow: hidden;
+       margin-left: 50px;
        img{
         width: 400px;
-        border-radius: 30%;
-        border: 1px solid gray;
+        border-radius: 50px;
+        /* border: 1px solid gray; */
        }
     }
 }
-@media screen  and (max-width:768px) {
+@media screen  and (max-width:800px) {
     .home{
         display: flex;
         flex-direction: column;
@@ -83,7 +84,7 @@
             margin-top: 0;
             img{
                 border: none;
-                border-radius: 20%;
+                border-radius: 50px;
                 /* height:650px; */
                 margin-top: 30px;
                 width: 300px;
