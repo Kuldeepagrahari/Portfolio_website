@@ -7,6 +7,7 @@ const Contact = () => {
   const form = useRef();
   const [statusMessage, setStatusMessage] = useState(""); // To display status messages
   const [isSent, setIsSent] = useState(false); // To handle success notifications
+  const [isTypingEmail, setIsTypingEmail] = useState(false); // To track email input activity
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -26,6 +27,7 @@ const Contact = () => {
           setStatusMessage("✅ Thanks for Messaging!");
           setIsSent(true);
           e.target.reset();
+          setIsTypingEmail(false); // Reset typing state
         },
         (error) => {
           console.log(error.text);
@@ -54,12 +56,28 @@ const Contact = () => {
             placeholder="Your Name"
             required
           />
-          <input
-            type="email"
-            name="reply_to"
-            placeholder="Your Email"
-            required
-          />
+          
+            <input
+              type="email"
+              name="reply_to"
+              placeholder="Your Email"
+              required
+              onChange={(e) => setIsTypingEmail(e.target.value.length > 0)}
+            />
+            {isTypingEmail && (
+              <small
+                style={{
+                  color: "skyBlue",
+                  marginTop: "5px",
+                  display: "block",
+                  fontSize: "16px",
+                  textAlign:"center"
+                }}
+              >
+                *Ensure the validity of EMAIL address by yourself for one-to-one communication.
+              </small>
+            )}
+        
           <textarea
             name="message"
             placeholder="Your Message"
