@@ -10,7 +10,7 @@ const Display = () => {
     <div className='display'>
       <Home></Home>
       <About></About>
-      <Experience></Experience>
+      {/* <Experience></Experience> */}
       <Projects></Projects>
       <Contact></Contact>
     </div>

@@ -102,6 +102,7 @@
 
     svg {
         animation: easeInOut 5s infinite;
+        width: 80px;
     }
 }
 
