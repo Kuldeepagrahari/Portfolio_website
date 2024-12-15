@@ -26,7 +26,7 @@ With a strong passion for <span> software Development</span>, I'm dedicated to c
             <div>Programming Mentor</div>
         </div>
         <h1><Typewriter
-            words={['Technologies which I Use', 'Technologies I Know']}
+            words={['Technologies I Use', 'Technologies I Know']}
             loop={Infinity}
             cursor
             cursorStyle='_'
