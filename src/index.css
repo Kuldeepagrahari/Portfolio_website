@@ -5,6 +5,7 @@
   font-family: "Roboto", serif;
   font-weight: 400;
   font-style: normal;
+  cursor:crosshair;
 
 }
 :root{
@@ -27,25 +28,6 @@
   }
 }
 .display{
-  overflow-y: scroll;
-  height: 94vh;
-}.app {
-  background-color: black;
-  background-image: url('bg.jpg'); /* Adjust the path */
-  background-size: cover; /* Ensures the image covers the entire area */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  font-size: 20px;
-  color: white;
-  height: 100vh;
-  position: relative;
-}
-
-.content {
-  overflow-y: scroll;
-}
-
-.display {
   overflow-y: scroll;
   height: 94vh;
 }

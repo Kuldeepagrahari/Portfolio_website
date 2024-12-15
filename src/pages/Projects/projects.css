@@ -1,4 +1,6 @@
 .pro{
    width:100%;
-   padding: 0 5vw;
+   padding: 50px 5vw;
+   /* padding: 0 5vw; */
+   background-color: rgb(31, 32, 32);
 }

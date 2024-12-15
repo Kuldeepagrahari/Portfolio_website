@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     padding: 0 5vw;
+    margin-top: 50px;
     margin-bottom: 50px;
     .left{
         width: 40%;
@@ -16,6 +17,20 @@
         gap:2vh;
         .head{
             font-size: 100px;
+        }
+        button{
+            border:1px solid var(--theme-color);background-color:transparent; color:white;
+            width:150px;
+            font-size: 16px;
+             padding:10px 10px; border-radius:10px;
+             font-weight:bold;
+             margin-top:3vh;
+              box-shadow:1px 1px 30px var(--theme-color);
+        }
+        button:hover{
+          transform: scale(1.02);
+          background-color: var(--theme-color);
+          color: black;
         }
         h1{
             font-size: 50px;

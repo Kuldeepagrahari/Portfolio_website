@@ -4,8 +4,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgb(46, 45, 45);
+   
   /* Dark background */
-    border: 2px solid tomato; /* Tomato border */
+  
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -68,21 +70,25 @@
   }
   
   .links a:hover {
-    background: #ffffff; /* White background */
+    background: transparent; /* White 
+    borbackground */
     color: tomato; /* Tomato text */
+    border: 1px solid var(--theme-color);
   }
 }  
 
 .pcards:hover {
     transform: scale(1.05);
-    box-shadow: 2px 2px 100px rgba(255, 99, 71, 0.5); /* Tomato shadow */
-    border: none;
+    background-color: black;
+    box-shadow: 2px 2px 200px rgba(255, 99, 71, 0.5); /* Tomato shadow */
+    border: 2px solid var(--theme-color);
   }
 
   @media screen and (max-width: 768px) {
     .pcards{
       display: flex;
       flex-direction: column;
+      /* background-color: black; */
 
     }
   }
