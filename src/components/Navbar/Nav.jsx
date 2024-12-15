@@ -1,21 +1,56 @@
-import React from 'react'
-import "./nav.css"
-import {Link,  Element, animateScroll as scroll} from "react-scroll"
-const Nav = () => {
-  return (
-    <div className='nav'>
-      {/* <h1>Kuldeep.</h1> */}
-      <img src="logo2.png" alt="" />
-      <ul>
-        <li><Link to="home" smooth={true} duration={500}>Home</Link></li>
-        <li><Link to="about" smooth={true} duration={500}>About</Link></li>
-        <li><Link to="exp" smooth={true} duration={500}>Experience</Link></li>
-        <li><Link to="projects" smooth={true} duration={500}>Projects</Link></li>
-        <li><Link to="contact" smooth={true} duration={500}>Contact</Link></li>
-      </ul>
-     
-    </div>
-  )
-}
+import React, { useState } from "react";
+import "./nav.css";
+import { Link } from "react-scroll";
 
-export default Nav
+const Nav = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Toggle menu visibility
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  return (
+    <div className="nav">
+      <img src="logo2.png" alt="Logo" />
+
+      {/* Hamburger Icon */}
+      <div className="hamburger" onClick={toggleMenu}>
+        <div className={`bar ${menuOpen ? "open" : ""}`}></div>
+        <div className={`bar ${menuOpen ? "open" : ""}`}></div>
+        <div className={`bar ${menuOpen ? "open" : ""}`}></div>
+      </div>
+
+      {/* Navigation Menu */}
+      <ul className={menuOpen ? "menu active" : "menu"}>
+        <li>
+          <Link to="#" smooth={true} duration={500} onClick={toggleMenu}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="#" smooth={true} duration={500} onClick={toggleMenu}>
+            About
+          </Link>
+        </li>
+        <li>
+          <Link to="#" smooth={true} duration={500} onClick={toggleMenu}>
+            Experience
+          </Link>
+        </li>
+        <li>
+          <Link to="#" smooth={true} duration={500} onClick={toggleMenu}>
+            Projects
+          </Link>
+        </li>
+        <li>
+          <Link to="#" smooth={true} duration={500} onClick={toggleMenu}>
+            Contact
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+export default Nav;
