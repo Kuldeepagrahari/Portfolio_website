@@ -1,17 +1,17 @@
 .about {
-    padding: 5vh 5vw;
+    padding: 50px 10vw;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(to right, #1c1c1c, #292929);
+    background: black;
     overflow: hidden;
 
     @media screen and (max-width: 768px) {
         flex-direction: column;
         width: 100%;
-        padding: 50px 20px;
+        padding: 50px 10vw;
     }
 }
 
@@ -41,7 +41,7 @@
     }
 
     .about-content:hover {
-        background-color: black;
+        background-color: rgb(34, 32, 32);
         transform: scale(1.03);
 
         h1 {
@@ -60,7 +60,7 @@
 
     @media screen and (max-width: 768px) {
         width: 100%;
-        padding: 0;
+        padding-left: 10vw;
         gap: 20px;
     }
 }
@@ -91,6 +91,7 @@
 
 .tech {
     display: flex;
+    /* margin: 50px 0; */
     gap: 20px;
     flex-wrap: wrap;
 
