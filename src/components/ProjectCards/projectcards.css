@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgb(33, 32, 32);
-   border-left: 5px solid var(--theme-color);
+   border-left: 10px solid var(--theme-color);
   /* Dark background */
   
     border-radius: 10px;
@@ -81,7 +81,7 @@
     transform: scale(1.05);
     background-color: black;
     box-shadow: 2px 2px 200px var(--theme-color); /* Tomato shadow */
-    border: 2px solid var(--theme-color);
+    /* border: 2px solid var(--theme-color); */
   }
 
   @media screen and (max-width: 768px) {

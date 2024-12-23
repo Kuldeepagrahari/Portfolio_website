@@ -5,7 +5,6 @@ import { Link } from "react-scroll";
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Toggle menu visibility
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -24,27 +23,27 @@ const Nav = () => {
       {/* Navigation Menu */}
       <ul className={menuOpen ? "menu active" : "menu"}>
         <li>
-          <Link to="#" smooth={true} duration={500} onClick={toggleMenu}>
+          <Link to="home" smooth={true} duration={500} onClick={toggleMenu}>
             Home
           </Link>
         </li>
         <li>
-          <Link to="#" smooth={true} duration={500} onClick={toggleMenu}>
+          <Link to="about" smooth={true} duration={500} onClick={toggleMenu}>
             About
           </Link>
         </li>
         <li>
-          <Link to="#" smooth={true} duration={500} onClick={toggleMenu}>
+          <Link to="experience" smooth={true} duration={500} onClick={toggleMenu}>
             Experience
           </Link>
         </li>
         <li>
-          <Link to="#" smooth={true} duration={500} onClick={toggleMenu}>
+          <Link to="projects" smooth={true} duration={500} onClick={toggleMenu}>
             Projects
           </Link>
         </li>
         <li>
-          <Link to="#" smooth={true} duration={500} onClick={toggleMenu}>
+          <Link to="contact" smooth={true} duration={500} onClick={toggleMenu}>
             Contact
           </Link>
         </li>
