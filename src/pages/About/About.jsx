@@ -2,10 +2,15 @@ import React from 'react'
 import {Element} from "react-scroll"
 import "./about.css"
 import { Typewriter } from 'react-simple-typewriter'
+import video from "../../../public/background.mp4"
 const About = () => {
    
   return (
     <div className='about'>
+       <video autoPlay loop muted>
+        <source src={video} type="video/mp4" />
+       
+      </video>
       <div className="left">
        <h1>About Me</h1>
       <div className='about-content'>

@@ -1,9 +1,14 @@
 import React from 'react'
 import { Typewriter } from 'react-simple-typewriter'
-import "./home.css"
+import "./home.css";
+import video from "../../../public/background.mp4"
 const Home = () => {
   return (
     <div name="home" className='home'>
+       <video autoPlay loop muted>
+        <source src={video} type="video/mp4" />
+       
+      </video>
       <div className="left">
       <h2 style={{color:"gold", fontWeight:"bold"}}> <Typewriter
             words={['Full Stack Developer', 'Frontend Developer', 'MERN Developer']}

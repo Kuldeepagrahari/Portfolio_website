@@ -1,7 +1,7 @@
 import React from 'react';
 import './projects.css';
 import ProjectCards from '../../components/ProjectCards/ProjectCards';
-
+import video from "../../../public/background.mp4"
 // Data for projects
 const ProjectsData = [
   {
@@ -31,7 +31,10 @@ const ProjectsData = [
 const Projects = () => {
   return (
     <div name="projects" className="pro">
-     
+      <video autoPlay loop muted>
+        <source src={video} type="video/mp4" />
+       
+      </video>
       <h1>My Recent Projects</h1>
 
       {/* Project Cards */}

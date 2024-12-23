@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import "./contact.css";
-
+import video from "../../../public/background.mp4"
 const Contact = () => {
   const form = useRef();
   const [statusMessage, setStatusMessage] = useState(""); // To display status messages
@@ -39,6 +39,10 @@ const Contact = () => {
 
   return (
     <div name="contact" className="contact">
+       <video autoPlay loop muted>
+        <source src={video} type="video/mp4" />
+       
+      </video>
       <div className="left">
         <DotLottieReact
           src="https://lottie.host/1917724c-db86-4dc9-8962-f76abc901890/ZocLPJWaB5.lottie"
