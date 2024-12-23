@@ -9,7 +9,7 @@
 
 }
 :root{
-  --theme-color: tomato;
+  --theme-color: rgb(71, 126, 255);
 }
 ::-webkit-scrollbar{
   display: none;

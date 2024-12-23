@@ -1,11 +1,11 @@
 import React from 'react'
 import "./projectcards.css"
 import {Link} from "react-router-dom"
-const ProjectCards = ({ title, img, githubLink, deploymentLink, description }) => {
+const ProjectCards = ({ topic, img, githubLink, deploymentLink, description }) => {
     return (
         <div className='pcards'>
             <div className='left'>
-                <h2>{title}</h2>
+                <h2 style={{color:"white"}}>{topic}</h2>
                 <img src={img} alt="" />
             </div>
             <div className="right">

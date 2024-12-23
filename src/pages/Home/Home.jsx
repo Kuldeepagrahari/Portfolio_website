@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div name="home" className='home'>
       <div className="left">
-      <h2 style={{color:"gold"}}> <Typewriter
+      <h2 style={{color:"gold", fontWeight:"bold"}}> <Typewriter
             words={['Full Stack Developer', 'Frontend Developer', 'MERN Developer']}
             loop={Infinity}
             cursor

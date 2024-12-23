@@ -12,7 +12,7 @@ const Nav = () => {
 
   return (
     <div className="nav">
-      <img src="logo2.png" alt="Logo" />
+      <img src="logo3.png" alt="Logo" />
 
       {/* Hamburger Icon */}
       <div className="hamburger" onClick={toggleMenu}>
