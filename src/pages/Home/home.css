@@ -1,9 +1,11 @@
 .home{
-    /* height: 100vh; */
+    height: 100vh;
     padding-top: 12vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap:150px;
+    width: 100%;
     padding: 0 5vw;
     margin-top: 50px;
     position: relative;
@@ -64,8 +66,8 @@
        overflow: hidden;
        margin-left: 50px;
        img{
-        width: 400px;
-        border-radius: 50px;
+        width: 500px;
+        /* border-radius: 50px; */
         /* border: 1px solid gray; */
        }
     }

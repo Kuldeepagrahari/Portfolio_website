@@ -23,6 +23,7 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 /* video {

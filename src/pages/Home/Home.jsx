@@ -25,7 +25,7 @@ const Home = () => {
       <button>Resume</button>
       </div>
       <div className="right">
-       <img src="mypic.png" alt="pic" />
+       <img src="home-image.png" alt="pic" />
       </div>
     </div>
   )

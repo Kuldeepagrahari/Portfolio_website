@@ -33,8 +33,8 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link to="experience" smooth={true} duration={500} onClick={toggleMenu}>
-            Experience
+          <Link to="skills" smooth={true} duration={500} onClick={toggleMenu}>
+            Skills
           </Link>
         </li>
         <li>

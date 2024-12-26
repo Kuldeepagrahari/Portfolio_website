@@ -12,6 +12,9 @@ const About = () => {
        {/* <video autoPlay loop muted>
         <source src="background.mp4" type="video/mp4" />
       </video> */}
+       <div className="right">
+    <img src="mypic.png" alt="pic" />
+    </div>
       <div className="left">
        <h1>About Me</h1>
       <div className='about-content'>
@@ -29,7 +32,7 @@ With a strong passion for <span> software Development</span>, I'm dedicated to c
       </div>
       
       </div>
-    
+   
     </div>
   )
 }
