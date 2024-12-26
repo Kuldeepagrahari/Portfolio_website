@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(33, 32, 32);
+    /* background-color: rgb(33, 32, 32); */
    border-left: 10px solid var(--theme-color);
   /* Dark background */
   

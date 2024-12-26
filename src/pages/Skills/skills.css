@@ -1,0 +1,10 @@
+.skills-head{
+    color:var(--theme-color);
+    font-size: 80px;
+  
+}
+@media screen and (max-width:1000px) {
+    .skills-head{
+        font-size: 60px;
+    }
+}

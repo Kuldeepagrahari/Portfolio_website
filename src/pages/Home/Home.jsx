@@ -1,12 +1,11 @@
 import React from 'react'
 import { Typewriter } from 'react-simple-typewriter'
 import "./home.css";
-import video from "../../../public/background.mp4"
 const Home = () => {
   return (
     <div name="home" className='home'>
-       <video autoPlay loop muted>
-        <source src={video} type="video/mp4" />
+       <video autoPlay loop muted >
+        <source src="blackhole.webm" type="video/webm" />
        
       </video>
       <div className="left">
@@ -21,8 +20,8 @@ const Home = () => {
             
             
           /> </h2>
-      <h1 className='head'>Hi, I'm <span style={{color:"var(--theme-color)"}}>Kuldeep</span></h1>
-      <h1>Agrahari from UP, India</h1>
+      <h1 className='head'>Hi, I'm<br/> <span style={{color:"var(--theme-color)", fontWeight:"bolder"}}>Kuldeep Agrahari</span></h1>
+      <h1> from UP, <span style={{color:"gold", fontWeight:"bold"}}>India</span></h1>
       <button>Resume</button>
       </div>
       <div className="right">
