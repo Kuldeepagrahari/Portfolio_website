@@ -32,12 +32,19 @@
         margin-right: 50px;
         img{
             width: 300px;
+            height: 400px;
+            border-radius: 50%;
+        
+            box-shadow: 1px 1px 100px var(--theme-color);
             /* height: 200px; */
-            border-radius: 5px ;
+        
         }
       }
 }
-
+@media screen and (max-width:800px) {
+    .about{justify-content: center;}
+    .about .right{margin-right: 0; margin-left: 100px;}
+}
 .about .left {
     display: flex;
     width: 100%;
@@ -231,6 +238,9 @@
             max-width: 100%;
             padding: 20px;
             margin-bottom: 50px;
+            p{
+                font-size: 15px;
+            }
         }
     }
 
