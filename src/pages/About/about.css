@@ -166,6 +166,10 @@
     /* margin: 50px 0; */
     gap: 20px;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    /* margin-left: 2.5%; */
 
     svg {
         animation: easeInOut 5s infinite;
@@ -248,6 +252,18 @@
     .skills {
         /* padding: 0; */
         gap: 30px;
+        .tech{
+            width: 90%;
+            /* margin-left: 5%; */
+            justify-content: center;
+            svg{
+                width:50px;
+            }
+            img{
+                width: 50px;
+                height: 50px;
+            }
+        }
     }
 
     .skills .soft {

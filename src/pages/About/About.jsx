@@ -9,9 +9,9 @@ const About = () => {
    
   return (
     <div className='about'>
-       {/* <video autoPlay loop muted>
+       <video autoPlay loop muted>
         <source src="background.mp4" type="video/mp4" />
-      </video> */}
+      </video>
        <div className="right">
     <img src="mypic.png" alt="pic" />
     </div>

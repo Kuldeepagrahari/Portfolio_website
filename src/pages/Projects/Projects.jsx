@@ -33,10 +33,10 @@ const ProjectsData = [
 const Projects = () => {
   return (
     <div name="projects" className="pro">
-      {/* <video autoPlay loop muted>
+      <video autoPlay loop muted>
         <source src="background.mp4" type="video/mp4" />
        
-      </video> */}
+      </video>
       <h1>My Recent Projects</h1>
 
       {/* Project Cards */}
