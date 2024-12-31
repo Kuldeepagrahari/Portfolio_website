@@ -12,11 +12,13 @@ const ProjectCards = ({ topic, img, githubRepo, deploymentLink, description }) =
 
     return (
         <div className='pcards'>
+             <h2 style={{ color: "white" , margin:"10px 0", padding:"0 20px"}}>{topic}</h2>
             <div className='left'>
-                <h2 style={{ color: "white" }}>{topic}</h2>
+               
                 <img src={img} alt="Project Preview" />
             </div>
             <div className="right">
+           
                 <p>
                     {description.map((func, i) => (
                         <li key={i}>

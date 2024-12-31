@@ -4,27 +4,35 @@ import ProjectCards from '../../components/ProjectCards/ProjectCards';
 // Data for projects
 const ProjectsData = [
   {
-    topic: 'Food Delivery',
-    img: 'https://media.istockphoto.com/id/1824077027/photo/at-street-food-in-night-city-thailand-delivery-drivers-are-making-deliveries-to-consumers-who.webp?a=1&b=1&s=612x612&w=0&k=20&c=I1L5JvAPuJp1_9Mn_AtxiaaKCBkgbHLDbY-8kXOTl9k=',
+    topic: 'Hungry-Hub - Food Ordering',
+    img: "food-del-ss.png",
     description:[
-      'A food delivery application built using modern frameworks',
-      'to ensure smooth user experiences, reliable delivery tracking, and more'
+      'A Full Stack Application to order food with all required functionalities including Food Cart, Food Categories, Stripe Payment, Customer Care Services with realtime chatting and much more',
+      'Admin Panel to Register Restaurant, Add food Items by Restaurant, Manage Orders, handle Customer Care',
+
     ],
       
     githubRepo: 'https://github.com/Kuldeepagrahari/Hungry-Hub',
     projectLink: '',
   }, {
     topic: 'Sam AI',
-    img: 'https://media.istockphoto.com/id/1824077027/photo/at-street-food-in-night-city-thailand-delivery-drivers-are-making-deliveries-to-consumers-who.webp?a=1&b=1&s=612x612&w=0&k=20&c=I1L5JvAPuJp1_9Mn_AtxiaaKCBkgbHLDbY-8kXOTl9k=',
+    img: 'samai-ss.png',
     description:[
-      'Full Stack ChatGPT clone made for seamless interaction with AI model to generate response with text and image inputs'],
+      'Full Stack ChatGPT clone made for seamless interaction with AI model to generate response with text and image inputs',
+      'Use Gemini API for model response, Clerk for Authentication and Profile Management, Imagekit for Image storage and React for responsive and consistent UI and Node js and Express js for Server and REST API to handle user chats and MongoDB for user chats storage'
+    ],
     githubRepo: 'https://github.com/Kuldeepagrahari/SamAI',
     projectLink: 'www.google.com',
   }, {
-    topic: 'FitCare',
-    img: 'https://media.istockphoto.com/id/1824077027/photo/at-street-food-in-night-city-thailand-delivery-drivers-are-making-deliveries-to-consumers-who.webp?a=1&b=1&s=612x612&w=0&k=20&c=I1L5JvAPuJp1_9Mn_AtxiaaKCBkgbHLDbY-8kXOTl9k=',
-    description:[
-      'A health Tracking, Planning, Recommendation, blog and chat application, build from scratch all the functionalities included advanced Authentication , notification, dashboard to track, blog page to post and explore blogs related to health and chat with other users on the platform to know experiences one to one'],
+    topic: 'Samify - Music Streaming',
+    img: 'samify-ss.png',
+    description: [
+      'A MERN Stack Music with features include Play Songs, Explore Popular Albums, Search and Filter Songs, Save Songs into Playlists, User Authentication',
+      'Used Trie data structure for efficient search functionality',
+      'Developed an admin panel for managing songs and albums and Cloudinary for image uploads',
+      'Integrated MongoDB as the database, and built REST APIs with Express.js and Node.js for backend server'
+    ],
+    
     githubRepo: 'https://github.com/Kuldeepagrahari/Fitness-Planning-and-Tracking---FitCare',
     projectLink: '',
   },
