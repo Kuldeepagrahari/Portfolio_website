@@ -8,7 +8,7 @@ const Home = () => {
     <div name="home" className='home'>
       
       <div className="left">
-      <h2 style={{color:"gray", fontWeight:"bolder", fontSize:"40px"}}> <Typewriter
+      <h2 style={{color:"gray", fontWeight:"bolder"}}> <Typewriter
             words={['Full Stack Developer', 'Frontend Developer', 'MERN Developer']}
             loop={Infinity}
             cursor
