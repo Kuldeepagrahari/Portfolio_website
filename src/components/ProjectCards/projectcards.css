@@ -53,7 +53,7 @@
   }
   
   .right p {
-    color: #ffffff; /* White text */
+    color: #b2acac; /* White text */
     font-size: 1.2rem;
     margin-bottom: 20px;
     line-height: 1.6;
@@ -104,7 +104,7 @@
     }
     .left {
       width: 50%;
-      h2{font-size:25px;color:var(--theme-color)}
+      h2{font-size:25px;color:white;}
      
       /* max-width: 1000px; */
      img{
