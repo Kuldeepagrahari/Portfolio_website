@@ -12,7 +12,7 @@ const ProjectsData = [
     ],
       
     githubRepo: 'https://github.com/Kuldeepagrahari/Hungry-Hub',
-    projectLink: 'www.google.com',
+    projectLink: '',
   }, {
     topic: 'Sam AI',
     img: 'https://media.istockphoto.com/id/1824077027/photo/at-street-food-in-night-city-thailand-delivery-drivers-are-making-deliveries-to-consumers-who.webp?a=1&b=1&s=612x612&w=0&k=20&c=I1L5JvAPuJp1_9Mn_AtxiaaKCBkgbHLDbY-8kXOTl9k=',
@@ -26,7 +26,7 @@ const ProjectsData = [
     description:[
       'A health Tracking, Planning, Recommendation, blog and chat application, build from scratch all the functionalities included advanced Authentication , notification, dashboard to track, blog page to post and explore blogs related to health and chat with other users on the platform to know experiences one to one'],
     githubRepo: 'https://github.com/Kuldeepagrahari/Fitness-Planning-and-Tracking---FitCare',
-    projectLink: 'www.google.com',
+    projectLink: '',
   },
 ];
 

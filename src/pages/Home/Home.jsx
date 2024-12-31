@@ -1,5 +1,6 @@
 import React from 'react'
 import { Typewriter } from 'react-simple-typewriter'
+import {Link} from "react-router-dom"
 import "./home.css";
 const Home = () => {
   return (
@@ -22,7 +23,8 @@ const Home = () => {
           /> </h2>
       <h1 className='head'>Hi, I'm<br/> <span style={{color:"var(--theme-color)", fontWeight:"bolder"}}>Kuldeep Agrahari</span></h1>
       <h1> from UP, <span style={{color:"gold", fontWeight:"bold"}}>India</span></h1>
-      <button>Resume</button>
+      <Link to="https://drive.google.com/file/d/1O20NVFb4hVhK--jURKGAUjcQXE9T-PO3/view?usp=sharing">  <button>Resume</button></Link>
+    
       </div>
       <div className="right">
        <img src="home-image.png" alt="pic" />
