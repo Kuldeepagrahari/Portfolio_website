@@ -4,29 +4,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgb(34, 32, 32);
     /* background-color: rgb(33, 32, 32); */
-   border-left: 10px solid var(--theme-color);
+   /* border-left: 10px solid var(--theme-color); */
   /* Dark background */
   
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(5, 5, 5, 0.3);
     overflow: hidden;
     margin: 20px 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
+  width: 100%;
   
   
   .left {
-    /* flex: 1;
+    /* flex: 1; */
+    
     display: flex;
     flex-direction: column;
-    align-items: center;*/
-    padding: 20px; 
+    align-items: center;
+    padding: 50px; 
   }
   
   .left img {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
+    margin-top: 20px;
     /* height: 600px; */
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -38,20 +41,20 @@
  
   
   .right {
-    flex: 2;
+    /* flex: 2; */
     padding: 20px;
-     
+     /* width: 60%; */
    h2 {
-    color: var(--theme-color); /* Tomato text */
+    color: white; /* Tomato text */
     margin-bottom: 15px;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   }
   
   .right p {
     color: #ffffff; /* White text */
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 20px;
     line-height: 1.6;
     display: flex;
@@ -90,14 +93,44 @@
 .pcards:hover {
     transform: scale(1.05);
     background-color: black;
-    box-shadow: 2px 2px 200px var(--theme-color); /* Tomato shadow */
+   /* Tomato shadow */
     /* border: 2px solid var(--theme-color); */
   }
+  @media screen and (max-width:1100px) {
+    .pcards{
+      padding: 10px;
+      width: 100%;
+      /* flex-direction: column; */
+    }
+    .left {
+      width: 50%;
+      h2{font-size:25px;color:var(--theme-color)}
+     
+      /* max-width: 1000px; */
+     img{
+      width: 400px;
+     }
+    }
+    .right{width: 50%;}
+  }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     .pcards{
       display: flex;
       flex-direction: column;
+      .left{
+        width: 100%;
+        padding: 20px;
+        
+        
+        
+        img:hover{
+          transform: scale(1.05);
+        }
+      }
+      .right{
+        width: 100%;
+      }
       /* background-color: black; */
 
     }

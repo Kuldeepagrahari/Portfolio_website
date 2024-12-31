@@ -6,10 +6,7 @@ const Skills = () => {
   return (
   
         <div className='skills'>
-           <video autoPlay loop muted>
-        <source src="cards-video.webm" type="video/webm" />
-       
-      </video>
+         
           <h1 className='skills-head'>Skills I Have</h1>
         <div className="soft">
             <div>Software Engineering</div>
@@ -19,8 +16,8 @@ const Skills = () => {
             <div>Project Team Lead</div>
             <div>Programming Mentor</div>
         </div>
-        <h1><Typewriter
-            words={['Technologies I Use', 'Technologies I Know']}
+        <h1 style={{color:"gray"}}>Technical Stack <Typewriter
+            words={['I Use', ' I Know']}
             loop={Infinity}
             cursor
             cursorStyle='_'

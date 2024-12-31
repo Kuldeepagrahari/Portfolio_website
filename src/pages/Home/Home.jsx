@@ -1,33 +1,32 @@
 import React from 'react'
+import { RiDownloadCloud2Line } from "react-icons/ri";
 import { Typewriter } from 'react-simple-typewriter'
 import {Link} from "react-router-dom"
 import "./home.css";
 const Home = () => {
   return (
     <div name="home" className='home'>
-       <video autoPlay loop muted >
-        <source src="blackhole.webm" type="video/webm" />
-       
-      </video>
+      
       <div className="left">
-      <h2 style={{color:"gold", fontWeight:"bold"}}> <Typewriter
+      <h2 style={{color:"gray", fontWeight:"bolder", fontSize:"40px"}}> <Typewriter
             words={['Full Stack Developer', 'Frontend Developer', 'MERN Developer']}
             loop={Infinity}
             cursor
-            cursorStyle='_'
+            cursorStyle='#'
             typeSpeed={100}
             deleteSpeed={70}
             delaySpeed={1000}
             
             
           /> </h2>
-      <h1 className='head'>Hi, I'm<br/> <span style={{color:"var(--theme-color)", fontWeight:"bolder"}}>Kuldeep Agrahari</span></h1>
-      <h1> from UP, <span style={{color:"gold", fontWeight:"bold"}}>India</span></h1>
-      <Link to="https://drive.google.com/file/d/1O20NVFb4hVhK--jURKGAUjcQXE9T-PO3/view?usp=sharing">  <button>Resume</button></Link>
+          <h2>Hi, I'm</h2>
+      <h1 className='head'> <span style={{ fontWeight:"bolder"}}>Kuldeep Agrahari</span></h1>
+      <h1 className='college'>UG Student<br/>PDPM IIIT Jabalpur, MP, India</h1>
+      <Link to="https://drive.google.com/file/d/1O20NVFb4hVhK--jURKGAUjcQXE9T-PO3/view?usp=sharing">  <button><RiDownloadCloud2Line style={{fontSize:"25px"}} /> Resume</button></Link>
     
       </div>
       <div className="right">
-       <img src="home-image.png" alt="pic" />
+      
       </div>
     </div>
   )

@@ -9,21 +9,21 @@ const About = () => {
    
   return (
     <div className='about'>
-       <video autoPlay loop muted>
+       {/* <video autoPlay loop muted>
         <source src="background.mp4" type="video/mp4" />
-      </video>
+      </video> */}
        <div className="right">
-    <img src="mypic.png" alt="pic" />
+    <img src="home-image.png" alt="pic" style={{borderRadius:"50%", padding:"10px", backgroundColor:"white"}}/>
     </div>
       <div className="left">
        <h1>About Me</h1>
       <div className='about-content'>
        
         <p>
-      I'm <span>Kuldeep Agrahari</span>, a pre-final year undergraduate student in Computer Science and Engineering at <span>
-      IIIT Jabalpur, </span>
+      I'm Kuldeep Agrahari, a pre-final year undergraduate student in Computer Science and Engineering at
+      IIIT Jabalpur, 
 
-With a strong passion for <span> software Development</span>, I'm dedicated to continuous learning and innovation, staying updated with emerging technologies daily. </p>
+With a strong passion for software Development, I'm dedicated to continuous learning and innovation, staying updated with emerging technologies daily. </p>
       </div>
       <div className="personal-det">
         <div className="det"><FaWhatsapp/>8957298885</div>

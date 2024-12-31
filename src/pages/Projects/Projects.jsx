@@ -1,7 +1,7 @@
 import React from 'react';
 import './projects.css';
 import ProjectCards from '../../components/ProjectCards/ProjectCards';
-// Data for projects
+
 const ProjectsData = [
   {
     topic: 'Hungry-Hub - Food Ordering',
@@ -41,10 +41,7 @@ const ProjectsData = [
 const Projects = () => {
   return (
     <div name="projects" className="pro">
-      <video autoPlay loop muted>
-        <source src="background.mp4" type="video/mp4" />
-       
-      </video>
+      
       <h1>My Recent Projects</h1>
 
       {/* Project Cards */}
