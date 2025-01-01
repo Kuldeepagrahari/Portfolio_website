@@ -9,18 +9,18 @@ const Skills = () => {
          
           <h1 className='skills-head'>Skills I have</h1>
         <div className="soft">
-            <div>Software Engineering</div>
+            {/* <div></div> */}
             <div>Data Structures & Algorithms</div>
             <div>Full Stack Web Development</div>
-            <div>MERN Developer</div>
-            <div>Project Team Lead</div>
-            <div>Programming Mentor</div>
+            <div>MERN Stack Development</div>
+            <div>UI/UX</div>
+            <div>Backend Development</div>
         </div>
-        <h1 style={{color:"gray"}}>Technical Stack <Typewriter
-            words={['I Use', ' I Know']}
+        <h1 style={{color:"gray"}}><Typewriter
+            words={['tech stack I Use', 'tech stack I Know']}
             loop={Infinity}
             cursor
-            cursorStyle='_'
+            cursorStyle='/>'
             typeSpeed={90}
             deleteSpeed={70}
             delaySpeed={1000}
