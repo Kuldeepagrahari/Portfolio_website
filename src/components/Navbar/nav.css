@@ -23,7 +23,7 @@
 
 .nav ul {
   display: flex;
-  gap: 40px;
+  gap: 2vw;
   align-items: center;
   justify-content: space-around;
   transition: all 0.3s ease;
@@ -31,6 +31,7 @@
 
 .nav li {
   list-style: none;
+  font-size: 1.5vw;
 }
 
 .nav a {
@@ -70,7 +71,7 @@
 }
 
 /* Responsive Design */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
   .hamburger {
     display: flex;
     /* Show hamburger */

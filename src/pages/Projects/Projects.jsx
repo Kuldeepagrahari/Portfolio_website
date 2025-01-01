@@ -39,7 +39,7 @@ const ProjectsData = [
   },
   {
     topic: 'Portfolio Website',
-    img: '',
+    img: 'portfolio.png',
     description: [
       'Build my Portfolio Application using React js, CSS, react-icons from scratch to showcase my work'
     ],
