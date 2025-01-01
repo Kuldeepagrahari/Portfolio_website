@@ -51,7 +51,7 @@ const Contact = () => {
         />
       </div>
       <div className="right">
-        <h1>Contact Me</h1>
+        <h1>Contact me</h1>
         <form ref={form} onSubmit={sendEmail}>
           <input
             type="text"

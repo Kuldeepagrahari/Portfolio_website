@@ -35,7 +35,8 @@
         a{text-decoration: none;}
         button{
             border: none;
-           background-color:rgb(244, 3, 212); color:white;
+            background-image:var(--page-theme);
+            color:white;
             width:80px;
             display: flex;
             flex-direction: column;

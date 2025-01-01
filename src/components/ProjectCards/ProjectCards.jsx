@@ -3,7 +3,7 @@ import './projectcards.css';
 import { Link } from 'react-router-dom';
 import { FaTasks, FaRocket, FaCode, FaCogs } from 'react-icons/fa'; // Importing example icons
 
-const ProjectCards = ({ topic, img, githubRepo, deploymentLink, description }) => {
+const ProjectCards = ({ topic, img, githubRepo, projectLink, description,ongoing }) => {
     const icons = [
        
         <FaCode style={{color:"var(--theme-color)", fontSize:"20px"}}/>, // Coding or technical-related description
@@ -29,7 +29,8 @@ const ProjectCards = ({ topic, img, githubRepo, deploymentLink, description }) =
                 </p>
                 <div className="links">
                     <Link to={githubRepo}>Github Repo</Link>
-                    {deploymentLink && <Link to={deploymentLink}>Project Link</Link>}
+                    {projectLink && <Link to={projectLink}>Project Link</Link>}
+                    {ongoing && <Link>On-going</Link>}
                 </div>
             </div>
         </div>

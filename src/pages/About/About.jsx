@@ -16,7 +16,7 @@ const About = () => {
     <img src="home-image.png" alt="pic" style={{borderRadius:"50%", padding:"10px", backgroundColor:"white"}}/>
     </div>
       <div className="left">
-       <h1>About Me</h1>
+       <h1>About me</h1>
       <div className='about-content'>
        
         <p>
