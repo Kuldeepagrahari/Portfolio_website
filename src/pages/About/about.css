@@ -5,7 +5,7 @@
     border-top-right-radius: 40px;
     width: 100%;
     display: flex;
-    gap:;
+    /* gap:; */
     flex-direction: row;
     position: relative;
     align-items: center;
