@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import "./nav.css";
-import { Link } from "react-scroll";
 
-const Nav = () => {
+const Nav = ({ onScrollTo }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home"); // Track the active section
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const handleNavClick = (section) => {
+    setActiveSection(section); // Update the active section
+    onScrollTo(section); // Scroll to the selected section
+  };
+
   return (
     <div className="nav">
-      {/* <img src="logo3.png" alt="Logo" /> */}
-
       {/* Hamburger Icon */}
       <div className="hamburger" onClick={toggleMenu}>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
@@ -22,31 +25,17 @@ const Nav = () => {
 
       {/* Navigation Menu */}
       <ul className={menuOpen ? "menu active" : "menu"}>
-        <li>
-          <Link to="home" smooth={true} duration={500} onClick={toggleMenu}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="about" smooth={true} duration={500} onClick={toggleMenu}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link to="skills" smooth={true} duration={500} onClick={toggleMenu}>
-            Skills
-          </Link>
-        </li>
-        <li>
-          <Link to="projects" smooth={true} duration={500} onClick={toggleMenu}>
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link to="contact" smooth={true} duration={500} onClick={toggleMenu}>
-            Contact
-          </Link>
-        </li>
+        {["home", "about", "skills", "projects", "contact", "follow"].map(
+          (section) => (
+            <li
+              key={section}
+              className={activeSection === section ? "active" : ""}
+              onClick={() => handleNavClick(section)}
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1).replace("_", " ")}
+            </li>
+          )
+        )}
       </ul>
     </div>
   );
