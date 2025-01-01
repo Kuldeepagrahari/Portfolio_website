@@ -44,7 +44,7 @@
 
 .display {
   overflow-y: scroll;
-  height: 94vh;
+  height: 100vh;
   position: relative;
   z-index: 1; /* Keep content above the video */
   color: white;

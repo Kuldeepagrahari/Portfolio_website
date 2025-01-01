@@ -9,7 +9,7 @@ const Skills = () => {
          
           <h1 className='skills-head'>Skills I have</h1>
         <div className="soft">
-            {/* <div></div> */}
+            <div>Leadership & Project Management</div>
             <div>Data Structures & Algorithms</div>
             <div>Full Stack Web Development</div>
             <div>MERN Stack Development</div>

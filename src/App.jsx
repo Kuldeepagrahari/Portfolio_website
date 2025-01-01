@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div className='app'>
       {/* <StarsCanvas /> */}
-      <Nav></Nav>
+    
 
 
       <div className="content">
@@ -17,7 +17,7 @@ const App = () => {
 
       </div>
 
-      <Footer></Footer>
+     
     </div>
   )
 }

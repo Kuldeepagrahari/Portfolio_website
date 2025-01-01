@@ -9,11 +9,12 @@ const Footer = () => {
     return (
         <div className='footer'>
             <h2>follow me</h2>
+            <div className="links">
             <Link to="https://github.com/Kuldeepagrahari">
-                <FaGithubSquare style={{ boxShadow: "1px 1px 15px var(--theme-color)", border: "1px solid var(--theme-color)", fontSize: "30px", color: "white" }} /></Link>  <Link to="">
-                <FaInstagramSquare style={{ boxShadow: "1px 1px 15px var(--theme-color)", border: "1px solid var(--theme-color)", fontSize: "30px", color: "white" }} /></Link>  <Link to="https://x.com/kuldeep_106"><FaSquareXTwitter style={{ boxShadow: "1px 1px 15px var(--theme-color)", border: "1px solid var(--theme-color)", fontSize: "30px", color: "white" }} /></Link>  <Link to="https://www.linkedin.com/in/kuldeep-agrahari-56b159260">
-                <FaLinkedin style={{ boxShadow: "1px 1px 15px var(--theme-color)", border: "1px solid var(--theme-color)", fontSize: "30px", color: "white" }} /></Link>
-        </div>
+                <FaGithubSquare style={{ fontSize: "50px", color: "white" }} /></Link>  <Link to="">
+                <FaInstagramSquare style={{ fontSize: "50px", color: "white" }} /></Link>  <Link to="https://x.com/kuldeep_106"><FaSquareXTwitter style={{fontSize: "50px", color: "white" }} /></Link>  <Link to="https://www.linkedin.com/in/kuldeep-agrahari-56b159260">
+                <FaLinkedin style={{ fontSize: "50px", color: "white" }} /></Link>
+        </div></div>
     )
 }
 

@@ -4,7 +4,7 @@ import ProjectCards from '../../components/ProjectCards/ProjectCards';
 
 const ProjectsData = [
   {
-    topic: 'Hungry-Hub - Food Ordering',
+    topic: 'Hungry Hub - Food Ordering',
     img: "food-del-ss.png",
     description:[
       'A Full Stack food Ordering application including Food Cart & Categories, Stripe Payment, Customer Care Services with realtime chatting and much more',
@@ -18,8 +18,8 @@ const ProjectsData = [
     topic: 'Sam AI - AI Chat bot',
     img: 'samai-ss.png',
     description:[
-      'Full Stack ChatGPT clone made for seamless interaction with AI model to generate response with text and image inputs',
-      'Use Gemini API for model response, Clerk for Authentication and Profile Management'
+      'Full Stack ChatGPT clone made for seamless interaction with AI model to generate response with text and image inputs & mongodb for saving History',
+      'Use Gemini API for model response, Clerk Authentication, Imagekit for image handling'
     ],
     githubRepo: 'https://github.com/Kuldeepagrahari/SamAI',
     projectLink: '',

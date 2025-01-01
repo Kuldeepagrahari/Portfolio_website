@@ -1,11 +1,11 @@
 /* General Navbar Styling */
 .nav {
-    position: fixed;
-    top:5px;
+    /* position: fixed; */
+    /* top:5px; */
     z-index: 2;
 
     height: 10vh;
-    background-color: rgb(29, 27, 27);
+    background-color: rgb(17, 16, 16);
 
     display: flex;
     align-items: center;
