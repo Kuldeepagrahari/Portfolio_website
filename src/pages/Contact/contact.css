@@ -62,7 +62,7 @@
             padding: 10px 20px;
             outline: none;
             border: none;
-            color: white;
+            color: black;
             background-color: white;
             /* border: 1px solid white; */
             /* border: 2px solid #e50f95; */
@@ -87,7 +87,7 @@
         }
         
         textarea{
-            color: white;
+            color: black;
             width: 80%;
             height: 20vh;
             padding: 10px 20px;
