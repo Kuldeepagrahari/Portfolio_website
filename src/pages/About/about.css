@@ -1,5 +1,5 @@
 .about {
-    padding: 50px 5vw;
+    padding: 100px 5vw;
     background-image: linear-gradient(-45deg,black, black, black, #e50f95, blue);
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
@@ -86,7 +86,7 @@
 
         p {
             letter-spacing: 1px;
-            font-size: 18px;
+            font-size: 25;
             
                 font-weight: bolder;
                 /* color:  white; */
@@ -106,133 +106,13 @@
     }
 }
 
-.skills {
-    width: 100%;
-    padding-left: 200px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding: 100px 0px;
-    padding-left: 10%;
-    background-color: black;
-    /* padding-left: 200px; */
-    /* margin-left: 10%;  */
-    position: relative;
-   
-   
-    animation: slideInRight 2s ease-in-out;
-    
-    @media screen and (max-width: 768px) {
-        width: 100%;
-        padding-left: 5vw;
-        gap: 20px;
-        h1{
-            height:100px;
-            
-        }
-    }
-}
-
-.skills .soft {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.skills .soft div {
-   
-    color: white;
-    padding: 10px 20px;
-    background-color: rgb(41, 39, 39);
-    height:200px;
-    width: 200px;
-    
-    
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap:20px;
-    justify-content: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.skills .soft div:hover {
-    background-image:linear-gradient(90deg,#e50f95, blue ) ;
-    box-shadow: none;
-    /* background-color: rgba(229, 15, 149, 0.1); */
-}
-
-.tech {
-    display: flex;
-    /* margin: 50px 0; */
-    gap: 20px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    width: 95%;
-    /* margin-left: 2.5%; */
-  
-    svg {
-        animation: easeInOut 5s infinite;
-        width: 80px;
-    }
-    img{
-        width: 80px;
-        animation: easeInOut 5s infinite;
-    }
-}
-
-/* Keyframes for entrance animations */
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Keyframes for glowing animation on soft skills */
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 10px #e50f95;
-    }
-    50% {
-        box-shadow: 0 0 50px #e50f95;
-    }
-    100% {
-        box-shadow: 0 0 10px #e50f95;
-    }
-}
-
-@keyframes easeInOut {
-    0%, 100% {
-        transform: rotate(20deg);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
 /* Responsive adjustments for smaller screens */
 @media screen and (max-width: 800px) {
     .about {
         flex-direction: column;
         align-items: center;
     gap:0;
+    padding: 0 4vw;
         /* width: 100%; */
         h1{
             margin-bottom: 10px;
@@ -251,7 +131,7 @@
             padding: 20px;
             margin-bottom: 50px;
             p{
-                font-size: 15px;
+                font-size: 1rem;
             }
         }
         .right{
@@ -262,31 +142,5 @@
         }
     }
 
-    .skills {
-        /* padding: 0; */
-        gap: 30px;
-        .tech{
-            width: 90%;
-            /* margin-left: 5%; */
-            justify-content: center;
-            svg{
-                width:60px;
-            }
-            img{
-                width: 60px;
-                height: 60px;
-            }
-        }
-    }
-
-    .skills .soft {
-        gap: 20px;
-        div{
-            background-image: var(--page-theme);
-        }
-    }
-    .skills .soft div{
-        width: 150px;
-        height: 150px;
-    }
+   
 }
