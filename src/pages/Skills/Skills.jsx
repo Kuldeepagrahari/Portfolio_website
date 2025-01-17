@@ -24,7 +24,7 @@ const Skills = () => {
         <div>Responsive Frontend Development</div>
       </div>
 
-      <h1 className="skill-typing" style={{ color: "gray", textAlign:"center" }}>
+      <h1 className="skill-typing" style={{ textAlign:"center" }}>
         <Typewriter
           words={['< tech stack I use', '< tech stack I know']}
           loop={Infinity}

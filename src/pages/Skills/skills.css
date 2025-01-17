@@ -23,6 +23,9 @@
     font-size: 120px;
     margin-bottom: 20px;
   }
+  .skill-typing{
+    color:#e50f95;
+  }
   
   @media screen and (max-width: 1000px) {
     .skills-head {
