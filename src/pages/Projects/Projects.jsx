@@ -13,7 +13,7 @@ const ProjectsData = [
     ],
       
     githubRepo: 'https://github.com/Kuldeepagrahari/Hungry-Hub',
-    projectLink: '',
+    projectLink: 'https://hungry-hub-client.onrender.com/',
   }, {
     topic: 'Sam AI - AI Chat bot',
     img: 'samai-ss.png',
