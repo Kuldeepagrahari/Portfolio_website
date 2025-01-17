@@ -26,7 +26,7 @@ const Skills = () => {
 
       <h1 style={{ color: "gray", textAlign:"center" }}>
         <Typewriter
-          words={['< stack I use', '< stack I know']}
+          words={['< Tech stack I use', '< stack I know']}
           loop={Infinity}
           cursor
           cursorStyle='/>'
