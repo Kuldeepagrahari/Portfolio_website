@@ -59,7 +59,7 @@ const Home = () => {
 
       <div className="right-home">
      
-        <img src="coding4.png" alt="" />
+        <img src="coding5.png" alt="" />
       </div>
     </div>
   );
