@@ -18,7 +18,7 @@ const Skills = () => {
       <div className="soft">
         <div>Computer Science</div>
         <div>Data Structures & Algorithms</div>
-        <div>Full Stack Web Development</div>
+        <div>C/C++ Programming Language</div>
         <div>UI/UX</div>
         <div>Backend Development</div>
         <div>Responsive Frontend Development</div>
