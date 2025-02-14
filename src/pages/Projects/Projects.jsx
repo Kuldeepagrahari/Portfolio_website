@@ -24,6 +24,16 @@ const ProjectsData = [
     githubRepo: 'https://github.com/Kuldeepagrahari/SamAI',
     projectLink: '',
   }, {
+  }, {
+    topic: 'Workly - Never Forget Your Tasks',
+    img: 'workly.png',
+    description:[
+      'Full Stack Task Manager Application with Email Notifications, Dynamically update your taks daily, weekly or datewise, keep history and much more.',
+      'MongoDB, Express.js, React.js, Node.js, EmailJs'
+    ],
+    githubRepo: 'https://github.com/Kuldeepagrahari/Workly',
+    projectLink: 'https://workly-client.onrender.com/',
+  }, {
     topic: 'Samify - Music Streaming',
     img: 'samify-ss.png',
     description: [
