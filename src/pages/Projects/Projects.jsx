@@ -14,6 +14,7 @@ const ProjectsData = [
       
     githubRepo: 'https://github.com/Kuldeepagrahari/Hungry-Hub',
     projectLink: 'https://hungry-hub-client.onrender.com/',
+    
   }, {
     topic: 'Sam AI - AI Chat bot',
     img: 'samai-ss.png',
@@ -23,16 +24,17 @@ const ProjectsData = [
     ],
     githubRepo: 'https://github.com/Kuldeepagrahari/SamAI',
     projectLink: '',
-  }, {
+    ongoing: 1,
   }, {
     topic: 'Workly - Never Forget Your Tasks',
     img: 'workly.png',
     description:[
-      'Full Stack Task Manager Application with Email Notifications, Dynamically update your taks daily, weekly or datewise, keep history and much more.',
-      'MongoDB, Express.js, React.js, Node.js, EmailJs'
+      'Full Stack Task Manager Application with Email Notifications, Dynamically update your tasks daily, weekly or datewise, keep history and in various categories with a detailed Statistics',
+      'MongoDB, Express.js, React.js, Node.js, EmailJs',
     ],
     githubRepo: 'https://github.com/Kuldeepagrahari/Workly',
     projectLink: 'https://workly-client.onrender.com/',
+    
   }, {
     topic: 'Samify - Music Streaming',
     img: 'samify-ss.png',
@@ -43,19 +45,11 @@ const ProjectsData = [
       
     ],
     
-    githubRepo: 'https://github.com/Kuldeepagrahari/Fitness-Planning-and-Tracking---FitCare',
+    githubRepo: 'https://github.com/Kuldeepagrahari/Samify',
     projectLink: '',
     ongoing: 1,
   },
-  {
-    topic: 'Portfolio Website',
-    img: 'portfolio.png',
-    description: [
-      'Build my Portfolio Application using React js, CSS, react-icons from scratch to showcase my work'
-    ],
-    githubRepo: 'https://github.com/Kuldeepagrahari/Portfolio_website',
-    projectLink: '',
-  },
+ 
   {
     topic: 'WeatherBook - weather updater',
     img: 'weather.png',
@@ -65,6 +59,7 @@ const ProjectsData = [
     ],
     githubRepo: 'https://github.com/Kuldeepagrahari/WeatherBook',
     projectLink: 'https://weather-book-beta.vercel.app/',
+    
   },
 ];
 
