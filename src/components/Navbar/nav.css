@@ -81,7 +81,7 @@
   .nav ul {
     position: absolute;
     top: 12vh;
-    border-radius: 50px;
+    border-radius: 5px;
     /* height:50vh; */
     right: 0;
     gap: 0px;
@@ -116,14 +116,14 @@
 }
 
 .nav ul li.active {
-  border-bottom: 2px solid #06cef6;
+  border-bottom: 2px solid rgb(0, 149, 255);
   /* font-weight: bold; */
   /* Add a border-bottom for the active item */
-  color: #07fdf9;
+  color: rgb(0, 149, 255);
   /* Optional: change text color for the active item */
 }
 
 .nav ul li:hover {
-  color: #3498db;
+  color: rgb(0, 149, 255)
   /* Optional: change text color on hover */
 }

@@ -8,6 +8,7 @@
     align-items: center;
     h2{
         font-size: 10vw;
+        text-align: center;
     }
 .links{
     display: flex;
@@ -15,7 +16,7 @@
 }
     
 
-    background-image: linear-gradient(135deg,black,black,black, #e50f95, blue);
+    background-image: linear-gradient(135deg,black,black,black, #e50f95, rgb(0, 149, 255));
     gap:3vw;
     a{
         text-decoration: none;

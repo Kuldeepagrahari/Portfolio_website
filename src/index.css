@@ -12,7 +12,8 @@
 :root {
   /* --theme-color: rgb(71, 126, 255); */
   /* --page-theme2: */
-  --page-theme:linear-gradient(90deg, #e50f95, rgb(43, 0, 255));
+  /* --page-theme:linear-gradient(90deg, #e50f95, rgb(43, 0, 255)); */
+  --page-theme:linear-gradient(90deg, #e50f95, rgb(0, 149, 255));
   --theme-color:#e50f95;
 }
 

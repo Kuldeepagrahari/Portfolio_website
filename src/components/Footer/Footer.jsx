@@ -5,10 +5,11 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom"
+import { RiUserFollowLine } from "react-icons/ri";
 const Footer = () => {
     return (
         <div className='footer'>
-            <h2>follow me</h2>
+            <h2><RiUserFollowLine /><br />follow me </h2>
             <div className="links">
             <Link to="https://github.com/Kuldeepagrahari">
                 <FaGithubSquare style={{ fontSize: "50px", color: "white" }} /></Link>  <Link to="">

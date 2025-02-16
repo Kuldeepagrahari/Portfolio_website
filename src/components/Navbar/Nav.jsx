@@ -12,6 +12,7 @@ const Nav = ({ onScrollTo }) => {
   const handleNavClick = (section) => {
     setActiveSection(section); // Update the active section
     onScrollTo(section); // Scroll to the selected section
+    setMenuOpen(false);
   };
 
   return (
