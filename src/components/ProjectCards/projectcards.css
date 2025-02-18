@@ -74,8 +74,8 @@
   
   .links a {
     text-decoration: none;
-    color: #1a1a1a; /* Dark text */
-    background: var(--theme-color); /* Tomato background */
+    color: white; /* Dark text */
+    background-image: var(--page-theme);
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;

@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div name="home" className='home'>
       <div className="left">
-        <h2 style={{ color: "gray", fontWeight: "bolder" }}>
+        <h2 className='typewritter'>
           <Typewriter
             words={['Full Stack Developer', 'Frontend Developer', 'MERN Developer']}
             loop={Infinity}
