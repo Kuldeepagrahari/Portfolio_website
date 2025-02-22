@@ -6,8 +6,9 @@
     justify-content: center;
     /* gap:50px; */
     align-items: center;
+    margin-top: 50vh;
     h2{
-        font-size: 10vw;
+        font-size: 8vw;
         text-align: center;
     }
 .links{

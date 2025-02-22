@@ -51,10 +51,10 @@ const Home = () => {
           <button style={{
             position: "fixed",
             zIndex: "1000",
-            top: "-3vh",
-            right: "8vw",
-            width: "90px",
-            height: "90px"
+            top: "0vh",
+            right: "10%",
+            width: "75px",
+            height: "75px",
           }}>
             <RiDownloadCloud2Line style={{ fontSize: "25px" }} /> Resume
           </button>

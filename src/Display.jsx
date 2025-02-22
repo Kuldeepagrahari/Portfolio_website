@@ -30,30 +30,30 @@ const Display = () => {
         if(section === 'contact')scrollToSection(contactref)
         if(section === 'follow')scrollToSection(followref)
       } }/>
-      <div id="home" ref={homeref}>
+      <div  className="component" id="home" ref={homeref}>
         <Home />
       </div>
 
 
-      <div id="about" ref={aboutref}>
+      <div className="component"  id="about" ref={aboutref}>
         <About />
       </div>
 
-      <div id="skills" ref={skillref}>
+      <div  className="component" id="skills" ref={skillref}>
         <Skills />
       </div>
 
-      <div id="projects" ref={projectref}>
+      <div  className="component" id="projects" ref={projectref}>
         <Projects />
       </div>
       {/* <video autoPlay loop muted>
         <source src={video} type="video/mp4" />
        
       </video> */}
-      <div id="contact" ref={contactref}>
+      <div className="component"  id="contact" ref={contactref}>
         <Contact />
       </div>
-      <div className="footer" ref={followref}>
+      <div className="component follow" ref={followref}>
         <Footer />
       </div>
 

@@ -49,4 +49,17 @@
   position: relative;
   z-index: 1; /* Keep content above the video */
   color: white;
+  /* margin-left: 30px; */
+}
+.component{
+  width:90%;
+  margin-left: 10%;
+}
+
+@media screen and ( max-width:800px) {
+  .component{
+       width: 100%;
+       margin-left: 0%;
+       
+  }
 }

@@ -1,12 +1,11 @@
 .home{
     height: 100vh;
-    padding-top: 12vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap:18vw;
     width: 90%;
-    padding: 0 10vw;
+    padding: 10vw 10vw;
     margin-top: 50px;
     position: relative;
     
@@ -83,11 +82,12 @@
     .home{
         display: flex;
         flex-direction: column;
-        margin-top: 100px;
+        /* margin-top: 100px; */
         height: 100vh;
         margin-bottom: 10vh;
         gap:0;
-        padding: 0 10vw;
+        padding: 10vw 10vw;
+       
      
         .left{
             width: 100%;

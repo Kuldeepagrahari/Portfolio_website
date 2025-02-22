@@ -2,55 +2,62 @@
 .nav {
   position: fixed;
   top: 5px;
-  z-index: 2;
-
-  height: 10vh;
-  background-color: rgb(40, 37, 37);
-
+  left: 15px;
+  z-index: 10;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  width: 80%;
-  margin-left: 10%;
-
-  border: none;
-  border-radius: 50px;
+  justify-content: center;
+  width: 8%;
+  border-radius: 5px;
+  padding: 20px 0;
 }
 
-.nav img {
-  width: 120px;
-}
-
-.nav ul {
+/* Sidebar Menu for Desktop */
+.nav .menu.desktop {
   display: flex;
+  flex-direction: column;
   gap: 2vw;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   transition: all 0.3s ease;
 }
 
-.nav li {
+.nav .menu.desktop li {
   list-style: none;
-  font-size: 1.3vw;
+  font-size: 1vw;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
 }
 
-.nav a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
+/* Active State for Desktop */
+.nav .menu.desktop li.active,
+.nav .menu.desktop li:hover {
+  border-left: 5px solid rgb(0, 149, 255);
+  border-radius: 5px;
+  font-weight: bolder;
+  color: rgb(0, 149, 255);
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu for Mobile */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  position: absolute;
+  background-color: black;
+  padding: 20px;
+  border-radius: 50%;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
 }
 
 .bar {
   background-color: white;
-  /* border: 1px solid black; */
-  box-shadow: 1px 1px 2px black;
   height: 3px;
   width: 25px;
   margin: 3px 0;
@@ -70,60 +77,74 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Responsive Design */
+/* Mobile View */
 @media screen and (max-width: 850px) {
   .hamburger {
     display: flex;
-    /* Show hamburger */
-
   }
 
+  .nav {
+    width: 60px;
+    height: 100vh;
+  }
+
+  /* Centered Navigation Menu */
   .nav ul {
-    position: absolute;
-    top: 12vh;
-    border-radius: 5px;
-    /* height:50vh; */
-    right: 0;
-    gap: 0px;
-    width: 100%;
-    flex-direction: column;
-    background-color: rgb(24, 23, 23);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 60%;
+    background-color: rgba(24, 23, 23, 0.9);
     display: none;
-    /* Hidden by default */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+   
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    list-style: none;
   }
 
+  /* Show menu when active */
   .nav ul.menu.active {
     display: flex;
-    border-bottom: 5px solid var(--theme-color);
-    /* Show menu when active */
+
   }
 
-  .nav li {
-    margin: 15px 0;
-    font-size: 25px;
+  /* Mobile Menu Animation */
+  .nav ul.menu.active li {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInUp 0.4s ease-in-out forwards;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 80%;
+    text-align: center;
+    transition: all 0.3s ease;
   }
 
-  .nav img {
-    width: 100px;
-    /* Adjust logo size */
+  /* Active State for Mobile */
+  .nav ul.menu.active li.active,
+  .nav ul.menu.active li:hover {
+    border-left: 5px solid rgb(0, 149, 255);
+    border-radius: 5px;
+    font-weight: bolder;
+    color: rgb(0, 149, 255);
+    background-color: rgba(0, 149, 255, 0.2);
   }
-}
 
-.nav ul li {
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.nav ul li.active {
-  border-bottom: 2px solid rgb(0, 149, 255);
-  /* font-weight: bold; */
-  /* Add a border-bottom for the active item */
-  color: rgb(0, 149, 255);
-  /* Optional: change text color for the active item */
-}
-
-.nav ul li:hover {
-  color: rgb(0, 149, 255)
-  /* Optional: change text color on hover */
+  /* Fade-in Keyframes */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
