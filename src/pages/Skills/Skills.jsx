@@ -26,7 +26,7 @@ const Skills = () => {
 
       <h1 className="skill-typing" style={{ textAlign:"center" }}>
         <Typewriter
-          words={['< tech stack I use', '< tech stack I know']}
+          words={['< Technologies I use />', '< Technologies I know />']}
           loop={Infinity}
           cursor
           cursorStyle='/>'
