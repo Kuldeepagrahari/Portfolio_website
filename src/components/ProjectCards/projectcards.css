@@ -96,7 +96,7 @@
 .pcards:hover {
     transform: scale(1.05);
     background-color: black;
-    box-shadow: -10px -10px 20px white;
+    /* box-shadow: -10px -10px 20px white; */
    /* Tomato shadow */
     /* border: 2px solid var(--theme-color); */
   }
