@@ -28,6 +28,7 @@
     background: var(--page-theme);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    
   }
   
   @media screen and (max-width: 1000px) {
@@ -67,7 +68,7 @@
     /* background-image: linear-gradient(90deg, #e50f95, rgb(0, 149, 255)); */
     /* border: 2px solid rgb(0, 149, 255); */
     background-image: none;
-    font-size: larger;
+    font-size: 20px;
     background: var(--page-theme);
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -21,12 +21,12 @@ const Skills = () => {
         <div>C/C++ Programming Language</div>
         <div>UI/UX</div>
         <div>Backend Development</div>
-        <div>Responsive Frontend Development</div>
+        <div>React-Native Development</div>
       </div>
 
       <h1 className="skill-typing" style={{ textAlign:"center" }}>
         <Typewriter
-          words={['< Technologies I use />', '< Technologies I know />']}
+          words={['<Technologies />', '<I Use />']}
           loop={Infinity}
           cursor
           cursorStyle='/>'

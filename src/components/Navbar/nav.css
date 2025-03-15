@@ -13,6 +13,7 @@
   border-radius: 5px;
   padding: 20px 0;
   box-shadow: 1px 1px 50px white;
+  /* background: var(--page-theme); */
 }
 
 /* Sidebar Menu for Desktop */
@@ -36,10 +37,11 @@
 /* Active State for Desktop */
 .nav .menu.desktop li.active,
 .nav .menu.desktop li:hover {
-  border-left: 5px solid rgb(0, 149, 255);
-  border-radius: 5px;
+  /* border-left: 5px solid ; */
+  border-radius: 50px;
   font-weight: bolder;
-  color: rgb(0, 149, 255);
+   background: var(--page-theme);
+ 
 }
 
 /* Hamburger Menu for Mobile */
@@ -98,7 +100,8 @@
     transform: translate(-50%, -50%);
     width: 80%;
     height: 60%;
-    background-color: rgba(24, 23, 23, 0.9);
+    background: var(--page-theme);
+    /* background-color: rgba(24, 23, 23, 0.9); */
     display: none;
     flex-direction: column;
     align-items: center;
@@ -131,10 +134,10 @@
   /* Active State for Mobile */
   .nav ul.menu.active li.active,
   .nav ul.menu.active li:hover {
-    border-left: 5px solid rgb(0, 149, 255);
+    border-left: 5px solid rgb(250, 251, 252);
     border-radius: 5px;
     font-weight: bolder;
-    color: rgb(0, 149, 255);
+    color: white;
     background-color: rgba(7, 7, 7, 0.2);
   }
 

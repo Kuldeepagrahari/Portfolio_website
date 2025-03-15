@@ -31,14 +31,15 @@ const Home = () => {
       <div className="left">
         <h2 className='typewritter'>
           <Typewriter
-            words={['Full Stack Developer', 'Frontend Developer', 'MERN Developer']}
+            words={['Full Stack', 'React-Native', 'Software']}
             loop={Infinity}
             cursor
             cursorStyle='#'
             typeSpeed={100}
             deleteSpeed={70}
             delaySpeed={1000}
-          />
+          /><br/>
+           Developer
         </h2>
         <h2 style={{ color: "white" }}>Hi, I'm</h2>
         <h1 className='head'>
