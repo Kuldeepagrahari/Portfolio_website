@@ -36,9 +36,9 @@ const ProjectsData = [
       'Automations: Between Raspberry Pi and Server : Python Script for command handling, OpenCV for landing',
       'Server: Node.Js & Express.Js, providing connection between Client App and Raspberry Pi'
     ],
-    githubRepo: 'https://github.com/Kuldeepagrahari/SamAI',
-    projectLink: '',
-    ongoing: 1,
+    githubRepo: 'https://github.com/Kuldeepagrahari/AeroCare-Mobile-App',
+    projectLink: 'https://aerocare-vtol.vercel.app/',
+    ongoing: 0,
   },
   {
     topic: 'Workly - Never Forget Your Tasks',
