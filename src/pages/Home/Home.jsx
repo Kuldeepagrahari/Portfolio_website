@@ -31,7 +31,7 @@ const Home = () => {
       <div className="left">
         <h2 className='typewritter'>
           <Typewriter
-            words={['Full Stack', 'React-Native', 'Software']}
+            words={['Full Stack', 'Android', 'Software']}
             loop={Infinity}
             cursor
             cursorStyle='#'

@@ -14,8 +14,8 @@ const ProjectCards = ({ topic, img, githubRepo, projectLink, description,ongoing
         <div className='pcards'>
             
             <div className='left'>
-            <h2 style={{fontWeight:"bolder", margin:"10px 0", padding:"0 20px"}}>{topic}</h2>
-                <img src={img} alt="Project Preview" />
+            <h2 style={{fontWeight:"bolder", margin:"10px 0", padding:"0 20px", fontSize:"25px"}}>{topic}</h2>
+                <img src={img} alt="Project Preview" style={{maxHeight:"300px", maxWidth:"280px"}}/>
             </div>
             <div className="right">
            
