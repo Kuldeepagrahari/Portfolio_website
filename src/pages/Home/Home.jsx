@@ -48,7 +48,7 @@ const Home = () => {
         <h1 className='college'>
           UG CSE'26 Student<br />PDPM IIIT Jabalpur, India
         </h1>
-        <Link to="https://drive.google.com/file/d/19ULm8UGuRPJNhaKCT08reUeicqMW8Wzx/view?usp=sharing">
+        <Link to="https://drive.google.com/file/d/1dq-SBnoNf2yJMX0XrgpmpPYmMHCNi5-F/view?usp=sharing">
           <button style={{
             position: "fixed",
             zIndex: "1000",
