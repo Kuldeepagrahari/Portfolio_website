@@ -39,7 +39,7 @@ const Nav = ({ onScrollTo }) => {
       top */}
       {!isMobile && (
         <>
-         <img src="my_logo.png" className='logo' style={{width: "8vw", marginBottom:"20px"}} alt="" />
+         <img src="my_logo.png" className='logo' style={{width: "7vw", marginBottom:"20px"}} alt="" />
         <ul className="menu desktop">
           {["home", "about", "skills", "projects", "contact", "follow"].map(
             (section) => (
