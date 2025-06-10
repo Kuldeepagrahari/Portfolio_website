@@ -6,7 +6,7 @@
     gap:18vw;
     width: 90%;
     padding: 10vw 10vw;
-    margin-top: 50px;
+    margin-top: 30px;
     position: relative;
     
     
@@ -23,6 +23,9 @@
         gap:2vh;
         .college{
             color:rgb(126, 125, 132);
+        }
+        .logo{
+            width: 100px;
         }
         .head{
             span{

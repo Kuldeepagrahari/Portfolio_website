@@ -35,8 +35,11 @@ const Nav = ({ onScrollTo }) => {
         </div>
       )}
 
-      {/* Sidebar for Desktop */}
+      {/* Sidebar for Desk
+      top */}
       {!isMobile && (
+        <>
+         <img src="my_logo.png" className='logo' style={{width: "8vw", marginBottom:"20px"}} alt="" />
         <ul className="menu desktop">
           {["home", "about", "skills", "projects", "contact", "follow"].map(
             (section) => (
@@ -49,12 +52,13 @@ const Nav = ({ onScrollTo }) => {
               </li>
             )
           )}
-        </ul>
+        </ul></>
       )}
 
       {/* Mobile Menu (Appears in the Middle) */}
       <AnimatePresence>
         {menuOpen && isMobile && (
+
           <motion.ul
             className="menu active"
             initial={{ opacity: 0, y: 50 }}
@@ -62,6 +66,7 @@ const Nav = ({ onScrollTo }) => {
             exit={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
+            <img src="my_logo.png" alt="" style={{width: "50px", marginBottom:"10px"}} />
             {["home", "about", "skills", "projects", "contact", "follow"].map(
               (section, index) => (
                 <motion.li

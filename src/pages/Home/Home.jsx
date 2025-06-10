@@ -29,6 +29,7 @@ const Home = () => {
   return (
     <div name="home" className='home'>
       <div className="left">
+       
         <h2 className='typewritter'>
           <Typewriter
             words={['Full Stack', 'Android', 'Software']}

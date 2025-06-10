@@ -100,7 +100,8 @@
     transform: translate(-50%, -50%);
     width: 80%;
     height: 60%;
-    background: var(--page-theme);
+    /* background: var(--page-theme); */
+    background-color: black;
     /* background-color: rgba(24, 23, 23, 0.9); */
     display: none;
     flex-direction: column;
@@ -108,7 +109,7 @@
     justify-content: center;
     border-radius: 10px;
    
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 15px rgba(159, 157, 157, 0.5);
     list-style: none;
   }
 
@@ -137,8 +138,9 @@
     border-left: 5px solid rgb(250, 251, 252);
     border-radius: 5px;
     font-weight: bolder;
+    background-color: rgb(59, 61, 62);
     color: white;
-    background-color: rgba(7, 7, 7, 0.2);
+    /* background-color: rgba(7, 7, 7, 0.2); */
   }
 
   /* Fade-in Keyframes */
