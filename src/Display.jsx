@@ -1,15 +1,17 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Home from "./pages/Home/Home.jsx";
 import About from "./pages/About/About.jsx";
-import Experience from "./pages/Experience/Experience.jsx";
+// import Experience from "./pages/Experience/Experience.jsx";
 import Projects from "./pages/Projects/Projects.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
 import Skills from "./pages/Skills/Skills.jsx"
 import Nav from "./components/Navbar/Nav.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import Education from "./pages/Education/Education.jsx";
 const Display = () => {
   const homeref = useRef(null)
   const aboutref = useRef(null)
+  const educationref = useRef(null)
   const skillref = useRef(null)
   const projectref = useRef(null)
   const contactref = useRef(null)
@@ -25,6 +27,7 @@ const Display = () => {
       onScrollTo={(section) => {
         if(section === 'home')scrollToSection(homeref)
         if(section === 'about')scrollToSection(aboutref)
+        if(section === 'education')scrollToSection(educationref)
         if(section === 'skills')scrollToSection(skillref)
         if(section === 'projects')scrollToSection(projectref)
         if(section === 'contact')scrollToSection(contactref)
@@ -37,6 +40,9 @@ const Display = () => {
 
       <div className="component"  id="about" ref={aboutref}>
         <About />
+      </div>
+      <div className="component"  id="education" ref={educationref}>
+        <Education />
       </div>
 
       <div  className="component" id="skills" ref={skillref}>

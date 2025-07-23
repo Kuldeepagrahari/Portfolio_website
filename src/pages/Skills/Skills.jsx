@@ -1,8 +1,8 @@
-import React from 'react';
+
 import "./skills.css";
 import { IoLogoGithub, IoGitMergeSharp } from "react-icons/io5";
 import { RiReactjsLine, RiBootstrapLine } from "react-icons/ri";
-import { TbBrandNodejs, TbBrandCss3, TbBrandJavascript, TbBrandMysql } from "react-icons/tb";
+import { TbBrandNodejs, TbBrandCss3, TbBrandMysql } from "react-icons/tb";
 import { SiPostgresql, SiMongodb, SiExpress } from "react-icons/si";
 import { ImHtmlFive2 } from "react-icons/im";
 import { VscVscode } from "react-icons/vsc";
@@ -10,6 +10,11 @@ import { FaJsSquare } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter';
 import { SiJquery } from "react-icons/si";
 import { SiPostman } from "react-icons/si";
+import { SiDocker, SiGithubactions, SiGnubash } from "react-icons/si";
+import { FaLinux, FaAws } from "react-icons/fa";
+import { SiDjango, SiJsonwebtokens } from "react-icons/si";
+import { TbApi } from "react-icons/tb";
+import { CgOrganisation } from "react-icons/cg";
 
 const Skills = () => {
   return (
@@ -18,10 +23,10 @@ const Skills = () => {
       <div className="soft">
         <div>Computer Science</div>
         <div>Data Structures & Algorithms</div>
-        <div>C/C++ Programming Language</div>
-        <div>UI/UX</div>
-        <div>Backend Development</div>
-        <div>React-Native Development</div>
+        <div>Communication & Leadership</div>
+        <div>Full Stack Development</div>
+        <div>Mobile Development</div>
+        <div>Consistent & Fast Learner</div>
       </div>
 
       <h1 className="skill-typing" style={{ textAlign:"center" }}>
@@ -52,8 +57,12 @@ const Skills = () => {
         <div className="tech-category">
           <h2>Backend</h2>
           <div className="tech-stack">
-            <div className="stack-item"><TbBrandNodejs /><span>Node.js</span></div>
-            <div className="stack-item"><SiExpress /><span>Express</span></div>
+          <div className="stack-item"><TbBrandNodejs /><span>Node.js</span></div>
+          <div className="stack-item"><SiExpress /><span>Express</span></div>
+          <div className="stack-item"><SiDjango /><span>Django</span></div>
+          <div className="stack-item"><TbApi /><span>REST API</span></div>
+          <div className="stack-item"><CgOrganisation /><span>MVC</span></div>
+          <div className="stack-item"><SiJsonwebtokens /><span>JWT Auth</span></div>
           </div>
         </div>
 
@@ -73,6 +82,16 @@ const Skills = () => {
             <div className="stack-item"><IoGitMergeSharp /><span>Git</span></div>
             <div className="stack-item"><VscVscode /><span>VS Code</span></div>
             <div className="stack-item"><SiPostman /><span>Postman</span></div>
+          </div>
+        </div>
+        <div className="tech-category">
+          <h2>Cloud & DevOps</h2>
+          <div className="tech-stack">
+          <div className="stack-item"><SiDocker /><span>Docker</span></div>
+          <div className="stack-item"><FaAws /><span>AWS</span></div>
+          <div className="stack-item"><SiGithubactions /><span>GitHub Actions</span></div>
+          <div className="stack-item"><FaLinux /><span>Linux</span></div>
+          <div className="stack-item"><SiGnubash /><span>Bash</span></div>
           </div>
         </div>
       </div>

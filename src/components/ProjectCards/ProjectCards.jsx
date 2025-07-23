@@ -27,7 +27,7 @@ const ProjectCards = ({ topic, img, githubRepo, projectLink, description,ongoing
                         </li>
                     ))}
                 </p>
-                <div className="links">
+                <div className="project-links">
                     <Link to={githubRepo}>Github Repo</Link>
                     {projectLink && <Link to={projectLink}>Project Link</Link>}
                     {ongoing && <Link>On-going</Link>}

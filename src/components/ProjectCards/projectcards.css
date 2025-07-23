@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(34, 32, 32);
+    background-color: rgba(29, 34, 29, 0.6);
     /* background-color: rgb(33, 32, 32); */
    /* border-left: 10px solid var(--theme-color); */
   /* Dark background */
@@ -67,12 +67,13 @@
     }
   }
   
-  .links {
+  .project-links {
     display: flex;
     gap: 15px;
+    background-color: transparent;
   }
   
-  .links a {
+  .project-links a {
     text-decoration: none;
     color: white; /* Dark text */
     background-image: var(--page-theme);
@@ -82,8 +83,8 @@
     transition: background 0.3s ease, color 0.3s ease;
   }
   
-  .links a:hover {
-    background: transparent; /* White 
+  .project-links a:hover {
+    background-color: white; /* White 
     borbackground */
      /* Tomato text */
     /* border: 1px solid rgb(249, 252, 254); */
@@ -95,7 +96,7 @@
 
 .pcards:hover {
     transform: scale(1.05);
-    background-color: black;
+    background-color: rgba(15, 15, 15, 0.8);
     /* box-shadow: -10px -10px 20px white; */
    /* Tomato shadow */
     /* border: 2px solid var(--theme-color); */

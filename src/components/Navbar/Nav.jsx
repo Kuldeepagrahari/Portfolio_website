@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
 import "./nav.css";
 
@@ -41,7 +41,7 @@ const Nav = ({ onScrollTo }) => {
         <>
          <img src="my_logo.png" className='logo' style={{width: "7vw", marginBottom:"20px"}} alt="" />
         <ul className="menu desktop">
-          {["home", "about", "skills", "projects", "contact", "follow"].map(
+          {["home", "about", "education", "skills", "projects", "contact", "follow"].map(
             (section) => (
               <li
                 key={section}
@@ -67,7 +67,7 @@ const Nav = ({ onScrollTo }) => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <img src="my_logo.png" alt="" style={{width: "50px", marginBottom:"10px"}} />
-            {["home", "about", "skills", "projects", "contact", "follow"].map(
+            {["home", "about", "education", "skills", "projects", "contact", "follow"].map(
               (section, index) => (
                 <motion.li
                   key={section}
@@ -76,7 +76,7 @@ const Nav = ({ onScrollTo }) => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  transition={{ delay: index * 0.2, duration: 0.2 }}
+                  transition={{ delay: index * 0.1, duration: 0.2 }}
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </motion.li>
