@@ -13,8 +13,8 @@ A clean, modern, and responsive developer portfolio built using React.js. It hig
 💡 Fully responsive and mobile-friendly
 🎨 Gradient UI with smooth animations and hover effects
 
-🛠️ Tech Stack
-Frontend: React.js
+🛠️ Tech Stack<br/>
+Frontend: React.js<br/>
 Styling: CSS, Framer-motion
 Icons: React-Icons
 
