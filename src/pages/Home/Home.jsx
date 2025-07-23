@@ -47,7 +47,7 @@ const Home = () => {
           <span style={{ fontWeight: "bolder" }}>Kuldeep Agrahari</span>
         </h1>
         <h1 className='college'>
-          UG CSE'26 Student<br />PDPM IIIT Jabalpur, India
+          FInal Year CSE'26 Student<br />PDPM IIIT Jabalpur, India
         </h1>
         <Link to="https://drive.google.com/file/d/1o0IkT5G2b1WFRo_6VZbWPxKIUARyZo03/view?usp=sharing">
           <button style={{
