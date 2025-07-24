@@ -13,6 +13,7 @@
   @media screen and (max-width: 768px) {
     .skills {
       padding-left: 5vw;
+      width: 100%;
       gap: 30px;
     }
   }
@@ -41,7 +42,7 @@
   }
   
   .soft {
-    width: 100%;
+    width: 105%;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -82,7 +83,7 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    width: 100%;
+    width: 105%;
     background-image: linear-gradient(-90deg, rgb(0, 149, 255) ,#e50f95,#e50f95);
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
@@ -163,11 +164,13 @@
   
   @media (max-width: 768px) {
     .tech-category {
-      width: 400px;
+      width: 450px;
       padding: 15px;
     }
     .soft{
         align-items: center;
+        padding: 100px 0px;
+        
     }
     .soft div{font-size: 15px; width: 130px;
     height: 130px; padding: 20px;}
