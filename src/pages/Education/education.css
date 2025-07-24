@@ -32,12 +32,13 @@
     border-radius: 10px;
     padding: 25px;
     transition: 0.3s ease-in-out;
-    box-shadow: 2px 2px 10px #e50f95;
+    box-shadow: 2px 2px 10px #e6e0e3;
     gap: 15px;
   }
   
   .edu-card:hover {
     background-color: rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
   }
   
   .edu-icon {

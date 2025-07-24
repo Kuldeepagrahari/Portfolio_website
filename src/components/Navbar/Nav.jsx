@@ -41,7 +41,7 @@ const Nav = ({ onScrollTo }) => {
         <>
          <img src="my_logo.png" className='logo' style={{width: "7vw", marginBottom:"20px"}} alt="" />
         <ul className="menu desktop">
-          {["home", "about", "education", "skills", "projects", "contact", "follow"].map(
+          {["home", "about", "education", "skills", "projects", "achievements", "contact", "follow"].map(
             (section) => (
               <li
                 key={section}
@@ -67,7 +67,7 @@ const Nav = ({ onScrollTo }) => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <img src="my_logo.png" alt="" style={{width: "50px", marginBottom:"10px"}} />
-            {["home", "about", "education", "skills", "projects", "contact", "follow"].map(
+            {["home", "about", "education", "skills", "projects", "achievements", "contact", "follow"].map(
               (section, index) => (
                 <motion.li
                   key={section}

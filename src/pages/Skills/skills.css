@@ -73,6 +73,7 @@
   
   .soft div:hover {
     background-color: rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
   }
  
   
@@ -99,6 +100,7 @@
   }
   .tech-category:hover{
     background-color: rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
   }
   
   .tech-category h2 {
