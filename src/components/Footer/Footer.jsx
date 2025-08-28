@@ -17,7 +17,7 @@ const Footer = () => {
                 <FaSquareXTwitter style={{fontSize: "50px", color: "white" }} /></Link>  
             <Link to="https://www.linkedin.com/in/kuldeep-agrahari-56b159260">
                 <FaLinkedin style={{ fontSize: "50px", color: "white" }} /></Link>
-            <Link to="https://www.youtube.com/@Techify_SAM">
+            <Link to="https://www.youtube.com/@0x0Kuldeep">
                 <FaYoutube  style={{ fontSize: "50px", color: "white" }} /></Link>
         </div></div>
     )
