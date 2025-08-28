@@ -1,40 +1,37 @@
 import React from 'react';
 import './projectcards.css';
 import { Link } from 'react-router-dom';
-import { FaTasks, FaRocket, FaCode, FaCogs } from 'react-icons/fa'; // Importing example icons
 
-const ProjectCards = ({ topic, img, githubRepo, projectLink, description,ongoing }) => {
-    const icons = [
-       
-        <FaCode style={{color:"var(--theme-color)", fontSize:"20px"}}/>, // Coding or technical-related description
-       
-    ];
-
-    return (
-        <div className='pcards'>
-            
-            <div className='left'>
-            <h2 style={{fontWeight:"bolder", margin:"10px 0", padding:"0 20px", fontSize:"25px"}}>{topic}</h2>
-                <img src={img} alt="Project Preview" style={{maxHeight:"300px", maxWidth:"280px"}}/>
-            </div>
-            <div className="right">
-           
-                <p>
-                    {description.map((func, i) => (
-                        <li key={i}>
-                            {icons[i % icons.length]} {/* Cycle through icons */}
-                            {func}
-                        </li>
-                    ))}
-                </p>
-                <div className="project-links">
-                    <Link to={githubRepo}>Github Repo</Link>
-                    {projectLink && <Link to={projectLink}>Project Link</Link>}
-                    {ongoing && <Link>On-going</Link>}
-                </div>
-            </div>
+const ProjectCards = ({ topic, img, githubRepo, projectLink, description, ongoing }) => {
+  return (
+    <div className='pcard-container'>
+      <div className='pcard'>
+        {/* Left Side - Image */}
+        <div className='pcard-left'>
+          <img src={img} alt={topic} />
         </div>
-    );
+
+        {/* Right Side - Content */}
+        <div className="pcard-right">
+          <h3>{topic}</h3>
+
+          <ul className="pcard-description">
+            {description.map((point, i) => (
+              <li key={i}>
+                {point}
+              </li>
+            ))}
+          </ul>
+
+          <div className="project-links">
+            <Link to={githubRepo} target="_blank" rel="noopener noreferrer">GitHub</Link>
+            {projectLink && <Link to={projectLink} target="_blank" rel="noopener noreferrer">Live Demo</Link>}
+            {ongoing && <span className="ongoing-tag">In Progress</span>}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ProjectCards;

@@ -38,7 +38,7 @@ const ProjectsData = [
     ],
     githubRepo: 'https://github.com/Kuldeepagrahari/AeroCare-Mobile-App',
     projectLink: 'https://aerocare-vtol.vercel.app/',
-    ongoing: 0,
+  
   },
   {
     topic: 'Workly - Never Forget Your Tasks',
