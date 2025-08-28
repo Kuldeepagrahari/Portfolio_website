@@ -163,8 +163,11 @@
   }
   
   @media (max-width: 768px) {
+    .tech {
+      padding: 50px 20px;
+    }
     .tech-category {
-      width: 450px;
+      width: 500px;
       padding: 15px;
     }
     .soft{
