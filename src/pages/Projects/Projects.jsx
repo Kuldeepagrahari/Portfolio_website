@@ -18,7 +18,7 @@ const ProjectsData = [
   },
   {
     topic: 'Promptly - AI Chat bot',
-    img: 'samai-ss.png',
+    img: 'Promptly.png',
     description: [
       'Full Stack ChatGPT clone made for seamless interaction with AI model to generate response with text and image inputs & mongodb for saving History',
       'Use Gemini API for model response, Clerk Authentication, Imagekit for image handling'
