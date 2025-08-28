@@ -95,11 +95,11 @@
   /* Centered Navigation Menu */
   .nav ul {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 30%;
+    left: 45%;
     transform: translate(-50%, -50%);
     width: 80%;
-    height: 60%;
+    height: 70%;
     /* background: var(--page-theme); */
     background-color: black;
     /* background-color: rgba(24, 23, 23, 0.9); */
