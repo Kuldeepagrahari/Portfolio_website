@@ -127,7 +127,7 @@
 @media screen and (max-width: 800px) {
     .contact {
         display: flex;
-        height: 150vh;
+        height: 180vh;
         flex-direction: column;
 
         .left {
