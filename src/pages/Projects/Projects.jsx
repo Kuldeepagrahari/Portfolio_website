@@ -77,6 +77,17 @@ const ProjectsData = [
 
   },
   {
+    topic: 'Sudoku Solver',
+    img: 'sudokusolver.png',
+    description: [
+      'Developed a fully responsive Sudoku Solver with a dynamic, futuristic UI using vanilla HTML, CSS, and JavaScript.',
+      'Implemented a visual backtracking algorithm that animates each step, providing a real-time demonstration of the solving process.'
+    ],
+    githubRepo: 'https://github.com/Kuldeepagrahari/SudokuSolver',
+    projectLink: 'https://sudoku-solver-seven-eosin.vercel.app/',
+
+  },
+  {
     topic: 'Drum Kit',
     img: 'drumkit.png',
     description: [
