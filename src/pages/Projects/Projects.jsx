@@ -76,6 +76,16 @@ const ProjectsData = [
     projectLink: 'https://weather-book-beta.vercel.app/',
 
   },
+  {
+    topic: 'Drum Kit',
+    img: 'drumkit.png',
+    description: [
+      'A Frontend Project with beautiful UI and Drum Playing Experience'
+    ],
+    githubRepo: 'https://github.com/Kuldeepagrahari/Drum',
+    projectLink: 'https://drum-rose.vercel.app/',
+
+  },
 ];
 
 const Projects = () => {
