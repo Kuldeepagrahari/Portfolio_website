@@ -21,14 +21,14 @@ const achievements = [
   {
     platform: 'GeeksforGeeks',
     icon: <SiGeeksforgeeks className="ach-icon" />,
-    description: '4-Star, Top 6.75%, Top 30 All-Time College Rank',
+    description: '4-Star, Top 6.75%, Top 20 All-Time College Rank',
     profile: 'https://www.geeksforgeeks.org/user/kuldeepagre919',
     username: 'kuldeepagre919',
   },
   {
     platform: 'LeetCode',
     icon: <SiLeetcode className="ach-icon" />,
-    description: 'Knight Badge, Top 5%, 550+ Problems Solved',
+    description: 'Knight Badge, Top 5%, 600+ Problems Solved',
     profile: 'https://leetcode.com/kuldeep144/',
     username: 'kuldeep144',
   },

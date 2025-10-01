@@ -23,9 +23,8 @@ const ProjectsData = [
       'Full Stack ChatGPT clone made for seamless interaction with AI model to generate response with text and image inputs & mongodb for saving History',
       'Use Gemini API for model response, Clerk Authentication, Imagekit for image handling'
     ],
-    githubRepo: 'https://github.com/Kuldeepagrahari/SamAI',
-    projectLink: '',
-    ongoing: 1,
+    githubRepo: 'https://github.com/Kuldeepagrahari/Promptly',
+    projectLink: 'https://promptly-pk2h.onrender.com/',
   },
   {
     topic: 'AeroCare - VTOL Drone Automated App',
