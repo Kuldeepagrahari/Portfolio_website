@@ -87,6 +87,16 @@ const ProjectsData = [
 
   },
   {
+    topic: 'NewsHub',
+    img: 'news.png',
+    description: [
+      'A News Fetching website with intelligent search functionality'
+    ],
+    githubRepo: 'https://github.com/Kuldeepagrahari/News-Hub',
+    projectLink: 'https://news-hub-khaki.vercel.app/',
+
+  },
+  {
     topic: 'Drum Kit',
     img: 'drumkit.png',
     description: [
