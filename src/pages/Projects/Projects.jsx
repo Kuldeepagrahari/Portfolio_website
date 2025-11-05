@@ -39,17 +39,18 @@ const ProjectsData = [
     projectLink: 'https://aerocare-vtol.vercel.app/',
   
   },
-  {
-    topic: 'Workly - Never Forget Your Tasks',
-    img: 'workly.png',
-    description: [
-      'Full Stack Task Manager Application with Email Notifications, Dynamically update your tasks daily, weekly or datewise, keep history and in various categories with a detailed Statistics',
-      'MongoDB, Express.js, React.js, Node.js, EmailJs',
-    ],
-    githubRepo: 'https://github.com/Kuldeepagrahari/Workly',
-    projectLink: 'https://workly-client.onrender.com/',
+  // {
+  //   topic: 'Workly - Never Forget Your Tasks',
+  //   img: 'workly.png',
+  //   description: [
+  //     'Full Stack Task Manager Application with Email Notifications, Dynamically update your tasks daily, weekly or datewise, keep history and in various categories with a detailed Statistics',
+  //     'MongoDB, Express.js, React.js, Node.js, EmailJs',
+  //   ],
+  //   githubRepo: 'https://github.com/Kuldeepagrahari/Workly',
+  //   projectLink: 'https://workly-client.onrender.com/',
 
-  }, {
+  // },
+   {
     topic: 'Samify - Music Streaming',
     img: 'samify-ss.png',
     description: [
