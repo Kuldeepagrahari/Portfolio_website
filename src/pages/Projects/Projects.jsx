@@ -63,7 +63,16 @@ const ProjectsData = [
     projectLink: '',
     ongoing: 1,
   },
+  {
+    topic: 'NewsHub',
+    img: 'news.png',
+    description: [
+      'A News Fetching website with intelligent search functionality'
+    ],
+    githubRepo: 'https://github.com/Kuldeepagrahari/News-Hub',
+    projectLink: 'https://news-hub-application.onrender.com/',
 
+  },
   {
     topic: 'WeatherBook - weather updater',
     img: 'weather.png',
@@ -86,16 +95,7 @@ const ProjectsData = [
     projectLink: 'https://sudoku-solver-seven-eosin.vercel.app/',
 
   },
-  {
-    topic: 'NewsHub',
-    img: 'news.png',
-    description: [
-      'A News Fetching website with intelligent search functionality'
-    ],
-    githubRepo: 'https://github.com/Kuldeepagrahari/News-Hub',
-    projectLink: 'https://news-hub-khaki.vercel.app/',
 
-  },
   {
     topic: 'Drum Kit',
     img: 'drumkit.png',
