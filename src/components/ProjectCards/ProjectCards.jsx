@@ -2,7 +2,7 @@ import React from 'react';
 import './projectcards.css';
 import { Link } from 'react-router-dom';
 
-const ProjectCards = ({ topic, img, githubRepo, projectLink, description, ongoing }) => {
+const ProjectCards = ({ topic, img, githubRepo, projectLink, adminLink, description, ongoing }) => {
   return (
     <div className='pcard-container'>
       <div className='pcard'>
@@ -26,7 +26,10 @@ const ProjectCards = ({ topic, img, githubRepo, projectLink, description, ongoin
           <div className="project-links">
             <Link to={githubRepo} target="_blank" rel="noopener noreferrer">GitHub</Link>
             {projectLink && <Link to={projectLink} target="_blank" rel="noopener noreferrer">Live Demo</Link>}
+            {adminLink && <Link to={adminLink} target="_blank" rel="noopener noreferrer">Admin Live</Link>}
+            {/* {adminLink && <Link to={adminLink} target="_blank" rel="noopener noreferrer">Admin Live</Link>} */}
             {ongoing && <span className="ongoing-tag">In Progress</span>}
+
           </div>
         </div>
       </div>

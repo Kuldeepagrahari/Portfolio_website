@@ -14,6 +14,7 @@ const ProjectsData = [
 
     githubRepo: 'https://github.com/Kuldeepagrahari/Hungry-Hub',
     projectLink: 'https://hungry-hub-client.onrender.com/',
+    adminLink: 'https://hungry-hub-admin-5v2a.onrender.com/'
 
   },
   {
@@ -124,6 +125,7 @@ const Projects = () => {
             img={project.img}
             githubRepo={project.githubRepo}
             projectLink={project.projectLink}
+            adminLink={project.adminLink}
             description={project.description}
             ongoing={project.ongoing}
           />
