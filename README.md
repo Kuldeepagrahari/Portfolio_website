@@ -36,3 +36,6 @@ Deployment: Vercel
 <img width="1919" height="905" alt="image" src="https://github.com/user-attachments/assets/987f3743-433b-49f6-bdb6-013a0889dcd7" />
 
 <img width="1917" height="896" alt="image" src="https://github.com/user-attachments/assets/6f638fab-74af-40e9-bf77-690c1bc23963" />
+
+<h1> Modern-UI 1st Look </h1>
+<img width="1919" height="895" alt="image" src="https://github.com/user-attachments/assets/ee0d3b32-a159-4a54-a151-5d6cef8f1816" />
