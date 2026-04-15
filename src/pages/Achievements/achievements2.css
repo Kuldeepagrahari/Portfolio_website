@@ -1,0 +1,66 @@
+.achievements-section {
+    padding: 2rem;
+    background-color: #0f0f0f;
+    color: white;
+    text-align: center;
+  }
+  
+  .ach-heading {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background-image: linear-gradient(-90deg, rgb(0, 149, 255), #e50f95, #e50f95);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .ach-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+  }
+  
+  .ach-card {
+    background-color: #1d221d;
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgb(0, 149, 255);
+    transition: transform 0.3s ease;
+  }
+  
+  .ach-card:hover {
+    transform: translateY(-5px);
+    box-shadow: none;
+    background-image: linear-gradient(-90deg, rgb(0, 149, 255) ,#e50f95,#e50f95);
+    .ach-icon{
+        color: white;
+    }
+  }
+  
+  .ach-icon {
+    font-size: 2rem;
+    color: rgb(0, 149, 255);
+    margin-bottom: 1rem;
+  }
+  
+  .ach-card h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ach-card p {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .ach-card a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .ach-card a:hover {
+    text-decoration: underline;
+  }
+  

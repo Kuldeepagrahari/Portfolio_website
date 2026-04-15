@@ -1,0 +1,179 @@
+/* Add a modern font from Google Fonts (optional, but recommended) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* --- The Card's Container & Glow Effect --- */
+.pcard-container {
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  /* Responsiveness: Constrain width on large screens and center it */
+  max-width: 1100px;
+  margin: 40px auto; /* 'auto' on left/right handles centering */
+}
+
+/* This pseudo-element creates the background glow on hover */
+.pcard-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--theme-color, rgba(118, 75, 162, 0.4)), transparent 40%);
+  border-radius: 12px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.pcard-container:hover::before {
+  opacity: 1;
+}
+
+/* --- The Card: Glassmorphism & Grid Layout --- */
+.pcard {
+  display: grid;
+  /* Desktop Layout: 2 columns */
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 25px;
+  
+  /* The Glassmorphism Effect */
+  background: rgba(25, 26, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.pcard-container:hover .pcard {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Left Side: Image with Contained Zoom --- */
+.pcard-left {
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 320px;
+}
+
+.pcard-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-out;
+}
+
+.pcard-container:hover .pcard-left img {
+  transform: scale(1.08);
+}
+
+
+/* --- Right Side: Content & Typography --- */
+.pcard-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pcard-right h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f0f0f0;
+  margin: 0 0 15px 0;
+  background: linear-gradient(90deg, #ffffff, #aaaaaa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pcard-description {
+  color: #b2acac;
+  font-size: 1rem;
+  line-height: 1.6;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.pcard-description li {
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.pcard-description li::before {
+  content: '✓';
+  color: var(--theme-color, #764BA2);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* --- Links and Tags --- */
+.project-links {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 20px;
+  align-items: center;
+}
+
+.project-links a, .ongoing-tag {
+  text-decoration: none;
+  color: #e0e0e0;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.ongoing-tag {
+  background-color: rgba(255, 165, 0, 0.15);
+  color: #FFA500;
+  cursor: default;
+}
+
+
+/* --- Responsive Design for Mobile & Tablet --- */
+@media screen and (max-width: 900px) {
+  .pcard-container {
+    /* Give some space on the sides for mobile view */
+    margin: 20px 15px;
+  }
+  
+  .pcard {
+    /* Mobile Layout: Stack into a single column */
+    grid-template-columns: 1fr;
+    gap: 20px; /* Reduced gap for a more compact view */
+    padding: 20px; /* Reduced padding */
+  }
+  
+  .pcard-right h3 {
+    font-size: 1.6rem; /* Smaller heading for mobile */
+  }
+
+  .pcard-description {
+    font-size: 0.95rem; /* Slightly smaller text for mobile */
+  }
+
+  .pcard-left {
+    /* Adjust max-height for a better image aspect ratio on mobile */
+    max-height: 250px;
+  }
+}
