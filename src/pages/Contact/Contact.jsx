@@ -109,20 +109,25 @@
 // export default Contact;
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { HiPaperAirplane } from "react-icons/hi";
+import { HiPaperAirplane, HiMail, HiLocationMarker, HiExternalLink } from "react-icons/hi";
+import { FaWhatsapp, FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./contact.css";
+
+const socialLinks = [
+  { Icon: FaGithub,   href: 'https://github.com/Kuldeepagrahari',                      label: 'GitHub' },
+  { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/kuldeep-agrahari-56b159260',   label: 'LinkedIn' },
+  { Icon: FaWhatsapp, href: 'https://wa.me/8957298885',                                 label: 'WhatsApp' },
+];
 
 const Contact = () => {
   const form = useRef();
-  const [statusMessage, setStatusMessage] = useState("");
-  const [isSent, setIsSent] = useState(false);
-  const [isTypingEmail, setIsTypingEmail] = useState(false);
+  const [status, setStatus] = useState(null); // null | 'sending' | 'ok' | 'err'
+  const [emailFocus, setEmailFocus] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setStatusMessage("");
-    setIsSent(false);
+    setStatus('sending');
 
     emailjs
       .sendForm(
@@ -131,105 +136,148 @@ const Contact = () => {
         form.current,
         "_-EHtpEuHENNYIxhe"
       )
-      .then(
-        () => {
-          setStatusMessage("Message sent successfully!");
-          setIsSent(true);
-          e.target.reset();
-          setIsTypingEmail(false);
-        },
-        () => {
-          setStatusMessage("Failed to send. Please try again.");
-          setIsSent(false);
-        }
-      );
+      .then(() => {
+        setStatus('ok');
+        e.target.reset();
+      })
+      .catch(() => setStatus('err'));
   };
 
   return (
     <div className="contact">
-      <div className="orb orb-purple" style={{ width: 400, height: 400, bottom: '-100px', right: '-50px' }} />
-      <div className="orb orb-cyan" style={{ width: 300, height: 300, top: 0, left: '300px' }} />
+      <div className="contact-orb contact-orb--purple" />
+      <div className="contact-orb contact-orb--cyan" />
 
       <div className="contact-inner">
-        {/* Left */}
-        <div className="contact-left">
-          <DotLottieReact
-            src="https://lottie.host/1917724c-db86-4dc9-8962-f76abc901890/ZocLPJWaB5.lottie"
-            loop
-            autoplay
-            className="contact-lottie"
-          />
-          <div className="contact-info">
-            <div className="contact-info-line">
-              <span>Email</span> kuldeepagrahari9103@gmail.com
+
+        {/* ── LEFT — Info card ─────────────────── */}
+        <div className="contact-info-panel">
+          <div className="cinfo-top">
+            <div className="section-chip">Let's Talk</div>
+            <h2 className="cinfo-heading">
+              <span className="ci-solid">Get In</span>
+              <span className="ci-outline">Touch</span>
+            </h2>
+            <p className="cinfo-desc">
+              I'm currently open to full-time backend/full-stack engineering roles.
+              Whether you have a project, opportunity, or just want to connect — my inbox is open.
+            </p>
+          </div>
+
+          <div className="cinfo-details">
+            <div className="cinfo-line">
+              <HiMail className="ci-icon" />
+              <div>
+                <div className="ci-line-label">Email</div>
+                <a href="mailto:kuldeepagrahari9103@gmail.com" className="ci-line-val">
+                  kuldeepagrahari9103@gmail.com
+                </a>
+              </div>
             </div>
-            <div className="contact-info-line">
-              <span>Location</span> Prayagraj, UP, India
+            <div className="cinfo-line">
+              <FaPhone className="ci-icon" />
+              <div>
+                <div className="ci-line-label">Phone</div>
+                <span className="ci-line-val">+91 88718 05535</span>
+              </div>
             </div>
-            <div className="contact-info-line">
-              <span>Status</span> Open to opportunities
+            <div className="cinfo-line">
+              <HiLocationMarker className="ci-icon" />
+              <div>
+                <div className="ci-line-label">Location</div>
+                <span className="ci-line-val">Prayagraj, Uttar Pradesh, India</span>
+              </div>
             </div>
+          </div>
+
+          {/* Social links */}
+          <div className="cinfo-social">
+            {socialLinks.map(({ Icon, href, label }) => (
+              <Link
+                to={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ci-social-btn"
+                key={label}
+              >
+                <Icon />
+                <span>{label}</span>
+                <HiExternalLink className="ci-ext" />
+              </Link>
+            ))}
+          </div>
+
+          {/* Availability badge */}
+          <div className="cinfo-avail">
+            <span className="avail-dot" />
+            <span>Available for full-time roles · June 2026</span>
           </div>
         </div>
 
-        {/* Right - form */}
-        <div className="contact-right">
-          <div className="section-chip">Let's Talk</div>
-          <h2 className="contact-heading">
-            <span className="line1">Get In</span>
-            <span className="line2">Touch</span>
-          </h2>
-
-          <form ref={form} onSubmit={sendEmail} className="contact-form">
-            <div className="form-field">
-              <label className="form-label">Your Name</label>
+        {/* ── RIGHT — Form ─────────────────────── */}
+        <div className="contact-form-wrap">
+          <form ref={form} onSubmit={sendEmail} className="cform">
+            <div className="cform-field">
+              <label className="cform-label">Your Name</label>
               <input
                 type="text"
                 name="from_name"
-                placeholder="Kuldeep Agrahari"
+                placeholder="e.g. Priya Sharma"
                 required
-                className="form-input"
+                className="cform-input"
               />
             </div>
 
-            <div className="form-field">
-              <label className="form-label">Your Email</label>
+            <div className="cform-field">
+              <label className="cform-label">Your Email</label>
               <input
                 type="email"
                 name="reply_to"
-                placeholder="you@example.com"
+                placeholder="you@company.com"
                 required
-                className="form-input"
-                onChange={(e) => setIsTypingEmail(e.target.value.length > 0)}
+                className="cform-input"
+                onFocus={() => setEmailFocus(true)}
+                onBlur={() => setEmailFocus(false)}
               />
-              {isTypingEmail && (
-                <span className="form-email-hint">
-                  ↳ Ensure email is valid for direct reply
+              {emailFocus && (
+                <span className="cform-hint">
+                  ↳ Ensure email is valid — I reply to every message
                 </span>
               )}
             </div>
 
-            <div className="form-field">
-              <label className="form-label">Message</label>
+            <div className="cform-field">
+              <label className="cform-label">Message</label>
               <textarea
                 name="message"
-                placeholder="Hey Kuldeep, I'd love to work with you on..."
+                placeholder="Hey Kuldeep, I'd love to discuss..."
                 required
-                className="form-textarea"
+                className="cform-textarea"
               />
             </div>
 
-            <button type="submit" className="form-submit">
-              <HiPaperAirplane /> Send Message
+            <button
+              type="submit"
+              className={`cform-submit ${status === 'sending' ? 'sending' : ''}`}
+              disabled={status === 'sending'}
+            >
+              <HiPaperAirplane />
+              {status === 'sending' ? 'Sending...' : 'Send Message'}
             </button>
 
-            {statusMessage && (
-              <div className={`form-status ${isSent ? 'success' : 'error'}`}>
-                {statusMessage}
+            {status === 'ok' && (
+              <div className="cform-status cform-status--ok">
+                ✓ Message sent! I'll get back to you soon.
+              </div>
+            )}
+            {status === 'err' && (
+              <div className="cform-status cform-status--err">
+                ✕ Failed to send. Please email me directly.
               </div>
             )}
           </form>
         </div>
+
       </div>
     </div>
   );

@@ -92,40 +92,36 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Typewriter } from 'react-simple-typewriter';
-import {
-  FaBug, FaLightbulb, FaRocket, FaMedal, FaBookOpen, FaArrowUp, FaDownload
-} from "react-icons/fa";
+import { FaDownload } from "react-icons/fa";
 import { HiArrowRight } from "react-icons/hi";
+import {
+  SiNodedotjs, SiMongodb, SiPostgresql, SiDocker, SiExpress,
+  SiDjango, SiRedis, SiApachekafka, SiCplusplus
+} from "react-icons/si";
+import { RiReactjsLine } from "react-icons/ri";
+import { FaJsSquare, FaPython } from "react-icons/fa";
 import "./home.css";
 
-const messages = [
-  { text: "Never Stop Learning.", icon: <FaBookOpen /> },
-  { text: "Consistency is Mastery.", icon: <FaMedal /> },
-  { text: "Debug. Ship. Repeat.", icon: <FaBug /> },
-  { text: "Challenge Your Limits.", icon: <FaLightbulb /> },
-  { text: "Small Wins. Big Impact.", icon: <FaArrowUp /> },
-  { text: "Build with Purpose.", icon: <FaRocket /> },
+const floatingBadges = [
+  { Icon: SiNodedotjs,   label: 'Node.js',    color: '#68a063', style: { top: '10%',  left: '-18%' } },
+  { Icon: RiReactjsLine, label: 'React',       color: '#61dafb', style: { top: '28%',  right: '-20%' } },
+  { Icon: SiMongodb,     label: 'MongoDB',     color: '#47a248', style: { bottom:'30%',left: '-22%' } },
+  { Icon: SiPostgresql,  label: 'PostgreSQL',  color: '#336791', style: { top: '60%',  right: '-18%' } },
+  { Icon: SiCplusplus,    label: 'C++',      color: '#2496ed', style: { bottom:'10%',left: '-10%' } },
+  { Icon: FaJsSquare,    label: 'JS',          color: '#f7df1e', style: { top: '5%',   right: '-8%'  } },
 ];
 
 const Home = ({ onScrollTo }) => {
-  const [msgIndex, setMsgIndex] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => {
-      setMsgIndex(prev => (prev + 1) % messages.length);
-    }, 2800);
-    return () => clearInterval(t);
-  }, []);
-
   return (
     <div className="home">
-      {/* Background orbs */}
-      <div className="orb orb-cyan"   style={{ width: 500, height: 500, top: '-100px', left: '200px', position: 'absolute' }} />
-      <div className="orb orb-orange" style={{ width: 350, height: 350, bottom: '50px', right: '200px', position: 'absolute' }} />
+      <div className="home-grid-bg" />
 
-      {/* Hero content */}
+      {/* Orbs */}
+      <div className="home-orb home-orb--cyan" />
+      <div className="home-orb home-orb--orange" />
+
       <div className="home-inner">
-        {/* Left */}
+        {/* ── LEFT ─────────────────────────────── */}
         <div className="home-left">
           <div className="home-type-row">
             <span className="type-prefix">~/</span>
@@ -143,12 +139,12 @@ const Home = ({ onScrollTo }) => {
           </div>
 
           <h1 className="home-name">
-            <span className="first">Kuldeep</span>
-            <span className="last">Agra<span className="accent">hari</span></span>
+            <span className="name-first">Kuldeep</span>
+            <span className="name-last">Agra<span className="name-accent">hari</span></span>
           </h1>
 
           <p className="home-tagline">
-            Building impactful, scalable web products — from database to deployment.
+            Building impactful, scalable products — from database to deployment.
             Passionate about clean code and meaningful user experiences.
           </p>
 
@@ -165,56 +161,58 @@ const Home = ({ onScrollTo }) => {
             >
               <FaDownload /> Resume
             </Link>
-            <button
-              className="btn-outline"
-              onClick={() => onScrollTo && onScrollTo('projects')}
-            >
+            <button className="btn-outline" onClick={() => onScrollTo?.('projects')}>
               Projects <HiArrowRight />
             </button>
           </div>
         </div>
 
-        {/* Right - Animated message card (desktop only) */}
+        {/* ── RIGHT — photo ────────────────────── */}
         <div className="home-right">
-          <div className="home-message-card">
-            <div style={{ width: 200, height: 200, top: '-60px', right: '-60px', position: 'absolute',
-              background: 'radial-gradient(circle, rgba(0,245,212,0.15) 0%, transparent 70%)',
-              filter: 'blur(40px)', borderRadius: '50%', pointerEvents: 'none' }} />
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={msgIndex}
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -30, opacity: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', position: 'relative', zIndex: 1 }}
-              >
-                <div className="home-message-icon">{messages[msgIndex].icon}</div>
-                <div className="home-message-text">{messages[msgIndex].text}</div>
-              </motion.div>
-            </AnimatePresence>
+          <div className="photo-frame">
+            {/* Decorative rings */}
+            <div className="photo-ring photo-ring--1" />
+            <div className="photo-ring photo-ring--2" />
+            <div className="photo-ring photo-ring--3" />
+
+            {/* Profile image */}
+            <div className="photo-inner">
+              {/* IMPORTANT: Rename your uploaded photo to "profile.png" in /public */}
+              <img src="profile.png" alt="Kuldeep Agrahari" className="photo-img" />
+              {/* Fallback initials if photo not found */}
+              <div className="photo-fallback">KA</div>
+            </div>
+
+            {/* Floating tech badges */}
+            {floatingBadges.map(({ Icon, label, color, style }) => (
+              <div className="photo-badge" key={label} style={style}>
+                <Icon style={{ color }} />
+                <span>{label}</span>
+              </div>
+            ))}
+
+            {/* Status dot */}
+            <div className="photo-status">
+              <span className="status-dot" />
+              Open to Work
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Stats strip — in document flow below hero */}
+      {/* ── Stats strip ──────────────────────── */}
       <div className="home-stats">
-        <div className="stat-item">
-          <span className="stat-number">3+</span>
-          <span className="stat-label">Years Coding</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">7+</span>
-          <span className="stat-label">Projects</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">1200+</span>
-          <span className="stat-label">DSA Problems</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">1400+</span>
-          <span className="stat-label">GitHub Contributions</span>
-        </div>
+        {[
+          { num: '3+',    label: 'Years Coding' },
+          { num: '7+',    label: 'Projects' },
+          { num: '1200+', label: 'DSA Problems' },
+          { num: '1400+', label: 'GitHub Contributions' },
+        ].map(({ num, label }) => (
+          <div className="stat-item" key={label}>
+            <span className="stat-number">{num}</span>
+            <span className="stat-label">{label}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

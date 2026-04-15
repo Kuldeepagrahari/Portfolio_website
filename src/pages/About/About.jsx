@@ -1,130 +1,141 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom';
-// import "./about.css"
-
-// import { FaWhatsapp } from "react-icons/fa6";
-// import { TfiEmail } from "react-icons/tfi";
-// import { FaRegAddressCard } from "react-icons/fa";
-// const About = () => {
-
-//   return (
-//     <div className='about'>
-//       {/* <video autoPlay loop muted>
-//         <source src="background.mp4" type="video/mp4" />
-//       </video> */}
-//       <div className="right">
-//         <img src="home-image.png" alt="pic" style={{ borderRadius: "50%", padding: "10px", backgroundColor: "white" }} />
-//       </div>
-//       <div className="left">
-//         <h1>About me</h1>
-//         <div className='about-content'>
-
-//           <p>
-//             <h2 style={{color:"white", fontWeight:"bold"}}>Consistently Creating with purpose, Growing with intent...</h2>
-//             I enjoy building impactful projects from scratch, both independently and collaboratively within a team. Additionally, I have a strong passion for problem-solving and constantly seek opportunities to challenge and improve my skills.
-
-//           </p>
-//         </div>
-//         <div className="personal-det">
-//           <div className="det whatsapp"><FaWhatsapp />
-//             <Link to="https://wa.me/8957298885?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services" 
-//              className='whatsapp-link'>Click to have a chat with me...</Link>
-//           </div>
-//           <div className="det"><TfiEmail />kuldeepagrahari9103@gmail.com</div>
-//           <div className="det"><FaRegAddressCard />Sarai Akil, Kaushambi, UP, India</div>
-//         </div>
-
-//       </div>
-
-//     </div>
-//   )
-// }
-
-// export default About
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
-import { HiMail, HiCode, HiLightningBolt, HiGlobe } from "react-icons/hi";
-import { MdSchool } from "react-icons/md";
+import { FaWhatsapp, FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiMail, HiExternalLink, HiLightningBolt } from "react-icons/hi";
+import { MdOutlineStorage, MdOutlineDevices, MdOutlineCode } from "react-icons/md";
+import { SiNodedotjs } from "react-icons/si";
 import "./about.css";
 
-const About = () => {
-  return (
-    <div className="about">
-      {/* Background orbs */}
-      <div className="orb orb-purple" style={{ width: 400, height: 400, top: 0, right: '-100px' }} />
-      <div className="orb orb-cyan" style={{ width: 300, height: 300, bottom: 0, left: '200px' }} />
+const whatIBuild = [
+  {
+    Icon: MdOutlineStorage,
+    title: 'Backend Systems',
+    desc: 'REST APIs, RBAC auth, Kafka pipelines, Redis caching — built for scale.',
+    accent: '#00f5d4',
+  },
+  {
+    Icon: MdOutlineDevices,
+    title: 'Full Stack Products',
+    desc: 'React dashboards to React Native apps, wired end-to-end with cloud infra.',
+    accent: '#ff4e00',
+  },
+  {
+    Icon: MdOutlineCode,
+    title: 'Systems & Automation',
+    desc: 'Real-time monitoring, CI/CD pipelines, hardware-software integration.',
+    accent: '#7b5ea7',
+  },
+];
 
-      <div className="about-inner">
-        {/* Left: visual */}
-        <div className="about-visual">
-          <div className="about-img-wrap">
-            <img src="home-image.png" alt="Kuldeep Agrahari" />
-          </div>
+const quickStats = [
+  { val: '1400+', desc: 'GitHub Commits' },
+  { val: '1200+', desc: 'DSA Problems'   },
+  { val: '2500+', desc: 'ERP Users'      },
+  { val: '20+',   desc: 'Mentored'       },
+];
 
-          <div className="about-facts">
-            <div className="fact-card">
-              <HiCode className="fact-icon" />
-              <span className="fact-label">Role</span>
-              <span className="fact-value">Full Stack Dev</span>
-            </div>
-            <div className="fact-card">
-              <MdSchool className="fact-icon" />
-              <span className="fact-label">Year</span>
-              <span className="fact-value">Final Year</span>
-            </div>
-            <div className="fact-card">
-              <HiGlobe className="fact-icon" />
-              <span className="fact-label">Location</span>
-              <span className="fact-value">Prayagraj, UP, India</span>
-            </div>
-            <div className="fact-card">
-              <HiLightningBolt className="fact-icon" />
-              <span className="fact-label">Status</span>
-              <span className="fact-value">Open to Work</span>
-            </div>
-          </div>
-        </div>
+const About = () => (
+  <div className="about">
+    <div className="about-orb about-orb--purple" />
+    <div className="about-orb about-orb--cyan"   />
 
-        {/* Right: content */}
-        <div className="about-content">
+    <div className="about-inner">
+
+      {/* ── HERO ──────────────────────────────── */}
+      <div className="about-hero">
+
+        {/* Left */}
+        <div className="about-left">
           <div className="section-chip">About Me</div>
 
           <h2 className="about-heading">
-            <span className="line1">Creating</span>
-            <span className="line2">With Purpose</span>
+            <span className="ah-solid">Creating</span>
+            <span className="ah-outline">With Purpose</span>
           </h2>
 
           <p className="about-bio">
-            I enjoy <strong>building impactful projects from scratch</strong>, both independently and
-            collaboratively within a team. I have a strong passion for problem-solving and
-            constantly seek opportunities to <strong>challenge and improve my skills</strong>.
-            I believe great software is born at the intersection of clean code, sharp design,
-            and a deep understanding of user needs.
+            Backend-focused engineer who ships full-stack products.
+            I've built software serving <strong>2500+ users</strong>, designed real-time drone
+            control systems, and contributed 1400+ commits on GitHub — all while solving
+            1200+ DSA problems to stay sharp. I care about <strong>clean architecture,
+            meaningful impact, and never stopping to learn</strong>.
           </p>
 
+          {/* Quick stats inline */}
+          <div className="about-stats">
+            {quickStats.map(({ val, desc }) => (
+              <div className="astat" key={desc}>
+                <span className="astat-val">{val}</span>
+                <span className="astat-desc">{desc}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Links */}
           <div className="about-links">
-            <Link
-              to="https://wa.me/8957298885?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services"
-              target="_blank"
-              className="about-link-item"
-            >
-              <FaWhatsapp className="link-icon" />
-              Click to have a chat with me on WhatsApp
+            <Link to="https://wa.me/8957298885" target="_blank" className="alink green">
+              <FaWhatsapp /> WhatsApp
             </Link>
-            <div className="about-link-item">
-              <HiMail className="link-icon" />
-              kuldeepagrahari9103@gmail.com
+            <a href="mailto:kuldeepagrahari9103@gmail.com" className="alink">
+              <HiMail /> Email
+            </a>
+            <a href="https://github.com/Kuldeepagrahari" target="_blank" rel="noopener noreferrer" className="alink">
+              <FaGithub /> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/kuldeep-agrahari-56b159260" target="_blank" rel="noopener noreferrer" className="alink">
+              <FaLinkedin /> LinkedIn
+            </a>
+          </div>
+        </div>
+
+        {/* Right — photo */}
+        <div className="about-right">
+          <div className="about-photo-frame">
+            <div className="apf-corner apf-tl" />
+            <div className="apf-corner apf-br" />
+            <img
+              src="profile.png"
+              alt="Kuldeep Agrahari"
+              className="about-photo"
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
+            {/* Floating badge */}
+            <div className="apf-badge">
+              <SiNodedotjs style={{ color: '#68a063', fontSize: '1.2rem' }} />
+              <div>
+                <div className="badge-t">Backend Engineer</div>
+                <div className="badge-s">Open to Roles · June 2026</div>
+              </div>
             </div>
-            <div className="about-link-item">
-              <FaMapMarkerAlt className="link-icon" />
-              Prayagraj, Uttar Pradesh, India
+            {/* Availability dot */}
+            <div className="apf-avail">
+              <span className="avail-dot" /> Available for hire
             </div>
           </div>
         </div>
       </div>
+
+      {/* ── WHAT I BUILD ──────────────────────── */}
+      <div className="about-build">
+        <div className="build-label">
+          <HiLightningBolt style={{ color: 'var(--cyan)' }} />
+          What I Build
+        </div>
+        <div className="build-grid">
+          {whatIBuild.map(({ Icon, title, desc, accent }) => (
+            <div className="build-card" key={title} style={{ '--a': accent }}>
+              <div className="bc-icon-wrap">
+                <Icon className="bc-icon" />
+              </div>
+              <h3 className="bc-title">{title}</h3>
+              <p className="bc-desc">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
-  );
-};
+  </div>
+);
 
 export default About;

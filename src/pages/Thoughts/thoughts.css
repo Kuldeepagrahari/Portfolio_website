@@ -1,0 +1,378 @@
+.thoughts {
+    position: relative;
+    min-height: 100vh;
+    background: var(--bg2);
+    padding: 80px 60px 80px 240px;
+    overflow: hidden;
+  }
+  
+  .tg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .tg-orb--cyan {
+    width: 400px; height: 400px;
+    top: -60px; right: 10%;
+    background: radial-gradient(circle, rgba(0,245,212,0.1) 0%, transparent 70%);
+  }
+  .tg-orb--orange {
+    width: 300px; height: 300px;
+    bottom: 100px; left: 280px;
+    background: radial-gradient(circle, rgba(255,78,0,0.08) 0%, transparent 70%);
+  }
+  
+  .thoughts-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  
+  /* ── Header ─────────────────────────────── */
+  .thoughts-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  
+  .thoughts-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  
+  .tt-solid   { display: block; color: var(--white); }
+  .tt-outline {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--cyan);
+  }
+  
+  .thoughts-subtitle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+    padding-top: 8px;
+    max-width: 260px;
+    text-align: right;
+  }
+  
+  /* ── Shared meta elements ───────────────── */
+  .tg-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tc, var(--cyan));
+    background: color-mix(in srgb, var(--tc, var(--cyan)) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--tc, var(--cyan)) 28%, transparent);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  
+  .tg-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  
+  .tg-date {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  
+  /* ── Featured card ──────────────────────── */
+  .tg-featured {
+    position: relative;
+    background: var(--bg3);
+    border: 1px solid color-mix(in srgb, var(--tc, var(--cyan)) 22%, transparent);
+    border-radius: 16px;
+    padding: 36px 36px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+  
+  .tg-featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--tc, var(--cyan)), transparent);
+  }
+  
+  .tg-featured:hover {
+    border-color: color-mix(in srgb, var(--tc, var(--cyan)) 40%, transparent);
+  }
+  
+  .tgf-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--tc, var(--cyan));
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  
+  .tgf-body {
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .tgf-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  
+  .tgf-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  
+  .tgf-excerpt {
+    font-size: 0.88rem;
+    color: rgba(240,240,250,0.6);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 22px;
+    max-width: 540px;
+  }
+  
+  .tg-read-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: color-mix(in srgb, var(--tc, var(--cyan)) 15%, transparent);
+    border: 1px solid color-mix(in srgb, var(--tc, var(--cyan)) 35%, transparent);
+    border-radius: 7px;
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--tc, var(--cyan));
+    cursor: pointer;
+    transition: all 0.22s ease;
+  }
+  
+  .tg-read-btn:hover {
+    background: var(--tc, var(--cyan));
+    color: var(--bg);
+  }
+  
+  /* Bg icon decoration */
+  .tgf-icon-wrap {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  .tgf-bg-icon {
+    font-size: 160px;
+    color: rgba(255,255,255,0.025);
+  }
+  
+  /* ── Cards grid ─────────────────────────── */
+  .thoughts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  
+  .tg-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.28s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+  }
+  
+  .tg-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--tc, var(--cyan));
+    opacity: 0;
+    transition: opacity 0.28s ease;
+  }
+  
+  .tg-card:hover {
+    border-color: color-mix(in srgb, var(--tc, var(--cyan)) 22%, transparent);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+  }
+  
+  .tg-card:hover::before { opacity: 1; }
+  
+  .tgc-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .tgc-icon-wrap {
+    width: 38px; height: 38px;
+    background: color-mix(in srgb, var(--tc, var(--cyan)) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--tc, var(--cyan)) 22%, transparent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .tgc-icon {
+    font-size: 1rem;
+    color: var(--tc, var(--cyan));
+  }
+  
+  .tgc-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .tgc-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.25;
+  }
+  
+  /* Excerpt hidden by default, revealed on expand */
+  .tgc-excerpt {
+    font-size: 0.78rem;
+    color: rgba(240,240,250,0.5);
+    line-height: 1.65;
+    font-weight: 300;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  
+  .tgc-excerpt.show {
+    max-height: 200px;
+  }
+  
+  .tgc-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .tgc-expand {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--tc, var(--cyan));
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    transition: gap 0.2s ease;
+  }
+  
+  .tgc-expand:hover { gap: 8px; }
+  
+  /* ── Bottom quote ───────────────────────── */
+  .thoughts-quote {
+    position: relative;
+    padding: 32px 36px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--cyan);
+    border-radius: 12px;
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-style: italic;
+    color: rgba(240,240,250,0.6);
+    letter-spacing: 0.02em;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .tq-mark {
+    font-size: 4rem;
+    line-height: 0.6;
+    color: var(--cyan);
+    font-family: var(--font-display);
+    opacity: 0.4;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .tq-attr {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    font-style: normal;
+    text-transform: uppercase;
+  }
+  
+  /* ── Responsive ─────────────────────────── */
+  @media (max-width: 1100px) {
+    .thoughts { padding: 80px 40px 80px 220px; }
+  }
+  
+  @media (max-width: 850px) {
+    .thoughts { padding: 80px 24px 60px 24px; }
+    .thoughts-header { flex-direction: column; }
+    .thoughts-subtitle { text-align: left; max-width: 100%; }
+    .thoughts-grid { grid-template-columns: 1fr; }
+    .tgf-icon-wrap { display: none; }
+  }

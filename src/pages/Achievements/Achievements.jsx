@@ -107,7 +107,7 @@ const achievements = [
 const extras = [
   {
     Icon: "tpc.png",
-    title: 'Technical Mentor',
+    title: 'Programming Mentor',
     description: 'Mentored 20+ students at BitByte Programming Club, IIITDMJ, focusing on DSA fundamentals and problem-solving strategies.',
     accent: '#00f5d4',
   },
