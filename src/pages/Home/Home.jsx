@@ -89,128 +89,201 @@
 
 // export default Home;
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Typewriter } from 'react-simple-typewriter';
-import { FaDownload } from "react-icons/fa";
-import { HiArrowRight } from "react-icons/hi";
+import { FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiArrowRight, HiCode } from "react-icons/hi";
 import {
-  SiNodedotjs, SiMongodb, SiPostgresql, SiDocker, SiExpress,
-  SiDjango, SiRedis, SiApachekafka, SiCplusplus
+  SiNodedotjs, SiMongodb, SiPostgresql, SiDocker,
+  SiApachekafka, SiRedis, SiPython
 } from "react-icons/si";
 import { RiReactjsLine } from "react-icons/ri";
-import { FaJsSquare, FaPython } from "react-icons/fa";
+import { FaJsSquare } from "react-icons/fa";
+import { SiCplusplus } from "react-icons/si";
 import "./home.css";
 
-const floatingBadges = [
-  { Icon: SiNodedotjs,   label: 'Node.js',    color: '#68a063', style: { top: '10%',  left: '-18%' } },
-  { Icon: RiReactjsLine, label: 'React',       color: '#61dafb', style: { top: '28%',  right: '-20%' } },
-  { Icon: SiMongodb,     label: 'MongoDB',     color: '#47a248', style: { bottom:'30%',left: '-22%' } },
-  { Icon: SiPostgresql,  label: 'PostgreSQL',  color: '#336791', style: { top: '60%',  right: '-18%' } },
-  { Icon: SiCplusplus,    label: 'C++',      color: '#2496ed', style: { bottom:'10%',left: '-10%' } },
-  { Icon: FaJsSquare,    label: 'JS',          color: '#f7df1e', style: { top: '5%',   right: '-8%'  } },
+/* ── Tech badges around the photo ──────── */
+const badges = [
+  { Icon: SiNodedotjs,   label: 'Node.js',    color: '#68a063', pos: { top: '8%',   left: '-22%'  } },
+  { Icon: RiReactjsLine, label: 'React',       color: '#61dafb', pos: { top: '24%',  right: '-22%' } },
+  { Icon: SiMongodb,     label: 'MongoDB',     color: '#47a248', pos: { bottom:'32%',left: '-24%'  } },
+  { Icon: SiPostgresql,  label: 'PostgreSQL',  color: '#336791', pos: { top: '58%',  right: '-20%' } },
+  { Icon: SiDocker,      label: 'Docker',      color: '#2496ed', pos: { bottom:'10%',left: '-12%'  } },
+  { Icon: FaJsSquare,    label: 'JS',          color: '#f7df1e', pos: { top: '4%',   right: '-10%' } },
+];
+
+/* ── Rotating focus tags ───────────────── */
+const focuses = [
+  { text: 'Backend Engineering',   color: '#00f5d4' },
+  { text: 'API Design',            color: '#ff4e00' },
+  { text: 'System Design',         color: '#7b5ea7' },
+  { text: 'Distributed Systems',   color: '#ffa116' },
+  { text: 'Problem Solving',       color: '#4a9eff' },
 ];
 
 const Home = ({ onScrollTo }) => {
+  const [focusIdx, setFocusIdx] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setFocusIdx(i => (i + 1) % focuses.length), 2400);
+    return () => clearInterval(t);
+  }, []);
+
+  const cur = focuses[focusIdx];
+
   return (
     <div className="home">
-      <div className="home-grid-bg" />
-
-      {/* Orbs */}
-      <div className="home-orb home-orb--cyan" />
-      <div className="home-orb home-orb--orange" />
+      <div className="home-grid" />
+      <div className="home-orb home-orb--c" />
+      <div className="home-orb home-orb--o" />
 
       <div className="home-inner">
-        {/* ── LEFT ─────────────────────────────── */}
+
+        {/* ── LEFT ─────────────────────────── */}
         <div className="home-left">
-          <div className="home-type-row">
-            <span className="type-prefix">~/</span>
-            <span className="type-text">
+
+          {/* Role line */}
+          <div className="home-role-row">
+            <span className="role-prefix">~/</span>
+            <span className="role-txt">
               <Typewriter
-                words={['Full Stack Developer', 'Backend Engineer', 'Software Engineer']}
-                loop={Infinity}
-                cursor
-                cursorStyle="_"
-                typeSpeed={90}
-                deleteSpeed={60}
-                delaySpeed={1500}
+                words={['Backend Engineer', 'Software Engineer', 'Full Stack Developer']}
+                loop={Infinity} cursor cursorStyle="_"
+                typeSpeed={80} deleteSpeed={55} delaySpeed={1800}
               />
             </span>
           </div>
 
+          {/* Name */}
           <h1 className="home-name">
-            <span className="name-first">Kuldeep</span>
-            <span className="name-last">Agra<span className="name-accent">hari</span></span>
+            <span className="hn-solid">Kuldeep</span>
+            <span className="hn-outline">Agra<span className="hn-accent">hari</span></span>
           </h1>
 
-          <p className="home-tagline">
-            Building impactful, scalable products — from database to deployment.
-            Passionate about clean code and meaningful user experiences.
-          </p>
-
-          <div className="home-college">
-            <span className="college-name">PDPM IIIT Jabalpur</span>
-            <span className="college-year">B.Tech CSE · 2022–2026 · Madhya Pradesh, India</span>
+          {/* Mobile-only: compact photo */}
+          <div className="home-photo-mobile">
+            <div className="hpm-ring" />
+            <img src="profile.png" alt="Kuldeep" className="hpm-img"
+              onError={e => e.target.style.display='none'} />
+            <div className="hpm-avail">
+              <span className="avail-dot" /> Open to Work
+            </div>
           </div>
 
-          <div className="home-cta-row">
+          {/* Tagline */}
+          <p className="home-tagline">
+            Building scalable backend systems — REST APIs, distributed pipelines,
+            and real-time infrastructure. Final-year CSE student shipping
+            production-grade software.
+          </p>
+
+          {/* Focus tag */}
+          <div className="home-focus-row">
+            <span className="focus-label">Currently focused on</span>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={focusIdx}
+                className="focus-tag"
+                style={{ color: cur.color, borderColor: cur.color + '44', background: cur.color + '14' }}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.3 }}
+              >
+                {cur.text}
+              </motion.span>
+            </AnimatePresence>
+          </div>
+
+          {/* College */}
+          <div className="home-college">
+            <span className="hc-name">PDPM IIIT Jabalpur</span>
+            <span className="hc-year">B.Tech CSE · 2022–2026 · India</span>
+          </div>
+
+          {/* CTAs */}
+          <div className="home-ctas">
             <Link
               to="https://drive.google.com/file/d/1kU14QelhblMZNnAsFZeEhax2v5hOOltf/view?usp=sharing"
-              target="_blank"
-              className="btn-primary"
+              target="_blank" className="cta-primary"
             >
               <FaDownload /> Resume
             </Link>
-            <button className="btn-outline" onClick={() => onScrollTo?.('projects')}>
-              Projects <HiArrowRight />
+            <button className="cta-outline" onClick={() => onScrollTo?.('projects')}>
+              Work <HiArrowRight />
             </button>
+            <a href="https://github.com/Kuldeepagrahari" target="_blank" rel="noopener noreferrer" className="cta-icon">
+              <FaGithub />
+            </a>
+            <a href="https://www.linkedin.com/in/kuldeep-agrahari-56b159260" target="_blank" rel="noopener noreferrer" className="cta-icon">
+              <FaLinkedin />
+            </a>
           </div>
+
+          {/* Mobile tech strip */}
+          <div className="home-tech-strip">
+            {[
+              { Icon: SiNodedotjs, c: '#68a063' },
+              { Icon: FaJsSquare,  c: '#f7df1e' },
+              { Icon: SiPostgresql,c: '#336791' },
+              { Icon: SiMongodb,   c: '#47a248' },
+              { Icon: SiDocker,    c: '#2496ed' },
+              { Icon: SiApachekafka,c:'#231f20' },
+              { Icon: SiRedis,     c: '#dc382d' },
+              { Icon: SiCplusplus, c: '#00599c' },
+              { Icon: SiPython,    c: '#3776ab' },
+            ].map(({ Icon, c }, i) => (
+              <div className="hts-item" key={i}>
+                <Icon style={{ color: c }} />
+              </div>
+            ))}
+          </div>
+
         </div>
 
-        {/* ── RIGHT — photo ────────────────────── */}
+        {/* ── RIGHT — photo (desktop) ──────── */}
         <div className="home-right">
           <div className="photo-frame">
-            {/* Decorative rings */}
-            <div className="photo-ring photo-ring--1" />
-            <div className="photo-ring photo-ring--2" />
-            <div className="photo-ring photo-ring--3" />
+            {/* Rings */}
+            <div className="pf-ring pf-ring--1" />
+            <div className="pf-ring pf-ring--2" />
 
-            {/* Profile image */}
-            <div className="photo-inner">
-              {/* IMPORTANT: Rename your uploaded photo to "profile.png" in /public */}
-              <img src="profile.png" alt="Kuldeep Agrahari" className="photo-img" />
-              {/* Fallback initials if photo not found */}
-              <div className="photo-fallback">KA</div>
+            {/* Photo */}
+            <div className="pf-photo">
+              <img src="profile.png" alt="Kuldeep Agrahari" className="pf-img"
+                onError={e => e.target.style.display='none'} />
+              <div className="pf-fallback">KA</div>
             </div>
 
-            {/* Floating tech badges */}
-            {floatingBadges.map(({ Icon, label, color, style }) => (
-              <div className="photo-badge" key={label} style={style}>
+            {/* Badges */}
+            {badges.map(({ Icon, label, color, pos }) => (
+              <div className="pf-badge" key={label} style={{ ...pos, '--bc': color }}>
                 <Icon style={{ color }} />
                 <span>{label}</span>
               </div>
             ))}
 
-            {/* Status dot */}
-            <div className="photo-status">
-              <span className="status-dot" />
-              Open to Work
+            {/* Status */}
+            <div className="pf-status">
+              <span className="avail-dot" /> Open to Work · Jun 2026
             </div>
           </div>
         </div>
+
       </div>
 
-      {/* ── Stats strip ──────────────────────── */}
+      {/* ── Stats ────────────────────────── */}
       <div className="home-stats">
         {[
-          { num: '3+',    label: 'Years Coding' },
-          { num: '7+',    label: 'Projects' },
-          { num: '1200+', label: 'DSA Problems' },
-          { num: '1400+', label: 'GitHub Contributions' },
-        ].map(({ num, label }) => (
-          <div className="stat-item" key={label}>
-            <span className="stat-number">{num}</span>
-            <span className="stat-label">{label}</span>
+          { n: '3+',    l: 'Years Coding'         },
+          { n: '7+',    l: 'Projects Shipped'      },
+          { n: '1200+', l: 'DSA Problems'          },
+          { n: '1400+', l: 'GitHub Contributions'  },
+        ].map(({ n, l }) => (
+          <div className="hstat" key={l}>
+            <span className="hstat-n">{n}</span>
+            <span className="hstat-l">{l}</span>
           </div>
         ))}
       </div>

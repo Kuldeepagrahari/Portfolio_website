@@ -2,26 +2,27 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  HiHome, HiUser, HiAcademicCap, HiCode, HiCube,
-  HiStar, HiMail, HiShare, HiDownload, HiPencil
+  HiHome, HiUser, HiCode, HiCube, HiStar,
+  HiAcademicCap, HiPencil, HiMail, HiShare, HiDownload
 } from "react-icons/hi";
 import "./nav.css";
 
+/* ── Section order: optimised for hiring manager scroll ── */
 const navItems = [
-  { id: "home",         label: "Home",         Icon: HiHome },
-  { id: "about",        label: "About",        Icon: HiUser },
-  { id: "education",    label: "Education",    Icon: HiAcademicCap },
-  { id: "skills",       label: "Skills",       Icon: HiCode },
-  { id: "projects",     label: "Work",         Icon: HiCube },
-  { id: "achievements", label: "Achievements", Icon: HiStar },
-  { id: "thoughts",     label: "Thoughts",     Icon: HiPencil },
-  { id: "contact",      label: "Contact",      Icon: HiMail },
-  { id: "follow",       label: "Follow",       Icon: HiShare },
+  { id: "home",         label: "Home",        Icon: HiHome         },
+  { id: "about",        label: "About",       Icon: HiUser         },
+  { id: "projects",     label: "Work",        Icon: HiCube         }, // Projects + Experience
+  { id: "skills",       label: "Skills",      Icon: HiCode         },
+  { id: "achievements", label: "Wins",        Icon: HiStar         },
+  { id: "education",    label: "Education",   Icon: HiAcademicCap  },
+  { id: "thoughts",     label: "Dev Notes",   Icon: HiPencil       },
+  { id: "contact",      label: "Contact",     Icon: HiMail         },
+  { id: "follow",       label: "Follow",      Icon: HiShare        },
 ];
 
 const Nav = ({ onScrollTo }) => {
-  const [active, setActive]   = useState("home");
-  const [mobile, setMobile]   = useState(window.innerWidth <= 850);
+  const [active,   setActive]   = useState("home");
+  const [mobile,   setMobile]   = useState(window.innerWidth <= 850);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -30,11 +31,7 @@ const Nav = ({ onScrollTo }) => {
     return () => window.removeEventListener("resize", r);
   }, []);
 
-  const go = (id) => {
-    setActive(id);
-    onScrollTo(id);
-    setMenuOpen(false);
-  };
+  const go = (id) => { setActive(id); onScrollTo(id); setMenuOpen(false); };
 
   return (
     <>
@@ -43,7 +40,7 @@ const Nav = ({ onScrollTo }) => {
         <nav className="nav">
           <div className="nav-logo-wrap">
             <img src="my_logo3.png" alt="logo" className="nav-logo"
-              onError={(e) => { e.target.style.display='none'; }} />
+              onError={e => e.target.style.display='none'} />
             <span className="nav-wordmark">Kuldeep<span>A</span>.</span>
           </div>
 
@@ -61,8 +58,7 @@ const Nav = ({ onScrollTo }) => {
           <div className="nav-bottom">
             <Link
               to="https://drive.google.com/file/d/1kU14QelhblMZNnAsFZeEhax2v5hOOltf/view?usp=sharing"
-              target="_blank"
-              className="nav-resume-btn"
+              target="_blank" className="nav-resume-btn"
             >
               <HiDownload /> Resume
             </Link>
@@ -72,11 +68,7 @@ const Nav = ({ onScrollTo }) => {
 
       {/* Mobile hamburger */}
       {mobile && (
-        <button
-          className="hamburger"
-          onClick={() => setMenuOpen(p => !p)}
-          aria-label="Toggle menu"
-        >
+        <button className="hamburger" onClick={() => setMenuOpen(p => !p)} aria-label="Toggle menu">
           <div className={`bar ${menuOpen ? "open" : ""}`} />
           <div className={`bar ${menuOpen ? "open" : ""}`} />
           <div className={`bar ${menuOpen ? "open" : ""}`} />
@@ -86,26 +78,25 @@ const Nav = ({ onScrollTo }) => {
       {/* Mobile overlay */}
       <AnimatePresence>
         {menuOpen && mobile && (
-          <motion.div
+          <motion.ul
             className="nav-mobile-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.22 }}
+            transition={{ duration: 0.2 }}
           >
             {navItems.map(({ id, label }, i) => (
-              <motion.li
-                key={id}
+              <motion.li key={id}
                 className={active === id ? "active" : ""}
-                initial={{ opacity: 0, x: -24 }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -16 }}
-                transition={{ delay: i * 0.04, duration: 0.18 }}
+                exit={{ opacity: 0, x: -14 }}
+                transition={{ delay: i * 0.04, duration: 0.16 }}
               >
                 <button onClick={() => go(id)}>{label}</button>
               </motion.li>
             ))}
-          </motion.div>
+          </motion.ul>
         )}
       </AnimatePresence>
     </>

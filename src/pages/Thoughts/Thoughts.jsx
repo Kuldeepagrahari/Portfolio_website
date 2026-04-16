@@ -1,81 +1,147 @@
-import React, { useState } from 'react';
-import { HiArrowRight, HiClock, HiTag } from 'react-icons/hi';
+import React, { useState, useEffect, useCallback } from 'react';
+import { HiX, HiClock, HiTag, HiCode } from 'react-icons/hi';
 import { FaRocket, FaBrain, FaCode, FaTools, FaLightbulb, FaServer } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import learningMap from './learnings/index';   // adjust path to match your folder structure
 import './thoughts.css';
 
 const thoughts = [
   {
     id: 1,
-    icon: FaServer,
-    tag: 'Backend',
-    tagColor: '#00f5d4',
-    date: 'Apr 2025',
-    readTime: '3 min',
-    title: 'Why I Choose Node.js for Scalable APIs',
-    excerpt: 'Event-driven, non-blocking I/O isn\'t just a buzzword. After building 15+ REST APIs across multiple projects, here\'s what I\'ve learned about when Node.js shines — and when it doesn\'t.',
-    featured: true,
+    Icon: FaServer,
+    tag: 'System Design',   tagColor: '#00f5d4',
+    date: 'Apr 2025',       readTime: '5 min',
+    title: 'What Happens When You Press Enter?',
+    excerpt: 'DNS, TCP, TLS, CDN, Load Balancer, Reverse Proxy, App Server, DB — up to 11 layers between you and a response. Interactive breakdown with clickable steps.',
+    hasContent: true,
   },
   {
     id: 2,
-    icon: FaBrain,
-    tag: 'DSA',
-    tagColor: '#ffa116',
-    date: 'Mar 2025',
-    readTime: '4 min',
-    title: 'Solving 1200+ Problems Taught Me This',
-    excerpt: 'Pattern recognition over memorization. After grinding LeetCode, GFG and CodeChef for 2+ years, the real insight wasn\'t the algorithms — it was how to think about problems differently.',
-    featured: false,
+    Icon: FaBrain,
+    tag: 'Backend',         tagColor: '#ff4e00',
+    date: 'Mar 2025',       readTime: '4 min',
+    title: 'Why I Choose Node.js for REST APIs',
+    excerpt: 'Event-driven, non-blocking I/O vs thread-per-request. After building APIs in both Node.js and Django, here\'s an honest comparison with my own decision framework.',
+    hasContent: true,
   },
   {
     id: 3,
-    icon: FaTools,
-    tag: 'DevOps',
-    tagColor: '#2bb600',
-    date: 'Feb 2025',
-    readTime: '2 min',
-    title: 'Docker Changed How I Think About Deployment',
-    excerpt: '"Works on my machine" is a solved problem. Containerization isn\'t just about deployment — it\'s a mindset shift towards reproducibility and environment parity.',
-    featured: false,
+    Icon: FaBrain,
+    tag: 'DSA',             tagColor: '#ffa116',
+    date: 'Feb 2025',       readTime: '3 min',
+    title: '1200 Problems Taught Me: Pattern > Memorization',
+    excerpt: 'Sliding window, two pointers, monotonic stack, union-find — recognising the pattern family of a problem is 80% of the solution. A structured approach to DSA that actually works.',
+    hasContent: false,
   },
   {
     id: 4,
-    icon: FaCode,
-    tag: 'Architecture',
-    tagColor: '#7b5ea7',
-    date: 'Jan 2025',
-    readTime: '5 min',
-    title: 'RBAC Design Patterns That Actually Work',
-    excerpt: 'After implementing role-based access control for an ERP serving 2500+ users, I learned that permissions are rarely simple. Here\'s the pattern I\'d use again.',
-    featured: false,
+    Icon: FaTools,
+    tag: 'DevOps',          tagColor: '#2bb600',
+    date: 'Jan 2025',       readTime: '2 min',
+    title: 'Docker: From "Works on My Machine" to Reproducibility',
+    excerpt: 'Containerisation isn\'t just a deployment tool — it\'s a mindset shift. How thinking in containers changed the way I reason about dependencies and environments.',
+    hasContent: false,
   },
   {
     id: 5,
-    icon: FaRocket,
-    tag: 'Projects',
-    tagColor: '#ff4e00',
-    date: 'Dec 2024',
-    readTime: '4 min',
-    title: 'Building a Real-Time Drone Control System',
-    excerpt: 'When hardware meets software, latency becomes personal. Lessons from integrating a React Native app with Raspberry Pi hardware through an Express.js backend.',
-    featured: false,
+    Icon: FaCode,
+    tag: 'Architecture',    tagColor: '#7b5ea7',
+    date: 'Dec 2024',       readTime: '5 min',
+    title: 'RBAC That Actually Scales: Lessons from Fusion ERP',
+    excerpt: 'After implementing 4-role access control for a 22-module ERP used by 2500+ users, I learned that permissions are rarely simple. The pattern I\'d use again.',
+    hasContent: false,
   },
   {
     id: 6,
-    icon: FaLightbulb,
-    tag: 'Learning',
-    tagColor: '#4a9eff',
-    date: 'Nov 2024',
-    readTime: '3 min',
-    title: 'Kafka: From Concept to Production Pipeline',
-    excerpt: 'Message queues sound simple until you\'re processing 1000+ packets per minute. My experience building a streaming architecture for a network monitoring system.',
-    featured: false,
+    Icon: FaRocket,
+    tag: 'Distributed',     tagColor: '#ff6b6b',
+    date: 'Nov 2024',       readTime: '4 min',
+    title: 'Kafka: Moving from HTTP Polling to Event Streaming',
+    excerpt: 'Processing 1000+ network packets/min. How I went from "why not just poll?" to understanding when event streaming genuinely solves a problem HTTP can\'t.',
+    hasContent: false,
   },
 ];
 
+/* ── Modal component ─────────────────────── */
+const ThoughtModal = ({ thought, onClose }) => {
+  const LearningComponent = learningMap[thought.id];
+
+  // Close on ESC
+  useEffect(() => {
+    const handler = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handler);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handler);
+      document.body.style.overflow = '';
+    };
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className="tmodal-backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.22 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="tmodal"
+        initial={{ opacity: 0, y: 40, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 24, scale: 0.97 }}
+        transition={{ duration: 0.28, ease: 'easeOut' }}
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="tmodal-header" style={{ '--tc': thought.tagColor }}>
+          <div className="tmodal-meta">
+            <span className="tmodal-tag">
+              <HiTag /> {thought.tag}
+            </span>
+            <span className="tmodal-time"><HiClock /> {thought.readTime} read</span>
+            <span className="tmodal-date">{thought.date}</span>
+          </div>
+          <button className="tmodal-close" onClick={onClose} aria-label="Close">
+            <HiX />
+          </button>
+        </div>
+
+        <h2 className="tmodal-title">{thought.title}</h2>
+
+        {/* Divider */}
+        <div className="tmodal-divider" style={{ background: thought.tagColor }} />
+
+        {/* Content */}
+        <div className="tmodal-body">
+          {LearningComponent ? (
+            <LearningComponent />
+          ) : (
+            <div className="tmodal-coming-soon">
+              <HiCode className="tcs-icon" />
+              <div className="tcs-title">Draft in Progress</div>
+              <p className="tcs-desc">
+                This learning note is still being written. The excerpt above covers the core idea —
+                the full interactive version is coming soon.
+              </p>
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+/* ── Main Thoughts component ─────────────── */
 const Thoughts = () => {
-  const [expanded, setExpanded] = useState(null);
-  const featured = thoughts.find(t => t.featured);
-  const rest = thoughts.filter(t => !t.featured);
+  const [modalThought, setModalThought] = useState(null);
+
+  const open  = useCallback((t) => setModalThought(t), []);
+  const close = useCallback(() => setModalThought(null), []);
+
+  const featured = thoughts[0];
+  const rest = thoughts.slice(1);
 
   return (
     <div className="thoughts">
@@ -87,88 +153,85 @@ const Thoughts = () => {
         {/* Header */}
         <div className="thoughts-header">
           <div>
-            <div className="section-chip">Writing</div>
+            <div className="section-chip">Engineering Notes</div>
             <h2 className="thoughts-title">
-              <span className="tt-solid">Thoughts</span>
-              <span className="tt-outline">&amp; Insights</span>
+              <span className="tt-solid">Dev</span>
+              <span className="tt-outline">Notes</span>
             </h2>
           </div>
-          <p className="thoughts-subtitle">
-            Things I've learned building real systems —<br />
-            no fluff, just honest engineering notes.
+          <p className="thoughts-sub">
+            Things I've built, broken, and understood —<br />
+            honest notes from real projects.
           </p>
         </div>
 
-        {/* Featured post */}
-        {featured && (
-          <div className="tg-featured" style={{ '--tc': featured.tagColor }}>
-            <div className="tgf-label">
-              <featured.icon /> Featured
-            </div>
-            <div className="tgf-body">
+        {/* Featured */}
+        <div
+          className="tg-featured"
+          style={{ '--tc': featured.tagColor }}
+          onClick={() => open(featured)}
+        >
+          <div className="tgf-inner">
+            <div className="tgf-left">
+              <div className="tgf-label"><featured.Icon /> Featured</div>
               <div className="tgf-meta">
-                <span className="tg-tag" style={{ '--tc': featured.tagColor }}>
-                  <HiTag /> {featured.tag}
-                </span>
-                <span className="tg-time"><HiClock /> {featured.readTime} read</span>
+                <span className="tg-tag" style={{ '--tc': featured.tagColor }}><HiTag /> {featured.tag}</span>
+                <span className="tg-time"><HiClock /> {featured.readTime}</span>
                 <span className="tg-date">{featured.date}</span>
               </div>
               <h3 className="tgf-title">{featured.title}</h3>
               <p className="tgf-excerpt">{featured.excerpt}</p>
-              <button className="tg-read-btn" style={{ '--tc': featured.tagColor }}>
-                Read More <HiArrowRight />
+              <button className="tg-readmore" style={{ '--tc': featured.tagColor }}>
+                Open & Read →
               </button>
             </div>
             <div className="tgf-icon-wrap">
-              <featured.icon className="tgf-bg-icon" />
+              <featured.Icon className="tgf-bg-icon" />
             </div>
           </div>
-        )}
+        </div>
 
-        {/* Rest grid */}
+        {/* Grid */}
         <div className="thoughts-grid">
-          {rest.map(({ id, icon: Icon, tag, tagColor, date, readTime, title, excerpt }) => (
+          {rest.map((t) => (
             <div
-              className={`tg-card ${expanded === id ? 'expanded' : ''}`}
-              key={id}
-              style={{ '--tc': tagColor }}
+              className="tg-card"
+              key={t.id}
+              style={{ '--tc': t.tagColor }}
+              onClick={() => open(t)}
             >
               <div className="tgc-top">
-                <div className="tgc-icon-wrap">
-                  <Icon className="tgc-icon" />
-                </div>
+                <div className="tgc-icon"><t.Icon /></div>
                 <div className="tgc-meta">
-                  <span className="tg-tag" style={{ '--tc': tagColor }}>
-                    <HiTag /> {tag}
-                  </span>
-                  <span className="tg-time"><HiClock /> {readTime}</span>
+                  <span className="tg-tag" style={{ '--tc': t.tagColor }}><HiTag /> {t.tag}</span>
+                  {!t.hasContent && <span className="tgc-draft">Draft</span>}
                 </div>
               </div>
-
-              <h3 className="tgc-title">{title}</h3>
-              <p className={`tgc-excerpt ${expanded === id ? 'show' : ''}`}>{excerpt}</p>
-
+              <h3 className="tgc-title">{t.title}</h3>
+              <p className="tgc-excerpt">{t.excerpt}</p>
               <div className="tgc-footer">
-                <span className="tg-date">{date}</span>
-                <button
-                  className="tgc-expand"
-                  onClick={() => setExpanded(expanded === id ? null : id)}
-                >
-                  {expanded === id ? 'Collapse' : 'Read more'} <HiArrowRight />
-                </button>
+                <span className="tg-time"><HiClock /> {t.readTime}</span>
+                <button className="tgc-open">Open →</button>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom quote */}
+        {/* Quote */}
         <div className="thoughts-quote">
           <span className="tq-mark">"</span>
-          The best code is the code you delete. The best systems are the ones that don't need you.
+          The best way to learn backend engineering is to build systems that break — then fix them.
           <span className="tq-attr">— Something I believe</span>
         </div>
 
       </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {modalThought && (
+          <ThoughtModal thought={modalThought} onClose={close} />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
