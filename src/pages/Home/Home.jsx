@@ -106,20 +106,19 @@ import "./home.css";
 /* ── Tech badges around the photo ──────── */
 const badges = [
   { Icon: SiNodedotjs,   label: 'Node.js',    color: '#68a063', pos: { top: '8%',   left: '-22%'  } },
-  { Icon: RiReactjsLine, label: 'React',       color: '#61dafb', pos: { top: '24%',  right: '-22%' } },
-  { Icon: SiMongodb,     label: 'MongoDB',     color: '#47a248', pos: { bottom:'32%',left: '-24%'  } },
-  { Icon: SiPostgresql,  label: 'PostgreSQL',  color: '#336791', pos: { top: '58%',  right: '-20%' } },
-  { Icon: SiDocker,      label: 'Docker',      color: '#2496ed', pos: { bottom:'10%',left: '-12%'  } },
-  { Icon: FaJsSquare,    label: 'JS',          color: '#f7df1e', pos: { top: '4%',   right: '-10%' } },
+  { Icon: SiPostgresql,  label: 'PostgreSQL', color: '#336791', pos: { top: '24%',  right: '-22%' } },
+  { Icon: SiMongodb,     label: 'MongoDB',    color: '#47a248', pos: { bottom:'32%',left: '-24%'  } },
+  { Icon: SiApachekafka, label: 'Kafka',      color: '#231f20', pos: { top: '58%',  right: '-20%' } },
+  { Icon: SiRedis,       label: 'Redis',      color: '#dc382d', pos: { bottom:'10%',left: '-12%'  } },
+  { Icon: SiDocker,      label: 'Docker',     color: '#2496ed', pos: { top: '4%',   right: '-10%' } },
 ];
 
 /* ── Rotating focus tags ───────────────── */
 const focuses = [
-  { text: 'Backend Engineering',   color: '#00f5d4' },
-  { text: 'API Design',            color: '#ff4e00' },
-  { text: 'System Design',         color: '#7b5ea7' },
-  { text: 'Distributed Systems',   color: '#ffa116' },
-  { text: 'Problem Solving',       color: '#4a9eff' },
+  { text: 'Backend Development', color: '#00f5d4' },
+  { text: 'APIs & Data Flow',    color: '#ff4e00' },
+  { text: 'Problem Solving',     color: '#4a9eff' },
+  { text: 'System Fundamentals', color: '#7b5ea7' },
 ];
 
 const Home = ({ onScrollTo }) => {
@@ -148,7 +147,7 @@ const Home = ({ onScrollTo }) => {
             <span className="role-prefix">~/</span>
             <span className="role-txt">
               <Typewriter
-                words={['Backend Engineer', 'Software Engineer', 'Full Stack Developer']}
+                words={['Backend Developer', 'Software Engineer']}
                 loop={Infinity} cursor cursorStyle="_"
                 typeSpeed={80} deleteSpeed={55} delaySpeed={1800}
               />
@@ -173,9 +172,8 @@ const Home = ({ onScrollTo }) => {
 
           {/* Tagline */}
           <p className="home-tagline">
-            Building scalable backend systems — REST APIs, distributed pipelines,
-            and real-time infrastructure. Final-year CSE student shipping
-            production-grade software.
+          Backend-focused developer working on APIs, real-time systems, and data processing. 
+          Final-year CSE student building and learning through hands-on projects.
           </p>
 
           {/* Focus tag */}
@@ -224,15 +222,12 @@ const Home = ({ onScrollTo }) => {
           {/* Mobile tech strip */}
           <div className="home-tech-strip">
             {[
-              { Icon: SiNodedotjs, c: '#68a063' },
-              { Icon: FaJsSquare,  c: '#f7df1e' },
-              { Icon: SiPostgresql,c: '#336791' },
-              { Icon: SiMongodb,   c: '#47a248' },
-              { Icon: SiDocker,    c: '#2496ed' },
-              { Icon: SiApachekafka,c:'#231f20' },
-              { Icon: SiRedis,     c: '#dc382d' },
-              { Icon: SiCplusplus, c: '#00599c' },
-              { Icon: SiPython,    c: '#3776ab' },
+              { Icon: SiNodedotjs,   c: '#68a063' },
+              { Icon: SiPostgresql,  c: '#336791' },
+              { Icon: SiMongodb,     c: '#47a248' },
+              { Icon: SiApachekafka, c: '#231f20' },
+              { Icon: SiRedis,       c: '#dc382d' },
+              { Icon: SiDocker,      c: '#2496ed' },
             ].map(({ Icon, c }, i) => (
               <div className="hts-item" key={i}>
                 <Icon style={{ color: c }} />
@@ -266,7 +261,7 @@ const Home = ({ onScrollTo }) => {
 
             {/* Status */}
             <div className="pf-status">
-              <span className="avail-dot" /> Open to Work · Jun 2026
+              <span className="avail-dot" /> Open to Opportunities · Available June 2026
             </div>
           </div>
         </div>

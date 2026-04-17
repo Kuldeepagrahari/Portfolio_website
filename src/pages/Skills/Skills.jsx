@@ -15,6 +15,8 @@ import { FaJsSquare, FaLinux, FaAws, FaMobileAlt } from 'react-icons/fa';
 import { TbApi } from "react-icons/tb";
 import { HiDatabase, HiCode } from "react-icons/hi";
 import { MdOutlineDesignServices } from "react-icons/md";
+import { SiTailwindcss } from "react-icons/si";
+import { HiOutlineSquares2X2 } from "react-icons/hi2"; // for shadcn (no official icon)
 import "./skills.css";
 
 /* ─── Categories (from resume) ──────────── */
@@ -33,18 +35,19 @@ const CATEGORIES = {
     { Icon: TbBrandNodejs,  name: 'Node.js',       note: 'Primary runtime'    },
     { Icon: SiExpress,       name: 'Express.js',    note: 'REST / Middleware'  },
     { Icon: SiDjango,        name: 'Django',        note: 'Python web fw'      },
-    { Icon: TbApi,           name: 'REST APIs',     note: 'Design & Testing'   },
+    { Icon: TbApi, name: 'API Design', note: 'Design, validation & integration' },
     { Icon: SiJsonwebtokens, name: 'JWT / Auth',    note: 'Secure auth flows'  },
     { Icon: HiCode,          name: 'RBAC',          note: 'Role-based access'  },
     { Icon: MdOutlineDesignServices, name: 'MVC',   note: 'Architecture'       },
   ],
   frontend: [
-    { Icon: RiReactjsLine,  name: 'React.js',      note: 'SPA & components'   },
-    { Icon: FaJsSquare,     name: 'JavaScript',    note: 'ES6+'               },
-    { Icon: ImHtmlFive2,    name: 'HTML5',         note: 'Semantic markup'    },
-    { Icon: TbBrandCss3,    name: 'CSS3',          note: 'Responsive layouts' },
-    { Icon: RiBootstrapLine,name: 'Bootstrap',     note: 'UI framework'       },
-    { Icon: FaMobileAlt,    name: 'React Native',  note: 'Mobile dev (Expo)'  },
+    { Icon: RiReactjsLine,   name: 'React.js',      note: 'Component-based UI'     },
+    { Icon: FaJsSquare,      name: 'JavaScript',    note: 'ES6+'                  },
+    { Icon: ImHtmlFive2,     name: 'HTML5',         note: 'Semantic markup'       },
+    { Icon: TbBrandCss3,     name: 'CSS3',          note: 'Responsive layouts'    },
+    { Icon: SiTailwindcss,   name: 'Tailwind CSS',  note: 'Utility-first styling' },
+    { Icon: HiOutlineSquares2X2, name: 'shadcn/ui', note: 'Reusable UI components'},
+    { Icon: FaMobileAlt,     name: 'React Native',  note: 'Mobile (Expo)'         },
   ],
   database: [
     { Icon: SiMongodb,      name: 'MongoDB',       note: 'Document store'     },
@@ -236,9 +239,12 @@ const Skills = () => {
         {/* Soft skills */}
         <div className="soft-strip">
           {[
-            'Backend Engineering', 'API Design', 'System Design',
-            'Data Structures & Algorithms', 'Distributed Systems',
-            'Communication & Leadership', 'Fast Learner',
+            'Backend Development',
+            'API Design',
+            'System Fundamentals',
+            'Data Structures & Algorithms',
+            'Distributed Systems',
+            'Debugging & Problem Solving',
           ].map(s => <span className="soft-tag" key={s}>{s}</span>)}
         </div>
 

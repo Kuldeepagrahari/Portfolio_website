@@ -45,10 +45,10 @@ const marqueeItems = [
 const marqueeTrack = [...marqueeItems, ...marqueeItems];
 
 const socialLinks = [
-  { Icon: FaGithub,         href: "https://github.com/Kuldeepagrahari",                    label: "GitHub" },
-  { Icon: FaSquareXTwitter, href: "https://x.com/kuldeep_106",                             label: "Twitter/X" },
-  { Icon: FaLinkedin,       href: "https://www.linkedin.com/in/kuldeep-agrahari-56b159260", label: "LinkedIn" },
-  { Icon: FaYoutube,        href: "https://www.youtube.com/@0x0Kuldeep",                   label: "YouTube" },
+  { Icon: FaGithub, href: "https://github.com/Kuldeepagrahari", label: "GitHub" },
+  { Icon: FaSquareXTwitter, href: "https://x.com/kuldeep_106", label: "Twitter/X" },
+  { Icon: FaLinkedin, href: "https://www.linkedin.com/in/Kuldeepagrahari", label: "LinkedIn" },
+  { Icon: FaYoutube, href: "https://www.youtube.com/@BeSWE", label: "YouTube" },
 ];
 
 const Footer = () => {

@@ -1,78 +1,103 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { HiX, HiClock, HiTag, HiCode } from 'react-icons/hi';
-import { FaRocket, FaBrain, FaCode, FaTools, FaLightbulb, FaServer } from 'react-icons/fa';
+import { FaServer, FaBrain, FaCode, FaTools, FaBug, FaProjectDiagram } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import learningMap from './learnings/index';   // adjust path to match your folder structure
+import learningMap from './learnings/index';
 import './thoughts.css';
 
+/* ─────────────────────────────────────────────────────────────────
+   THOUGHTS ARRAY
+   Tone rules:
+     - Sounds like a learner building things, not an expert explaining
+     - No "at scale", "production-grade", "enterprise-level"
+     - Grounded in actual project experience
+     - Titles are observations or questions, not claims
+   ───────────────────────────────────────────────────────────────── */
 const thoughts = [
   {
     id: 1,
     Icon: FaServer,
-    tag: 'System Design',   tagColor: '#00f5d4',
-    date: 'Apr 2025',       readTime: '5 min',
-    title: 'What Happens When You Press Enter?',
-    excerpt: 'DNS, TCP, TLS, CDN, Load Balancer, Reverse Proxy, App Server, DB — up to 11 layers between you and a response. Interactive breakdown with clickable steps.',
+    tag: 'System Design',
+    tagColor: '#00f5d4',
+    date: 'Apr 2026',
+    readTime: '5 min',
+    title: 'What Actually Happens After You Press Enter?',
+    excerpt:
+      "I traced a request end-to-end — DNS, TCP, TLS, reverse proxy, app server, database — while debugging a slow API. Eleven layers, each adding latency I hadn't thought about.",
     hasContent: true,
   },
   {
     id: 2,
-    Icon: FaBrain,
-    tag: 'Backend',         tagColor: '#ff4e00',
-    date: 'Mar 2025',       readTime: '4 min',
-    title: 'Why I Choose Node.js for REST APIs',
-    excerpt: 'Event-driven, non-blocking I/O vs thread-per-request. After building APIs in both Node.js and Django, here\'s an honest comparison with my own decision framework.',
+    Icon: FaCode,
+    tag: 'Backend',
+    tagColor: '#ff4e00',
+    date: 'Mar 2025',
+    readTime: '4 min',
+    title: 'Node.js vs Django: What I Noticed Building Both',
+    excerpt:
+      'I built REST APIs in both. Node\'s event loop handles concurrent I/O cheaply; Django felt more structured for data-heavy routes. Neither is universally better — depends on what you\'re building.',
     hasContent: true,
   },
   {
     id: 3,
     Icon: FaBrain,
-    tag: 'DSA',             tagColor: '#ffa116',
-    date: 'Feb 2025',       readTime: '3 min',
-    title: '1200 Problems Taught Me: Pattern > Memorization',
-    excerpt: 'Sliding window, two pointers, monotonic stack, union-find — recognising the pattern family of a problem is 80% of the solution. A structured approach to DSA that actually works.',
+    tag: 'DSA',
+    tagColor: '#ffa116',
+    date: 'yet to release...',
+    readTime: 'NA',
+    title: '1200+ Problems Later: Patterns Matter More Than Solutions',
+    excerpt:
+      'I stopped memorising solutions and started noticing problem families. Sliding window, monotonic stack, union-find — once you see the pattern, the solution almost writes itself.',
     hasContent: false,
   },
   {
     id: 4,
-    Icon: FaTools,
-    tag: 'DevOps',          tagColor: '#2bb600',
-    date: 'Jan 2025',       readTime: '2 min',
-    title: 'Docker: From "Works on My Machine" to Reproducibility',
-    excerpt: 'Containerisation isn\'t just a deployment tool — it\'s a mindset shift. How thinking in containers changed the way I reason about dependencies and environments.',
+    Icon: FaProjectDiagram,
+    tag: 'Architecture',
+    tagColor: '#7b5ea7',
+    date: 'yet to release...',
+    readTime: 'NA',
+    title: 'Designing Role-Based Access for Multiple User Types',
+    excerpt:
+      'While building the Fusion ERP exam module, I had to handle four different user roles with conflicting permissions. What looked like a simple if-else problem turned into a proper access-control design exercise.',
     hasContent: false,
   },
   {
     id: 5,
-    Icon: FaCode,
-    tag: 'Architecture',    tagColor: '#7b5ea7',
-    date: 'Dec 2024',       readTime: '5 min',
-    title: 'RBAC That Actually Scales: Lessons from Fusion ERP',
-    excerpt: 'After implementing 4-role access control for a 22-module ERP used by 2500+ users, I learned that permissions are rarely simple. The pattern I\'d use again.',
+    Icon: FaBug,
+    tag: 'Debugging',
+    tagColor: '#ff6b6b',
+    date: 'yet to release...',
+    readTime: 'NA',
+    title: 'The Bug That Taught Me to Read Network Logs',
+    excerpt:
+      'A drone command was reaching the backend but silently failing on the hardware side. Turns out I was serialising the payload incorrectly. Reading raw socket logs fixed what hours of console.log couldn\'t.',
     hasContent: false,
   },
   {
     id: 6,
-    Icon: FaRocket,
-    tag: 'Distributed',     tagColor: '#ff6b6b',
-    date: 'Nov 2024',       readTime: '4 min',
-    title: 'Kafka: Moving from HTTP Polling to Event Streaming',
-    excerpt: 'Processing 1000+ network packets/min. How I went from "why not just poll?" to understanding when event streaming genuinely solves a problem HTTP can\'t.',
+    Icon: FaTools,
+    tag: 'Infrastructure',
+    tagColor: '#2bb600',
+    date: 'yet to release...',
+    readTime: 'NA',
+    title: 'Why I Started Using Docker Even for Small Projects',
+    excerpt:
+      'After spending two hours debugging a "works on my machine" PostgreSQL config, I containerised the whole stack. Now I don\'t think about environment setup — I think about the problem.',
     hasContent: false,
   },
 ];
 
-/* ── Modal component ─────────────────────── */
+/* ─── Modal ──────────────────────────────── */
 const ThoughtModal = ({ thought, onClose }) => {
   const LearningComponent = learningMap[thought.id];
 
-  // Close on ESC
   useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') onClose(); };
-    document.addEventListener('keydown', handler);
+    const esc = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', esc);
     document.body.style.overflow = 'hidden';
     return () => {
-      document.removeEventListener('keydown', handler);
+      document.removeEventListener('keydown', esc);
       document.body.style.overflow = '';
     };
   }, [onClose]);
@@ -88,16 +113,26 @@ const ThoughtModal = ({ thought, onClose }) => {
     >
       <motion.div
         className="tmodal"
-        initial={{ opacity: 0, y: 40, scale: 0.96 }}
+        initial={{ opacity: 0, y: 36, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 24, scale: 0.97 }}
-        transition={{ duration: 0.28, ease: 'easeOut' }}
-        onClick={e => e.stopPropagation()}
+        exit={{ opacity: 0, y: 20, scale: 0.97 }}
+        transition={{ duration: 0.26, ease: 'easeOut' }}
+        onClick={(e) => e.stopPropagation()}
       >
+        {/* Top accent line driven by tagColor */}
+        <div className="tmodal-accent" style={{ background: thought.tagColor }} />
+
         {/* Header */}
-        <div className="tmodal-header" style={{ '--tc': thought.tagColor }}>
+        <div className="tmodal-header">
           <div className="tmodal-meta">
-            <span className="tmodal-tag">
+            <span
+              className="tmodal-tag"
+              style={{
+                color: thought.tagColor,
+                background: thought.tagColor + '18',
+                borderColor: thought.tagColor + '40',
+              }}
+            >
               <HiTag /> {thought.tag}
             </span>
             <span className="tmodal-time"><HiClock /> {thought.readTime} read</span>
@@ -109,21 +144,20 @@ const ThoughtModal = ({ thought, onClose }) => {
         </div>
 
         <h2 className="tmodal-title">{thought.title}</h2>
+        <p className="tmodal-excerpt">{thought.excerpt}</p>
+        <div className="tmodal-divider" style={{ background: thought.tagColor + '55' }} />
 
-        {/* Divider */}
-        <div className="tmodal-divider" style={{ background: thought.tagColor }} />
-
-        {/* Content */}
+        {/* Content area */}
         <div className="tmodal-body">
           {LearningComponent ? (
             <LearningComponent />
           ) : (
             <div className="tmodal-coming-soon">
               <HiCode className="tcs-icon" />
-              <div className="tcs-title">Draft in Progress</div>
+              <div className="tcs-title">Still Writing This One</div>
               <p className="tcs-desc">
-                This learning note is still being written. The excerpt above covers the core idea —
-                the full interactive version is coming soon.
+                The excerpt above captures the main idea. The full interactive note is being
+                written — check back soon.
               </p>
             </div>
           )}
@@ -133,15 +167,14 @@ const ThoughtModal = ({ thought, onClose }) => {
   );
 };
 
-/* ── Main Thoughts component ─────────────── */
+/* ─── Main ───────────────────────────────── */
 const Thoughts = () => {
-  const [modalThought, setModalThought] = useState(null);
-
-  const open  = useCallback((t) => setModalThought(t), []);
-  const close = useCallback(() => setModalThought(null), []);
+  const [modal, setModal] = useState(null);
+  const open  = useCallback((t) => setModal(t), []);
+  const close = useCallback(() => setModal(null), []);
 
   const featured = thoughts[0];
-  const rest = thoughts.slice(1);
+  const rest     = thoughts.slice(1);
 
   return (
     <div className="thoughts">
@@ -150,7 +183,7 @@ const Thoughts = () => {
 
       <div className="thoughts-inner">
 
-        {/* Header */}
+        {/* ── Header ───────────────────────── */}
         <div className="thoughts-header">
           <div>
             <div className="section-chip">Engineering Notes</div>
@@ -160,77 +193,113 @@ const Thoughts = () => {
             </h2>
           </div>
           <p className="thoughts-sub">
-            Things I've built, broken, and understood —<br />
-            honest notes from real projects.
+            Things I built, broke, and figured out —<br />
+            notes from actual projects, not textbooks.
           </p>
         </div>
 
-        {/* Featured */}
+        {/* ── Featured card ─────────────────── */}
         <div
           className="tg-featured"
           style={{ '--tc': featured.tagColor }}
           onClick={() => open(featured)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === 'Enter' && open(featured)}
         >
           <div className="tgf-inner">
             <div className="tgf-left">
-              <div className="tgf-label"><featured.Icon /> Featured</div>
+              <div className="tgf-label">
+                <featured.Icon /> Featured Note
+              </div>
               <div className="tgf-meta">
-                <span className="tg-tag" style={{ '--tc': featured.tagColor }}><HiTag /> {featured.tag}</span>
+                <span
+                  className="tg-tag"
+                  style={{
+                    color: featured.tagColor,
+                    background: featured.tagColor + '18',
+                    borderColor: featured.tagColor + '40',
+                  }}
+                >
+                  <HiTag /> {featured.tag}
+                </span>
                 <span className="tg-time"><HiClock /> {featured.readTime}</span>
                 <span className="tg-date">{featured.date}</span>
               </div>
               <h3 className="tgf-title">{featured.title}</h3>
               <p className="tgf-excerpt">{featured.excerpt}</p>
-              <button className="tg-readmore" style={{ '--tc': featured.tagColor }}>
-                Open & Read →
+              <button
+                className="tg-readmore"
+                style={{
+                  color: featured.tagColor,
+                  background: featured.tagColor + '18',
+                  borderColor: featured.tagColor + '44',
+                }}
+              >
+                Read Note →
               </button>
             </div>
-            <div className="tgf-icon-wrap">
+            <div className="tgf-icon-wrap" aria-hidden>
               <featured.Icon className="tgf-bg-icon" />
             </div>
           </div>
         </div>
 
-        {/* Grid */}
+        {/* ── Cards grid ───────────────────── */}
         <div className="thoughts-grid">
           {rest.map((t) => (
             <div
-              className="tg-card"
               key={t.id}
+              className="tg-card"
               style={{ '--tc': t.tagColor }}
               onClick={() => open(t)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && open(t)}
             >
               <div className="tgc-top">
                 <div className="tgc-icon"><t.Icon /></div>
-                <div className="tgc-meta">
-                  <span className="tg-tag" style={{ '--tc': t.tagColor }}><HiTag /> {t.tag}</span>
-                  {!t.hasContent && <span className="tgc-draft">Draft</span>}
+                <div className="tgc-badges">
+                  <span
+                    className="tg-tag"
+                    style={{
+                      color: t.tagColor,
+                      background: t.tagColor + '18',
+                      borderColor: t.tagColor + '40',
+                    }}
+                  >
+                    <HiTag /> {t.tag}
+                  </span>
+                  {!t.hasContent && (
+                    <span className="tgc-draft">Draft</span>
+                  )}
                 </div>
               </div>
+
               <h3 className="tgc-title">{t.title}</h3>
               <p className="tgc-excerpt">{t.excerpt}</p>
+
               <div className="tgc-footer">
                 <span className="tg-time"><HiClock /> {t.readTime}</span>
-                <button className="tgc-open">Open →</button>
+                <span className="tgc-open">Open →</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Quote */}
+        {/* ── Quote ────────────────────────── */}
         <div className="thoughts-quote">
           <span className="tq-mark">"</span>
-          The best way to learn backend engineering is to build systems that break — then fix them.
-          <span className="tq-attr">— Something I believe</span>
+          The best debugging session is the one that forces you to understand
+          something you assumed you already knew.
+          <span className="tq-attr">— Something I believe after the drone project</span>
         </div>
 
       </div>
 
-      {/* Modal */}
+      {/* ── Modal ────────────────────────── */}
       <AnimatePresence>
-        {modalThought && (
-          <ThoughtModal thought={modalThought} onClose={close} />
-        )}
+        {modal && <ThoughtModal thought={modal} onClose={close} />}
       </AnimatePresence>
     </div>
   );

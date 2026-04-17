@@ -1,64 +1,7 @@
-// import React from 'react';
-// import './achievements.css';
-// import { FaGithub } from 'react-icons/fa';
-// import { SiCodechef, SiGeeksforgeeks, SiLeetcode } from 'react-icons/si';
-
-// const achievements = [
-//   {
-//     platform: 'GitHub',
-//     icon: <FaGithub className="ach-icon" />,
-//     description: '1000+ Contributions and 60+ Repositories (Active Since 2024)',
-//     profile: 'https://github.com/Kuldeepagrahari',
-//     username: 'Kuldeepagrahari',
-//   },
-//   {
-//     platform: 'CodeChef',
-//     icon: <SiCodechef className="ach-icon" />,
-//     description: '3-Star (Max Rating: 1650+)',
-//     profile: 'https://www.codechef.com/users/kuldeep_106',
-//     username: 'kuldeep_106',
-//   },
-//   {
-//     platform: 'GeeksforGeeks',
-//     icon: <SiGeeksforgeeks className="ach-icon" />,
-//     description: '4-Star, Top 6.75%, Top 20 All-Time College Rank',
-//     profile: 'https://www.geeksforgeeks.org/user/kuldeepagre919',
-//     username: 'kuldeepagre919',
-//   },
-//   {
-//     platform: 'LeetCode',
-//     icon: <SiLeetcode className="ach-icon" />,
-//     description: 'Knight Badge, Top 5%, 600+ Problems Solved',
-//     profile: 'https://leetcode.com/kuldeep144/',
-//     username: 'kuldeep144',
-//   },
-// ];
-
-// const Achievements = () => {
-//   return (
-//     <div className="achievements-section">
-//       <h1 className="ach-heading">Achievements</h1>
-//       <div className="ach-card-container">
-//         {achievements.map((item, index) => (
-//           <div className="ach-card" key={index}>
-//             {item.icon}
-//             <h2>{item.platform}</h2>
-//             <p>{item.description}</p>
-//             <a href={item.profile} target="_blank" rel="noopener noreferrer">
-//               @{item.username}
-//             </a>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Achievements;
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { SiCodechef, SiGeeksforgeeks, SiLeetcode } from 'react-icons/si';
-import { HiUsers, HiExternalLink } from 'react-icons/hi';
+import { HiExternalLink } from 'react-icons/hi';
 import './achievements.css';
 
 const achievements = [
@@ -106,64 +49,82 @@ const achievements = [
 
 const extras = [
   {
-    Icon: "tpc.png",
     title: 'Programming Mentor',
-    description: 'Mentored 20+ students at BitByte Programming Club, IIITDMJ, focusing on DSA fundamentals and problem-solving strategies.',
+    description:
+      'Mentored 20+ students at BitByte Programming Club, IIITDMJ, focusing on DSA fundamentals and problem-solving strategies.',
     accent: '#00f5d4',
   },
 ];
 
-const Achievements = () => {
-  return (
-    <div className="achievements">
-      <div className="orb orb-orange" style={{ width: 400, height: 400, top: '-80px', right: '5%', position: 'absolute' }} />
-      <div className="orb orb-cyan"   style={{ width: 280, height: 280, bottom: '40px', left: '280px', position: 'absolute' }} />
+const Achievements = () => (
+  <div className="achievements">
+    <div
+      className="orb orb-orange"
+      style={{ width: 400, height: 400, top: '-80px', right: '5%', position: 'absolute' }}
+    />
+    <div
+      className="orb orb-cyan"
+      style={{ width: 280, height: 280, bottom: '40px', left: '280px', position: 'absolute' }}
+    />
 
-      <div className="achievements-inner">
-        <div className="achievements-header">
-          <div className="section-chip">Competitive Programming</div>
-          <h2 className="achievements-title">
-            <span className="line1">Achievements</span>
-            <span className="line2">&amp; Platforms</span>
-          </h2>
-        </div>
+    <div className="achievements-inner">
+      <div className="achievements-header">
+        <div className="section-chip">Competitive Programming</div>
+        <h2 className="achievements-title">
+          <span className="line1">Achievements</span>
+          <span className="line2">&amp; Platforms</span>
+        </h2>
+      </div>
 
-        {/* Platform cards */}
-        <div className="ach-grid">
-          {achievements.map(({ platform, Icon, stat, statLabel, description, profile, username, accent }) => (
-            <div className="ach-card" key={platform} style={{ '--ach-accent': accent }}>
-              <div className="ach-platform-row">
-                <Icon className="ach-icon" style={{ color: accent }} />
-                <span className="ach-platform-name">{platform}</span>
-              </div>
-              <div className="ach-stat-row">
-                <span className="ach-stat-num" style={{ color: accent }}>{stat}</span>
-                <span className="ach-stat-label">{statLabel}</span>
+      {/* Platform cards */}
+      <div className="ach-grid">
+        {achievements.map(({ platform, Icon, stat, statLabel, description, profile, username, accent }) => (
+          <div className="ach-card" key={platform} style={{ '--ach-accent': accent }}>
+            <div className="ach-platform-row">
+              <Icon className="ach-icon" style={{ color: accent }} />
+              <span className="ach-platform-name">{platform}</span>
+            </div>
+            <div className="ach-stat-row">
+              <span className="ach-stat-num" style={{ color: accent }}>{stat}</span>
+              <span className="ach-stat-label">{statLabel}</span>
+            </div>
+            <p className="ach-description">{description}</p>
+            <a
+              href={profile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ach-username"
+            >
+              <HiExternalLink /> @{username}
+            </a>
+          </div>
+        ))}
+      </div>
+
+      {/* Extra — mentor card */}
+      <div className="ach-extras">
+        {extras.map(({ title, description, accent }) => (
+          <div className="ach-extra-card" key={title}>
+            {/*
+              No inline width/height here.
+              .ach-extra-logo handles sizing at every breakpoint in CSS.
+            */}
+            <img
+              src="tpc.png"
+              alt="BitByte Programming Club"
+              className="ach-extra-logo"
+            />
+            <div className="ach-extra-body">
+              <div className="ach-extra-title" style={{ color: accent }}>
+                {title}
               </div>
               <p className="ach-description">{description}</p>
-              <a href={profile} target="_blank" rel="noopener noreferrer" className="ach-username">
-                <HiExternalLink /> @{username}
-              </a>
             </div>
-          ))}
-        </div>
-
-        {/* Extra card — mentor */}
-        <div className="ach-extras">
-          {extras.map(({ Icon, title, description, accent }) => (
-            <div className="ach-extra-card" key={title}>
-              <Icon className="ach-extra-icon" style={{ color: accent }} />
-              <img src="tpc.png" alt="tpc_logo"  style={{ borderRadius: "10px", width:"5vw"}} />
-              <div>
-                <div className="ach-extra-title">{title}</div>
-                <p className="ach-description">{description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default Achievements;

@@ -9,31 +9,30 @@ import "./about.css";
 
 /* Engineering impact — honest fresher numbers */
 const metrics = [
-  { val: '15+',   desc: 'REST APIs Built',     note: 'Fusion ERP + projects' },
-  { val: '1200+', desc: 'DSA Problems',         note: 'LeetCode · GFG · CC'  },
-  { val: '1400+', desc: 'GitHub Commits',       note: 'Active since 2022'     },
-  { val: '20+',   desc: 'Students Mentored',    note: 'BitByte Club, IIITDMJ' },
+  { val: '7+',    desc: 'Projects Built',        note: 'Backend & system-focused' },
+  { val: '3+', desc: 'Years',    note: 'of Consistet Coding Journey...' },
+  { val: '1200+',  desc: 'DSA Problems',          note: 'LeetCode focused' },
+  { val: '1400+', desc: 'GitHub Commits',        note: 'Consistent since 2022' },
 ];
-
 /* What I actually build — evidence-based */
 const builds = [
   {
     Icon: MdOutlineStorage,
     accent: '#00f5d4',
     title: 'Backend & API Engineering',
-    desc: 'Designed 15+ REST APIs with RBAC, JWT auth, and structured error handling. Familiar with modular MVC architecture and tested APIs using Postman.',
+    desc: 'Worked on designing 15+ REST APIs with RBAC, JWT authentication, and structured error handling. Familiar with modular architecture and API testing using Postman.',
   },
   {
     Icon: HiChip,
     accent: '#ff4e00',
     title: 'Distributed System Exposure',
-    desc: 'Built a Kafka → Django → PostgreSQL packet-processing pipeline handling 1000+ packets/min with WebSocket-based real-time dashboard and Redis caching.',
+    desc: 'Built a Kafka-based data pipeline with Django and PostgreSQL to process network traffic data (~1000 packets/min), along with a WebSocket-based real-time dashboard and Redis caching.',
   },
   {
     Icon: MdOutlineDevices,
     accent: '#7b5ea7',
-    title: 'Full Stack & Mobile',
-    desc: 'Shipped full-stack products with React frontends and integrated a React Native app with drone hardware via Express backend and Python automation.',
+    title: 'Full Stack Exposure',
+    desc: 'Worked on full-stack applications with React and backend services. Also explored integration with hardware systems using Node.js and Python.',
   },
 ];
 
@@ -73,16 +72,17 @@ const About = () => (
 
           <h2 className="abt-heading">
             <span className="abth-s">Backend</span>
-            <span className="abth-o">Engineer</span>
+            {/* <span className="abth-o">Engineer</span> */}
+            <span className="abth-o">Developer</span>
           </h2>
 
           <p className="abt-bio">
-            Final-year CSE student at IIITDMJ with hands-on experience building
-            <strong> production-grade backend systems</strong>. I've designed REST APIs
-            serving real users, worked with streaming architectures, and shipped
-            full-stack products — not just toy projects.
-            I focus on <strong>clean API contracts, modular design, and writing
-            code that other engineers can maintain</strong>.
+            Final-year CSE student at IIITDM Jabalpur with hands-on experience building
+            backend systems and APIs. I have worked on projects involving real users,
+            data processing, and multi-user workflows.
+
+            I focus on writing clean, maintainable code, designing clear API contracts,
+            and understanding how systems behave under real-world constraints.
           </p>
 
           {/* Quick links */}
@@ -111,8 +111,10 @@ const About = () => (
             <div className="apw-badge">
               <SiNodedotjs style={{ color: '#68a063', fontSize: '1.1rem' }} />
               <div>
-                <div className="apwb-t">Backend Engineer</div>
-                <div className="apwb-s">Open to Roles · Jun 2026</div>
+                {/* <div className="apwb-t">Backend Engineer</div>
+                <div className="apwb-s">Open to Roles · Jun 2026</div> */}
+                <div className="apwb-t">Backend Developer</div>
+                <div className="apwb-s">Open to Opportunities · June 2026</div>
               </div>
             </div>
           </div>
