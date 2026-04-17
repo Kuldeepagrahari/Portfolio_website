@@ -1,66 +1,185 @@
+// import React from 'react';
+// import './projects.css';
+// import ProjectCards from '../../components/ProjectCards/ProjectCards';
+
+// const ProjectsData = [
+//   {
+//     topic: 'Hungry Hub - Food Ordering',
+//     img: "food-del-ss.png",
+//     description: [
+//       'A Full Stack food Ordering application including Food Cart & Categories, Stripe Payment, Customer Care Services with realtime chatting and much more',
+//       'Admin Panel to Register Restaurant, Add food Items by Restaurant, Manage Orders, handle Customer Care',
+
+//     ],
+
+//     githubRepo: 'https://github.com/Kuldeepagrahari/Hungry-Hub',
+//     projectLink: 'https://hungry-hub-client.onrender.com/',
+//     adminLink: 'https://hungry-hub-admin-5v2a.onrender.com/'
+
+//   },
+//   {
+//     topic: 'Promptly - AI Chat bot',
+//     img: 'Promptly.png',
+//     description: [
+//       'Full Stack ChatGPT clone made for seamless interaction with AI model to generate response with text and image inputs & mongodb for saving History',
+//       'Use Gemini API for model response, Clerk Authentication, Imagekit for image handling'
+//     ],
+//     githubRepo: 'https://github.com/Kuldeepagrahari/Promptly',
+//     projectLink: 'https://promptly-pk2h.onrender.com/',
+//   },
+//   {
+//     topic: 'AeroCare - VTOL Drone Automated App',
+//     img: 'aerocare.jpg',
+//     description: [
+//       'EDP Project with multiple Disciplines involved in a team to develop a production and market ready project in the domain of HealthCare & Security.',
+//       'Android App: Developed with React-Native with Expo and Google Map API',
+//       'Automations: Between Raspberry Pi and Server : Python Script for command handling, OpenCV for landing',
+//       'Server: Node.Js & Express.Js, providing connection between Client App and Raspberry Pi'
+//     ],
+//     githubRepo: 'https://github.com/Kuldeepagrahari/AeroCare-Mobile-App',
+//     projectLink: 'https://aerocare-vtol.vercel.app/',
+  
+//   },
+//   // {
+//   //   topic: 'Workly - Never Forget Your Tasks',
+//   //   img: 'workly.png',
+//   //   description: [
+//   //     'Full Stack Task Manager Application with Email Notifications, Dynamically update your tasks daily, weekly or datewise, keep history and in various categories with a detailed Statistics',
+//   //     'MongoDB, Express.js, React.js, Node.js, EmailJs',
+//   //   ],
+//   //   githubRepo: 'https://github.com/Kuldeepagrahari/Workly',
+//   //   projectLink: 'https://workly-client.onrender.com/',
+
+//   // },
+//    {
+//     topic: 'Samify - Music Streaming',
+//     img: 'samify-ss.png',
+//     description: [
+//       'A MERN Stack Music Streaming platform with features include Play Songs, Explore Popular Albums, Search and Filter Songs, Save Songs into Playlists, User Authentication',
+//       'Used Trie data structure for efficient search functionality',
+//       'Developed an admin panel for managing songs and albums and Cloudinary for image uploads',
+
+//     ],
+
+//     githubRepo: 'https://github.com/Kuldeepagrahari/Samify',
+//     projectLink: '',
+//     ongoing: 1,
+//   },
+//   {
+//     topic: 'NewsHub',
+//     img: 'news.png',
+//     description: [
+//       'A News Fetching website with intelligent search functionality'
+//     ],
+//     githubRepo: 'https://github.com/Kuldeepagrahari/News-Hub',
+//     projectLink: 'https://news-hub-application.onrender.com/',
+
+//   },
+//   {
+//     topic: 'WeatherBook - weather updater',
+//     img: 'weather.png',
+//     description: [
+//       'A Frontend Project to get weather updates of your City including Temperature, Wind speed, Humidity, cloud information',
+//       'getting response from API of OpenWeathermap Org'
+//     ],
+//     githubRepo: 'https://github.com/Kuldeepagrahari/WeatherBook',
+//     projectLink: 'https://weather-book-beta.vercel.app/',
+
+//   },
+//   {
+//     topic: 'Sudoku Solver',
+//     img: 'sudokusolver.png',
+//     description: [
+//       'Developed a fully responsive Sudoku Solver with a dynamic, futuristic UI using vanilla HTML, CSS, and JavaScript.',
+//       'Implemented a visual backtracking algorithm that animates each step, providing a real-time demonstration of the solving process.'
+//     ],
+//     githubRepo: 'https://github.com/Kuldeepagrahari/SudokuSolver',
+//     projectLink: 'https://sudoku-solver-seven-eosin.vercel.app/',
+
+//   },
+
+//   {
+//     topic: 'Drum Kit',
+//     img: 'drumkit.png',
+//     description: [
+//       'A Frontend Project with beautiful UI and Drum Playing Experience'
+//     ],
+//     githubRepo: 'https://github.com/Kuldeepagrahari/Drum',
+//     projectLink: 'https://drum-rose.vercel.app/',
+
+//   },
+// ];
+
+// const Projects = () => {
+//   return (
+//     <div name="projects" className="pro">
+
+//       <h1>My Recent Projects</h1>
+
+//       {/* Project Cards */}
+//       <div className="projectCardCollection">
+//         {ProjectsData.map((project, index) => (
+//           <ProjectCards
+//             key={index}
+//             topic={project.topic}
+//             img={project.img}
+//             githubRepo={project.githubRepo}
+//             projectLink={project.projectLink}
+//             adminLink={project.adminLink}
+//             description={project.description}
+//             ongoing={project.ongoing}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Projects;
 import React from 'react';
 import './projects.css';
 import ProjectCards from '../../components/ProjectCards/ProjectCards';
 
 const ProjectsData = [
   {
-    topic: 'Hungry Hub - Food Ordering',
+    topic: 'Hungry Hub — Food Ordering',
     img: "food-del-ss.png",
     description: [
-      'A Full Stack food Ordering application including Food Cart & Categories, Stripe Payment, Customer Care Services with realtime chatting and much more',
-      'Admin Panel to Register Restaurant, Add food Items by Restaurant, Manage Orders, handle Customer Care',
-
+      'Full Stack food ordering app with Cart, Categories, Stripe Payment, and real-time Customer Care chat.',
+      'Admin Panel to register restaurants, manage food items, orders, and customer support.',
     ],
-
     githubRepo: 'https://github.com/Kuldeepagrahari/Hungry-Hub',
     projectLink: 'https://hungry-hub-client.onrender.com/',
-    adminLink: 'https://hungry-hub-admin-5v2a.onrender.com/'
-
+    adminLink: 'https://hungry-hub-admin-5v2a.onrender.com/',
   },
   {
-    topic: 'Promptly - AI Chat bot',
+    topic: 'Promptly — AI Chatbot',
     img: 'Promptly.png',
     description: [
-      'Full Stack ChatGPT clone made for seamless interaction with AI model to generate response with text and image inputs & mongodb for saving History',
-      'Use Gemini API for model response, Clerk Authentication, Imagekit for image handling'
+      'Full Stack ChatGPT clone with text/image inputs and MongoDB-backed history.',
+      'Gemini API, Clerk Authentication, Imagekit for media handling.',
     ],
     githubRepo: 'https://github.com/Kuldeepagrahari/Promptly',
     projectLink: 'https://promptly-pk2h.onrender.com/',
   },
   {
-    topic: 'AeroCare - VTOL Drone Automated App',
+    topic: 'AeroCare — VTOL Drone App',
     img: 'aerocare.jpg',
     description: [
-      'EDP Project with multiple Disciplines involved in a team to develop a production and market ready project in the domain of HealthCare & Security.',
-      'Android App: Developed with React-Native with Expo and Google Map API',
-      'Automations: Between Raspberry Pi and Server : Python Script for command handling, OpenCV for landing',
-      'Server: Node.Js & Express.Js, providing connection between Client App and Raspberry Pi'
+      'EDP Project: production-ready drone platform for Healthcare & Security.',
+      'React Native app with Google Maps, Raspberry Pi automation via Python + OpenCV.',
+      'Node.js/Express server bridging mobile client and drone hardware.',
     ],
     githubRepo: 'https://github.com/Kuldeepagrahari/AeroCare-Mobile-App',
     projectLink: 'https://aerocare-vtol.vercel.app/',
-  
   },
-  // {
-  //   topic: 'Workly - Never Forget Your Tasks',
-  //   img: 'workly.png',
-  //   description: [
-  //     'Full Stack Task Manager Application with Email Notifications, Dynamically update your tasks daily, weekly or datewise, keep history and in various categories with a detailed Statistics',
-  //     'MongoDB, Express.js, React.js, Node.js, EmailJs',
-  //   ],
-  //   githubRepo: 'https://github.com/Kuldeepagrahari/Workly',
-  //   projectLink: 'https://workly-client.onrender.com/',
-
-  // },
-   {
-    topic: 'Samify - Music Streaming',
+  {
+    topic: 'Samify — Music Streaming',
     img: 'samify-ss.png',
     description: [
-      'A MERN Stack Music Streaming platform with features include Play Songs, Explore Popular Albums, Search and Filter Songs, Save Songs into Playlists, User Authentication',
-      'Used Trie data structure for efficient search functionality',
-      'Developed an admin panel for managing songs and albums and Cloudinary for image uploads',
-
+      'MERN Stack music platform: albums, playlists, search, auth.',
+      'Trie data structure for efficient search. Admin panel + Cloudinary for assets.',
     ],
-
     githubRepo: 'https://github.com/Kuldeepagrahari/Samify',
     projectLink: '',
     ongoing: 1,
@@ -68,68 +187,71 @@ const ProjectsData = [
   {
     topic: 'NewsHub',
     img: 'news.png',
-    description: [
-      'A News Fetching website with intelligent search functionality'
-    ],
+    description: ['News aggregator with intelligent search functionality.'],
     githubRepo: 'https://github.com/Kuldeepagrahari/News-Hub',
     projectLink: 'https://news-hub-application.onrender.com/',
-
   },
   {
-    topic: 'WeatherBook - weather updater',
+    topic: 'WeatherBook',
     img: 'weather.png',
     description: [
-      'A Frontend Project to get weather updates of your City including Temperature, Wind speed, Humidity, cloud information',
-      'getting response from API of OpenWeathermap Org'
+      'Frontend weather app: temperature, wind speed, humidity, cloud data.',
+      'Powered by OpenWeatherMap API.',
     ],
     githubRepo: 'https://github.com/Kuldeepagrahari/WeatherBook',
     projectLink: 'https://weather-book-beta.vercel.app/',
-
   },
   {
     topic: 'Sudoku Solver',
     img: 'sudokusolver.png',
     description: [
-      'Developed a fully responsive Sudoku Solver with a dynamic, futuristic UI using vanilla HTML, CSS, and JavaScript.',
-      'Implemented a visual backtracking algorithm that animates each step, providing a real-time demonstration of the solving process.'
+      'Fully responsive Sudoku solver with animated backtracking algorithm.',
+      'Built with vanilla HTML, CSS, and JavaScript.',
     ],
     githubRepo: 'https://github.com/Kuldeepagrahari/SudokuSolver',
     projectLink: 'https://sudoku-solver-seven-eosin.vercel.app/',
-
   },
-
   {
     topic: 'Drum Kit',
     img: 'drumkit.png',
-    description: [
-      'A Frontend Project with beautiful UI and Drum Playing Experience'
-    ],
+    description: ['Interactive drum kit with a dynamic, responsive UI and real drum sounds.'],
     githubRepo: 'https://github.com/Kuldeepagrahari/Drum',
     projectLink: 'https://drum-rose.vercel.app/',
-
   },
 ];
 
 const Projects = () => {
   return (
-    <div name="projects" className="pro">
+    <div className="projects">
+      <div className="orb orb-cyan" style={{ width: 350, height: 350, top: '-80px', right: '5%' }} />
+      <div className="orb orb-orange" style={{ width: 300, height: 300, bottom: '80px', left: '300px' }} />
 
-      <h1>My Recent Projects</h1>
+      <div className="projects-inner">
+        <div className="projects-header">
+          <div>
+            <div className="section-chip">Portfolio</div>
+            <h2 className="projects-title">
+              <span className="line1">Recent</span>
+              <span className="line2">Projects</span>
+            </h2>
+          </div>
+          <span className="projects-count">{ProjectsData.length} Projects</span>
+        </div>
 
-      {/* Project Cards */}
-      <div className="projectCardCollection">
-        {ProjectsData.map((project, index) => (
-          <ProjectCards
-            key={index}
-            topic={project.topic}
-            img={project.img}
-            githubRepo={project.githubRepo}
-            projectLink={project.projectLink}
-            adminLink={project.adminLink}
-            description={project.description}
-            ongoing={project.ongoing}
-          />
-        ))}
+        <div className="projects-grid">
+          {ProjectsData.map((project, index) => (
+            <ProjectCards
+              key={index}
+              topic={project.topic}
+              img={project.img}
+              githubRepo={project.githubRepo}
+              projectLink={project.projectLink}
+              adminLink={project.adminLink}
+              description={project.description}
+              ongoing={project.ongoing}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

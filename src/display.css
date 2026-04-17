@@ -1,0 +1,30 @@
+/* 
+  display.css — root layout 
+  The sidebar Nav is 180px wide and fixed on the left.
+  All page content is offset using padding-left in each page component.
+  On mobile (<850px), the nav hides and pages use smaller padding.
+*/
+
+.display {
+    min-height: 100vh;
+    background: var(--bg);
+  }
+  
+  .main-content {
+    /* No left margin needed — each section handles its own padding-left: 240px */
+    width: 100%;
+  }
+  
+  .main-content section {
+    width: 100%;
+  }
+  
+  .follow-section {
+    /* Footer can have different bg */
+  }
+  
+  @media (max-width: 850px) {
+    .main-content {
+      margin-left: 0;
+    }
+  }

@@ -1,66 +1,243 @@
-.achievements-section {
-    padding: 2rem;
-    background-color: #0f0f0f;
-    color: white;
-    text-align: center;
+.achievements {
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg2);
+  padding: 80px 60px 80px 240px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+
+.achievements-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.achievements-header { margin-bottom: 48px; }
+
+.achievements-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.achievements-title .line1 { display: block; color: var(--white); }
+.achievements-title .line2 {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--orange);
+}
+
+/* ── Platform cards ─────────────────────── */
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ach-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.ach-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ach-accent, var(--cyan)), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ach-card:hover {
+  border-color: rgba(255,255,255,0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+.ach-card:hover::after { opacity: 1; }
+
+.ach-platform-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ach-icon { font-size: 1.6rem; flex-shrink: 0; }
+
+.ach-platform-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.ach-stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.ach-stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.ach-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ach-description {
+  font-size: 0.8rem;
+  color: rgba(240,240,250,0.55);
+  line-height: 1.6;
+  font-weight: 300;
+  flex: 1;
+}
+
+.ach-username {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+  margin-top: auto;
+}
+.ach-username:hover { color: var(--white); }
+
+/* ── Extra / Mentor card ────────────────── */
+.ach-extras {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ach-extra-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;        /* vertically centred on all screens */
+  gap: 20px;
+  transition: all 0.3s ease;
+  flex-wrap: nowrap;          /* never wraps; logo + text stay side by side */
+}
+
+.ach-extra-card:hover {
+  border-color: rgba(0,245,212,0.2);
+  transform: translateX(4px);
+}
+
+/* ── TPC logo — the key responsive block ── */
+.ach-extra-logo {
+  /* Base size: comfortable on large desktops */
+  width: 72px;
+  height: 72px;
+
+  object-fit: contain;        /* never distorts the logo */
+  border-radius: 10px;
+  flex-shrink: 0;             /* never squishes when space is tight */
+  display: block;
+}
+
+/* Body beside the logo */
+.ach-extra-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;               /* allows text to truncate/wrap correctly */
+}
+
+.ach-extra-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* ── Responsive breakpoints ─────────────── */
+
+/* Tablet / narrower desktop (sidebar still visible) */
+@media (max-width: 1100px) {
+  .achievements { padding: 80px 40px 80px 220px; }
+
+  .ach-extra-logo {
+    width: 60px;
+    height: 60px;
   }
-  
-  .ach-heading {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    background-image: linear-gradient(-90deg, rgb(0, 149, 255), #e50f95, #e50f95);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+}
+
+/* Mobile — sidebar collapses, full-width layout */
+@media (max-width: 850px) {
+  .achievements { padding: 80px 24px 60px 24px; }
+  .ach-grid { grid-template-columns: 1fr 1fr; }
+
+  .ach-extra-card {
+    gap: 14px;
+    padding: 18px 18px;
   }
-  .ach-card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    justify-items: center;
+
+  .ach-extra-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
   }
-  
-  .ach-card {
-    background-color: #1d221d;
-    border-radius: 16px;
-    padding: 1.5rem;
-    width: 100%;
-    max-width: 300px;
-    box-shadow: 0 4px 12px rgb(0, 149, 255);
-    transition: transform 0.3s ease;
+
+  .ach-extra-title { font-size: 0.88rem; }
+  .ach-description  { font-size: 0.75rem; }
+}
+
+/* Small phones */
+@media (max-width: 500px) {
+  .ach-grid { grid-template-columns: 1fr; }
+
+  .ach-extra-card {
+    gap: 12px;
+    padding: 16px 16px;
   }
-  
-  .ach-card:hover {
-    transform: translateY(-5px);
-    box-shadow: none;
-    background-image: linear-gradient(-90deg, rgb(0, 149, 255) ,#e50f95,#e50f95);
-    .ach-icon{
-        color: white;
-    }
+
+  .ach-extra-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
   }
-  
-  .ach-icon {
-    font-size: 2rem;
-    color: rgb(0, 149, 255);
-    margin-bottom: 1rem;
+
+  .ach-extra-title { font-size: 0.82rem; }
+}
+
+/* Very small (≤360px) */
+@media (max-width: 360px) {
+  .ach-extra-logo {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
   }
-  
-  .ach-card h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .ach-card p {
-    font-size: 1rem;
-    margin-bottom: 0.8rem;
-  }
-  
-  .ach-card a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .ach-card a:hover {
-    text-decoration: underline;
-  }
-  
+}

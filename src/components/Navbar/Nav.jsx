@@ -1,91 +1,152 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
+import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import {
+  HiHome, HiUser, HiCode, HiCube, HiStar,
+  HiAcademicCap, HiPencil, HiMail, HiShare, HiDownload,
+} from "react-icons/hi";
 import "./nav.css";
 
-const Nav = ({ onScrollTo }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 850); // Track screen size
+const NAV_ITEMS = [
+  { id: "home",         label: "Home",      Icon: HiHome        },
+  { id: "about",        label: "About",     Icon: HiUser        },
+  { id: "projects",     label: "Work",      Icon: HiCube        },
+  { id: "skills",       label: "Skills",    Icon: HiCode        },
+  { id: "achievements", label: "Wins",      Icon: HiStar        },
+  { id: "education",    label: "Education", Icon: HiAcademicCap },
+  { id: "thoughts",     label: "Dev Notes", Icon: HiPencil      },
+  { id: "contact",      label: "Contact",   Icon: HiMail        },
+  { id: "follow",       label: "Follow",    Icon: HiShare       },
+];
 
-  // Update isMobile on window resize
+/**
+ * Nav receives two props from Display:
+ *   onScrollTo(id)   — scroll to a section programmatically
+ *   activeSection    — which section is currently in view (driven by IntersectionObserver)
+ *
+ * Nav does NOT maintain its own "active" state anymore.
+ * Clicking a nav item calls onScrollTo; the scroll triggers
+ * IntersectionObserver in Display, which updates activeSection,
+ * which flows back here as a prop. Single source of truth.
+ */
+const Nav = ({ onScrollTo, activeSection = "home" }) => {
+  const [mobile,   setMobile]   = useState(window.innerWidth <= 850);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 850);
+    const handleResize = () => setMobile(window.innerWidth <= 850);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const handleNavClick = (section) => {
-    setActiveSection(section);
-    onScrollTo(section);
+  /* Close mobile menu whenever active section changes (user scrolled) */
+  useEffect(() => {
     setMenuOpen(false);
+  }, [activeSection]);
+
+  const handleClick = (id) => {
+    onScrollTo(id);
+    /* Don't setActive here — let IntersectionObserver drive it via prop */
   };
 
   return (
-    <div className="nav">
-      {/* Hamburger Menu for Mobile */}
-      {isMobile && (
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-          <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-          <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-        </div>
+    <>
+      {/* ── Desktop sidebar ───────────────── */}
+      {!mobile && (
+        <nav className="nav" aria-label="Site navigation">
+          <div className="nav-logo-wrap">
+            <img
+              src="my_logo3.png"
+              alt="KA logo"
+              className="nav-logo"
+              onError={(e) => (e.target.style.display = "none")}
+            />
+            <span className="nav-wordmark">
+              Kuldeep<span>A</span>.
+            </span>
+          </div>
+
+          <ul className="nav-menu" role="list">
+            {NAV_ITEMS.map(({ id, label, Icon }) => {
+              const isActive = activeSection === id;
+              return (
+                <li key={id} className={isActive ? "active" : ""}>
+                  <button
+                    onClick={() => handleClick(id)}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    <Icon className="nav-icon" aria-hidden />
+                    {label}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="nav-bottom">
+            <Link
+              to="https://drive.google.com/file/d/1kU14QelhblMZNnAsFZeEhax2v5hOOltf/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-resume-btn"
+            >
+              <HiDownload /> Resume
+            </Link>
+          </div>
+        </nav>
       )}
 
-      {/* Sidebar for Desk
-      top */}
-      {!isMobile && (
-        <>
-         <img src="my_logo.png" className='logo' style={{width: "7vw", marginBottom:"20px"}} alt="" />
-        <ul className="menu desktop">
-          {["home", "about", "education", "skills", "projects", "achievements", "contact", "follow"].map(
-            (section) => (
-              <li
-                key={section}
-                className={activeSection === section ? "active" : ""}
-                onClick={() => handleNavClick(section)}
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </li>
-            )
-          )}
-        </ul></>
+      {/* ── Mobile hamburger ──────────────── */}
+      {mobile && (
+        <button
+          className="hamburger"
+          onClick={() => setMenuOpen((p) => !p)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+        >
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+          <div className={`bar ${menuOpen ? "open" : ""}`} />
+        </button>
       )}
 
-      {/* Mobile Menu (Appears in the Middle) */}
+      {/* ── Mobile full-screen overlay ────── */}
       <AnimatePresence>
-        {menuOpen && isMobile && (
-
-          <motion.ul
-            className="menu active"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: -200, x:-150 }}
-            exit={{ opacity: 0, y: 50 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+        {menuOpen && mobile && (
+          <motion.nav
+            className="nav-mobile-overlay"
+            aria-label="Mobile navigation"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
-            <img src="my_logo.png" alt="" style={{width: "50px", marginBottom:"10px"}} />
-            {["home", "about", "education", "skills", "projects", "achievements", "contact", "follow"].map(
-              (section, index) => (
-                <motion.li
-                  key={section}
-                  className={activeSection === section ? "active" : ""}
-                  onClick={() => handleNavClick(section)}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ delay: index * 0.1, duration: 0.2 }}
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </motion.li>
-              )
-            )}
-          </motion.ul>
+            <ul role="list" style={{ listStyle: "none", padding: 0, margin: 0, display: "contents" }}>
+              {NAV_ITEMS.map(({ id, label }, i) => {
+                const isActive = activeSection === id;
+                return (
+                  <motion.li
+                    key={id}
+                    className={isActive ? "active" : ""}
+                    initial={{ opacity: 0, x: -22 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -16 }}
+                    transition={{ delay: i * 0.04, duration: 0.16 }}
+                  >
+                    <button
+                      onClick={() => handleClick(id)}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {label}
+                    </button>
+                  </motion.li>
+                );
+              })}
+            </ul>
+          </motion.nav>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 };
 
