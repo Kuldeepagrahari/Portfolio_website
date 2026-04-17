@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { HiX, HiClock, HiTag, HiCode } from 'react-icons/hi';
 import { FaServer, FaBrain, FaCode, FaTools, FaBug, FaProjectDiagram } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';

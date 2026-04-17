@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import { IoLogoGithub, IoGitMergeSharp } from "react-icons/io5";
-import { RiReactjsLine, RiBootstrapLine } from "react-icons/ri";
+import { RiReactjsLine} from "react-icons/ri";
 import { TbBrandNodejs, TbBrandCss3, TbBrandMysql } from "react-icons/tb";
 import {
   SiPostgresql, SiMongodb, SiExpress, SiPostman,

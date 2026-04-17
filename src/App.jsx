@@ -1,6 +1,4 @@
-
 import "./index.css"
-
 import Display from './Display'
 
 const App = () => {
@@ -8,10 +6,7 @@ const App = () => {
     <div className='app'>
       <div className="content">
         <Display></Display>
-
       </div>
-
-     
     </div>
   )
 }

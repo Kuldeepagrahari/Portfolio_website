@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HiCube, HiBriefcase, HiExternalLink } from 'react-icons/hi';
 import { IoLogoGithub } from 'react-icons/io5';
@@ -13,7 +13,7 @@ const experienceData = [
   {
     role: 'Software Engineer — Backend',
     org: 'IIITDMJ Fusion (Academic ERP)',
-    orgLink: 'https://github.com/Kuldeepagrahari',
+    orgLink: 'https://github.com/Kuldeepagrahari/Fusion-client',
     period: 'Aug 2024 – Dec 2024',
     type: 'Open Source · Academic ERP',
     points: [
