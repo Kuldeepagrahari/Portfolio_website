@@ -1,3 +1,7 @@
+/* ═══════════════════════════════════════════
+   HOME
+═══════════════════════════════════════════ */
+
 .home {
   position: relative;
   min-height: 100vh;
@@ -32,7 +36,7 @@
   background: radial-gradient(circle, rgba(255,78,0,0.1) 0%, transparent 70%);
 }
 
-/* Main grid */
+/* ── DESKTOP LAYOUT ─────────────────────── */
 .home-inner {
   position: relative; z-index: 1;
   flex: 1;
@@ -44,7 +48,6 @@
   min-height: calc(100vh - 90px);
 }
 
-/* ── LEFT ───────────────────────────────── */
 .home-left {
   display: flex; flex-direction: column; gap: 18px;
   animation: hFadeUp 0.6s ease both;
@@ -52,14 +55,19 @@
 
 /* Role row */
 .home-role-row {
-  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 8px; flex-wrap: nowrap;
+  /* Fixed height prevents layout shift when typewriter changes */
+  min-height: 1.6rem;
 }
 .role-prefix {
-  font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted);
+  font-family: var(--font-mono); font-size: 0.78rem;
+  color: var(--muted); flex-shrink: 0;
 }
 .role-txt {
   font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
   color: var(--cyan); text-transform: uppercase; letter-spacing: 0.07em;
+  /* Prevent typewriter from reflowing surrounding elements */
+  display: inline-block; min-width: 0;
 }
 
 /* Name */
@@ -70,40 +78,44 @@
   letter-spacing: -0.025em; text-transform: uppercase;
   animation: hFadeUp 0.65s ease 0.1s both;
 }
-.hn-solid  { display: block; color: var(--white); }
+.hn-solid   { display: block; color: var(--white); }
 .hn-outline { display: block; color: transparent; -webkit-text-stroke: 2px var(--white); }
 .hn-accent  { color: var(--cyan); -webkit-text-stroke: 0; }
 
-/* Mobile photo — hidden on desktop */
-.home-photo-mobile { display: none; }
+/* Mobile combined row — hidden on desktop */
+.home-mobile-row { display: none; }
 
-/* Tagline */
+/* Desktop tagline / focus / college */
+.home-tagline--desktop { animation: hFadeUp 0.65s ease 0.2s both; }
+.home-focus-row--desktop { animation: hFadeUp 0.65s ease 0.28s both; }
+.home-college--desktop   { animation: hFadeUp 0.65s ease 0.35s both; }
+
 .home-tagline {
   font-size: 0.92rem; color: rgba(240,240,250,0.58);
   font-weight: 300; line-height: 1.75; max-width: 440px;
-  animation: hFadeUp 0.65s ease 0.2s both;
 }
 
-/* Focus tag */
 .home-focus-row {
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-  animation: hFadeUp 0.65s ease 0.28s both;
+  /* Fixed height to absorb animated focus tag size differences */
+  min-height: 2rem;
 }
 .focus-label {
   font-family: var(--font-mono); font-size: 0.65rem;
   color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+  flex-shrink: 0;
 }
 .focus-tag {
   font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
   border: 1px solid; padding: 4px 12px; border-radius: 20px;
   display: inline-flex; align-items: center;
+  /* Fixed width prevents layout shift as text changes */
+  white-space: nowrap;
 }
 
-/* College */
 .home-college {
   display: flex; flex-direction: column; gap: 3px;
-  animation: hFadeUp 0.65s ease 0.35s both;
 }
 .hc-name {
   font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
@@ -111,20 +123,34 @@
 }
 .hc-year { font-family: var(--font-mono); font-size: 0.68rem; color: var(--muted); }
 
-/* CTAs */
+/* ── CTAs ─────────────────────────────────
+   Desktop: all items in one flex row
+   Mobile: restructured via .cta-secondary-row
+──────────────────────────────────────────── */
 .home-ctas {
-  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  display: flex; align-items: center;
+  gap: 12px; flex-wrap: wrap;
   animation: hFadeUp 0.65s ease 0.44s both;
 }
+
 .cta-primary {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 12px 26px; background: var(--cyan); color: var(--bg);
   font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
   border: none; border-radius: 6px; cursor: pointer;
-  text-decoration: none; transition: all 0.22s ease;
+  text-decoration: none; transition: all 0.22s ease; flex-shrink: 0;
 }
-.cta-primary:hover { background: var(--white); box-shadow: 0 0 36px rgba(0,245,212,0.32); transform: translateY(-2px); }
+.cta-primary:hover {
+  background: var(--white);
+  box-shadow: 0 0 36px rgba(0,245,212,0.32);
+  transform: translateY(-2px);
+}
+
+/* On desktop, secondary row is just a flex row — no special treatment */
+.cta-secondary-row {
+  display: flex; align-items: center; gap: 10px;
+}
 
 .cta-outline {
   display: inline-flex; align-items: center; gap: 8px;
@@ -141,13 +167,14 @@
   width: 42px; height: 42px; border: 1px solid var(--border);
   background: var(--bg2); border-radius: 8px; color: var(--muted);
   font-size: 1.1rem; text-decoration: none; transition: all 0.22s ease;
+  flex-shrink: 0;
 }
 .cta-icon:hover { border-color: var(--border-cyan); color: var(--cyan); background: var(--bg3); }
 
 /* Mobile tech strip — hidden on desktop */
 .home-tech-strip { display: none; }
 
-/* ── RIGHT ──────────────────────────────── */
+/* ── RIGHT — photo (desktop) ─────────────── */
 .home-right {
   display: flex; align-items: center; justify-content: center;
   animation: hFadeIn 0.8s ease 0.3s both;
@@ -158,7 +185,6 @@
   display: flex; align-items: center; justify-content: center;
 }
 
-/* Rings */
 .pf-ring {
   position: absolute; border-radius: 50%;
   border: 1px solid; pointer-events: none;
@@ -179,23 +205,26 @@
   to   { transform: rotate(360deg); }
 }
 
-/* Photo */
 .pf-photo {
   position: relative; width: 240px; height: 240px;
   border-radius: 50%; overflow: hidden; z-index: 2;
   border: 2px solid rgba(0,245,212,0.28);
   box-shadow: 0 0 0 6px rgba(0,245,212,0.05), 0 0 60px rgba(0,245,212,0.18);
 }
-.pf-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.5s ease; }
+.pf-img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block; transition: transform 0.5s ease;
+}
 .pf-photo:hover .pf-img { transform: scale(1.06); }
 .pf-fallback {
-  position: absolute; inset: 0; background: linear-gradient(135deg, var(--bg3), var(--bg2));
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--bg3), var(--bg2));
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-size: 3.5rem; font-weight: 900;
-  color: var(--cyan); z-index: -1;
+  font-family: var(--font-display); font-size: 3.5rem;
+  font-weight: 900; color: var(--cyan); z-index: -1;
 }
 
-/* Floating badges */
 .pf-badge {
   position: absolute;
   display: flex; align-items: center; gap: 6px;
@@ -212,18 +241,17 @@
 }
 .pf-badge:hover { border-color: var(--bc,var(--cyan)); color: var(--white); }
 .pf-badge svg  { font-size: 0.88rem; }
-.pf-badge:nth-child(2) { animation-delay: 0.5s; }
-.pf-badge:nth-child(3) { animation-delay: 1.0s; }
-.pf-badge:nth-child(4) { animation-delay: 1.5s; }
-.pf-badge:nth-child(5) { animation-delay: 2.0s; }
-.pf-badge:nth-child(6) { animation-delay: 2.5s; }
+.pf-badge:nth-child(4) { animation-delay: 0.5s; }
+.pf-badge:nth-child(5) { animation-delay: 1.0s; }
+.pf-badge:nth-child(6) { animation-delay: 1.5s; }
+.pf-badge:nth-child(7) { animation-delay: 2.0s; }
+.pf-badge:nth-child(8) { animation-delay: 2.5s; }
 
 @keyframes badgeFloat {
   0%,100% { transform: translateY(0); }
   50%      { transform: translateY(-6px); }
 }
 
-/* Status */
 .pf-status {
   position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; gap: 7px;
@@ -233,7 +261,6 @@
   letter-spacing: 0.1em; white-space: nowrap; z-index: 4;
 }
 
-/* Avail dot (shared) */
 .avail-dot {
   width: 7px; height: 7px; background: var(--cyan);
   border-radius: 50%; flex-shrink: 0;
@@ -244,7 +271,7 @@
   50%      { box-shadow: 0 0 0 5px rgba(0,245,212,0); }
 }
 
-/* ── Stats strip ────────────────────────── */
+/* ── Stats strip ─────────────────────────── */
 .home-stats {
   position: relative; z-index: 1;
   padding: 22px 80px 32px 240px;
@@ -253,63 +280,132 @@
   animation: hFadeIn 1s ease 0.7s both;
 }
 .hstat { display: flex; flex-direction: column; gap: 3px; }
-.hstat-n { font-family: var(--font-display); font-size: 1.9rem; font-weight: 900; color: var(--cyan); line-height: 1; }
-.hstat-l { font-family: var(--font-mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+.hstat-n {
+  font-family: var(--font-display); font-size: 1.9rem;
+  font-weight: 900; color: var(--cyan); line-height: 1;
+}
+.hstat-l {
+  font-family: var(--font-mono); font-size: 0.6rem;
+  color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+}
 
-/* ── 1280px ─────────────────────────────── */
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+
+/* 1280px */
 @media (max-width: 1280px) {
   .home-inner { padding: 0 60px 60px 240px; grid-template-columns: 1fr 380px; gap: 40px; }
   .home-stats  { padding: 22px 60px 32px 240px; gap: 36px; }
 }
 
-/* ── 1100px ─────────────────────────────── */
+/* 1100px */
 @media (max-width: 1100px) {
   .home-inner { grid-template-columns: 1fr; padding: 80px 40px 60px 220px; min-height: auto; }
   .home-right  { display: none; }
   .home-stats  { padding: 22px 40px 32px 220px; }
 }
 
-/* ── Mobile 850px ───────────────────────── */
+/* ─── MOBILE ≤ 850px ──────────────────────
+   Key decisions:
+   1. Mobile photo sits in .home-mobile-row beside text
+   2. Tagline/focus/college appear INSIDE .home-mobile-row
+   3. Desktop versions of those are hidden
+   4. CTAs: Resume full-width, then secondary-row = Work + icons in one line
+   5. Stats: 2×2 grid, not wrapping flex
+────────────────────────────────────────── */
 @media (max-width: 850px) {
   .home { min-height: 100svh; }
-  .home-orb--c { width: 300px; height: 300px; top: -60px; left: 0; }
+
+  .home-orb--c { width: 280px; height: 280px; top: -40px; left: -40px; }
   .home-orb--o { display: none; }
 
   .home-inner {
     grid-template-columns: 1fr;
-    padding: 68px 20px 20px 20px;
+    padding: 66px 20px 20px 20px;
     min-height: auto; gap: 0; align-items: flex-start;
   }
 
-  .home-right  { display: none; }
-  .home-left   { gap: 14px; }
+  .home-right { display: none; }
+  .home-left  { gap: 16px; }
 
-  .role-txt    { font-size: 0.9rem; }
-  .role-prefix { font-size: 0.68rem; }
+  /* Typewriter row — fixed height so it never pushes content */
+  .home-role-row { min-height: 1.4rem; }
+  .role-txt      { font-size: 0.88rem; letter-spacing: 0.04em; }
+  .role-prefix   { font-size: 0.66rem; }
 
+  /* Name */
   .home-name {
-    font-size: clamp(2.8rem, 14vw, 4.2rem);
+    font-size: clamp(2.8rem, 13.5vw, 4rem);
     line-height: 0.86;
   }
   .hn-outline { -webkit-text-stroke: 1.5px var(--white); }
 
-  /* ── Mobile photo: small circle right-aligned below name ── */
+  /* ── Mobile combined row ──────────────
+     Photo right, text left — sit beside each other
+  ──────────────────────────────────────── */
+  .home-mobile-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .home-mobile-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  /* Tagline inside mobile row */
+  .home-mobile-text .home-tagline {
+    font-size: 0.78rem;
+    line-height: 1.6;
+    max-width: 100%;
+    color: rgba(240,240,250,0.55);
+  }
+
+  /* Focus row inside mobile row */
+  .home-mobile-text .home-focus-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    min-height: auto;
+  }
+
+  .home-mobile-text .focus-label { font-size: 0.58rem; }
+  .home-mobile-text .focus-tag   { font-size: 0.62rem; padding: 3px 10px; }
+
+  /* College inside mobile row */
+  .home-mobile-text .home-college { gap: 2px; }
+  .home-mobile-text .hc-name { font-size: 0.78rem; }
+  .home-mobile-text .hc-year { font-size: 0.58rem; }
+
+  /* Hide the duplicate desktop-only elements */
+  .home-tagline--desktop,
+  .home-focus-row--desktop,
+  .home-college--desktop { display: none; }
+
+  /* ── Mobile photo ─────────────────────
+     Compact circle, right side of the mobile row
+  ──────────────────────────────────────── */
   .home-photo-mobile {
+    position: relative;
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    position: relative;
-    margin-top: -4px;
-    margin-bottom: 4px;
+    justify-content: center;
   }
 
   .hpm-ring {
-    position: absolute;
-    width: 96px; height: 96px;
+    position: absolute; inset: -6px;
     border-radius: 50%;
-    border: 1px solid rgba(0,245,212,0.22);
-    animation: spin 20s linear infinite;
-    right: -2px;
+    border: 1px solid rgba(0,245,212,0.25);
+    animation: spin 22s linear infinite;
   }
 
   .hpm-img {
@@ -317,63 +413,111 @@
     border-radius: 50%;
     object-fit: cover; object-position: center top;
     border: 2px solid rgba(0,245,212,0.35);
-    box-shadow: 0 0 20px rgba(0,245,212,0.18);
-    display: block; position: relative; z-index: 1;
+    box-shadow: 0 0 20px rgba(0,245,212,0.2);
+    display: block; z-index: 1; position: relative;
   }
 
   .hpm-avail {
-    position: absolute;
-    bottom: -6px; right: -2px;
-    display: flex; align-items: center; gap: 5px;
+    position: absolute; bottom: -10px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; align-items: center; gap: 4px;
     padding: 3px 8px;
     background: rgba(6,6,15,0.95);
-    border: 1px solid rgba(0,245,212,0.22);
+    border: 1px solid rgba(0,245,212,0.25);
     border-radius: 20px;
-    font-family: var(--font-mono); font-size: 0.52rem;
-    color: var(--cyan); letter-spacing: 0.06em; white-space: nowrap; z-index: 2;
+    font-family: var(--font-mono); font-size: 0.5rem;
+    color: var(--cyan); letter-spacing: 0.05em;
+    white-space: nowrap; z-index: 2;
   }
   .hpm-avail .avail-dot { width: 5px; height: 5px; }
 
-  .home-tagline { font-size: 0.8rem; max-width: 100%; line-height: 1.65; }
-  .hc-name { font-size: 0.82rem; }
-  .hc-year { font-size: 0.6rem; }
+  /* ── Mobile CTAs ──────────────────────
+     Row 1: Resume — full width
+     Row 2: Work button + GitHub + LinkedIn — in one line
+  ──────────────────────────────────────── */
+  .home-ctas {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
 
-  .home-ctas { gap: 9px; }
-  .cta-primary { padding: 10px 20px; font-size: 0.85rem; }
-  .cta-outline { padding: 9px 16px; font-size: 0.85rem; }
-  .cta-icon { width: 38px; height: 38px; }
+  .cta-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 24px;
+    font-size: 0.9rem;
+  }
 
-  /* Mobile tech strip */
+  /* Secondary row: Work + icons side by side */
+  .cta-secondary-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+  }
+
+  /* Work button takes remaining space */
+  .cta-outline {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* Icons stay fixed size */
+  .cta-icon {
+    width: 40px; height: 40px;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ── Tech strip (visible on mobile) ─── */
   .home-tech-strip {
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-    padding: 10px 0 4px;
+    display: flex; align-items: center;
+    gap: 7px; flex-wrap: wrap;
+    padding: 10px 0 2px;
     border-top: 1px solid var(--border);
   }
+
   .hts-item {
-    width: 30px; height: 30px;
+    width: 32px; height: 32px;
     background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 6px; display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem; transition: all 0.2s ease;
+    border-radius: 6px; display: flex; align-items: center;
+    justify-content: center; font-size: 0.95rem;
+    transition: all 0.2s ease; flex-shrink: 0;
   }
   .hts-item:hover { border-color: var(--border-cyan); background: var(--bg3); }
 
+  /* ── Stats: 2×2 grid ─────────────────── */
   .home-stats {
-    padding: 18px 20px 24px 20px; gap: 0;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    padding: 18px 20px 24px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    border-top: 1px solid var(--border);
   }
   .hstat-n { font-size: 1.5rem; }
   .hstat-l { font-size: 0.55rem; }
 }
 
-/* ── 380px ──────────────────────────────── */
+/* Very small phones */
 @media (max-width: 380px) {
-  .home-inner { padding: 62px 16px 18px 16px; }
-  .home-name  { font-size: 2.5rem; }
-  .home-ctas  { flex-direction: column; align-items: stretch; }
-  .cta-primary, .cta-outline { width: 100%; justify-content: center; }
-  .home-stats { padding: 16px 16px 22px 16px; }
+  .home-inner { padding: 60px 14px 16px 14px; }
+
+  .home-name { font-size: 2.5rem; }
+
+  .home-photo-mobile { width: 76px; height: 76px; }
+  .hpm-img           { width: 70px; height: 70px; }
+
+  .cta-secondary-row { gap: 7px; }
+  .cta-icon          { width: 36px; height: 36px; }
+
+  .home-stats { padding: 14px 14px 20px 14px; gap: 12px; }
+  .hstat-n    { font-size: 1.3rem; }
 }
 
+/* ── Animations ─────────────────────────── */
 @keyframes hFadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
