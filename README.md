@@ -166,20 +166,6 @@ src/
 └── index.css
 ```
 
----
-
-## 📸 Screenshots
-
-| Section | Preview |
-|---|---|
-| About | ![About](https://github.com/user-attachments/assets/fba4718a-8d07-4531-9287-cae9ad4a4371) |
-| Skills | ![Skills](https://github.com/user-attachments/assets/2b79aea7-cde8-42b1-81d2-d27c29d8ee8c) |
-| Work | ![Work](https://github.com/user-attachments/assets/20c7e0ea-b58d-4cb2-b590-bff8386c140b) |
-| Achievements | ![Achievements](https://github.com/user-attachments/assets/f8b9e425-f47c-46bb-93c2-bad33c1d1721) |
-| Education | ![Education](https://github.com/user-attachments/assets/60248d0f-2368-4cbd-bc29-eccb96fb8e5f) |
-| Dev Notes | ![Dev Notes](https://github.com/user-attachments/assets/6fdbfd4d-27a0-4b8b-94ca-10cfde6e7253) |
-| Contact | ![Contact](https://github.com/user-attachments/assets/987f3743-433b-49f6-bdb6-013a0889dcd7) |
-| Mobile | ![Mobile](https://github.com/user-attachments/assets/6f638fab-74af-40e9-bf77-690c1bc23963) |
 
 ---
 
