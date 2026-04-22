@@ -6,7 +6,7 @@
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Portfolio-00f5d4?style=for-the-badge&logo=vercel&logoColor=black)](https://my-portfolio-weld-beta-40.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-Kuldeepagrahari-181717?style=for-the-badge&logo=github)](https://github.com/Kuldeepagrahari)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/kuldeep-agrahari-56b159260)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/Kuldeepagrahari/)
 
 </div>
 
