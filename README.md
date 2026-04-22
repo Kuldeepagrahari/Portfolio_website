@@ -1,41 +1,239 @@
-<h1>🧑‍💻 Kuldeep Agrahari – Developer Portfolio</h1>
-A clean, modern, and responsive developer portfolio built using React.js. It highlights my skills, projects, experience, education, and contact details — all in a visually engaging and accessible format.
+<div align="center">
 
-🌐 Live Demo
-🔗 Visit Portfolio: https://my-portfolio-weld-beta-40.vercel.app/
+# Kuldeep Agrahari — Developer Portfolio
 
-🚀 Features
-🧠 About Me section with a creative personal statement
-💻 Tech Stack categorized into Frontend, Backend, Database, DevOps & Tools
-🎓 Education timeline styled with animation and gradient themes
-📂 Projects overview (if included)
-📬 Contact section with WhatsApp, Email, and Address info
-💡 Fully responsive and mobile-friendly
-🎨 Gradient UI with smooth animations and hover effects
+**Backend-focused Software Engineer · Final Year CSE · PDPM IIIT Jabalpur**
 
-🛠️ Tech Stack<br/>
-Frontend: React.js<br/>
-Styling: CSS, Framer-motion
-Icons: React-Icons
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Portfolio-00f5d4?style=for-the-badge&logo=vercel&logoColor=black)](https://my-portfolio-weld-beta-40.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Kuldeepagrahari-181717?style=for-the-badge&logo=github)](https://github.com/Kuldeepagrahari)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/kuldeep-agrahari-56b159260)
 
-Deployment: Vercel
+</div>
 
+---
 
-<img width="1919" height="910" alt="image" src="https://github.com/user-attachments/assets/fba4718a-8d07-4531-9287-cae9ad4a4371" />
+## 🖥️ Live Preview
 
-<img width="1919" height="902" alt="image" src="https://github.com/user-attachments/assets/2b79aea7-cde8-42b1-81d2-d27c29d8ee8c" />
+![Home](https://github.com/user-attachments/assets/ee0d3b32-a159-4a54-a151-5d6cef8f1816)
 
-<img width="1919" height="882" alt="image" src="https://github.com/user-attachments/assets/20c7e0ea-b58d-4cb2-b590-bff8386c140b" />
+---
 
-<img width="1919" height="894" alt="image" src="https://github.com/user-attachments/assets/f8b9e425-f47c-46bb-93c2-bad33c1d1721" />
+## 📖 Overview
 
-<img width="1908" height="912" alt="image" src="https://github.com/user-attachments/assets/60248d0f-2368-4cbd-bc29-eccb96fb8e5f" />
+A modern, dark-themed developer portfolio built with **React.js** and **Framer Motion**. Designed around a **Noir Technik** aesthetic — deep charcoal backgrounds, electric teal accents, and bold condensed typography. Every section is scroll-tracked, fully responsive, and built to perform well from desktop down to 380px mobile screens.
 
-<img width="1917" height="897" alt="image" src="https://github.com/user-attachments/assets/6fdbfd4d-27a0-4b8b-94ca-10cfde6e7253" />
+Built as a living document — content and interactive notes grow as I build and learn.
 
-<img width="1919" height="905" alt="image" src="https://github.com/user-attachments/assets/987f3743-433b-49f6-bdb6-013a0889dcd7" />
+---
 
-<img width="1917" height="896" alt="image" src="https://github.com/user-attachments/assets/6f638fab-74af-40e9-bf77-690c1bc23963" />
+## ✨ Features
 
-<h1> Modern-UI 1st Look </h1>
-<img width="1919" height="895" alt="image" src="https://github.com/user-attachments/assets/ee0d3b32-a159-4a54-a151-5d6cef8f1816" />
+### 🎨 Design System
+- **Noir Technik** theme — `#06060f` base, `#00f5d4` teal accent, `#ff4e00` orange secondary
+- Custom CSS variable system (`global.css`) shared across all components
+- `Barlow Condensed` (display) · `Outfit` (body) · `Space Mono` (code/labels) font stack
+- Ambient background orbs, dot-grid backgrounds, and layered glassmorphism effects
+
+### 🏠 Home
+- Typewriter role animation (`react-simple-typewriter`)
+- Large outlined name with cyan accent on `HARI`
+- Rotating animated focus tags (Backend Development → APIs → Problem Solving → System Fundamentals)
+- Desktop: circular profile photo with dual spinning ring frames and 6 floating tech badges
+- Mobile: compact right-aligned photo beside tagline, no layout shift
+- Clean 2-button CTA layout on mobile (Resume full-width · Work + GitHub + LinkedIn in one row)
+- Inline tech icon strip on mobile
+- 2×2 stat grid at the bottom (3+ years · 7+ projects · 1200+ DSA · 1400+ GitHub)
+
+### 👤 About
+- Engineering-focused bio (not generic)
+- 4 impact metrics: 15+ APIs · 1200+ DSA · 1400+ commits · 20+ mentored
+- **Architecture Highlights** strip — 3 real projects with actual stack and one-line architecture note
+- "What I Build" cards: Backend Systems · Distributed System Exposure · Full Stack & Mobile
+- Profile photo with corner bracket accents and floating "Backend Engineer · Open to Roles" badge
+
+### ⚡ Skills
+- **3D rotating sphere** — Fibonacci sphere distribution, 28 tags orbit in real-time (pure JS/DOM, no library)
+- **7 category tabs** — Backend, Frontend, Database, Languages, Cloud & DevOps, Distributed Systems, Tools
+- Each tech card shows icon + name + one-line context note
+- Horizontally scrollable tabs on mobile (no wrapping, no reflow)
+- Typewriter moves below title on mobile (eliminates layout shift)
+- Sphere hidden on mobile; clean tab+card layout takes over
+- Soft skills strip at the bottom
+
+### 💼 Work (Projects + Experience)
+- Tabbed layout: **Projects** tab and **Experience** tab in one section
+- Projects: auto-fill card grid with image, description, GitHub/Live/Admin links, "In Progress" badge
+- Experience: timeline cards for **Fusion ERP (Backend)** and **AeroCare (Mobile/Backend)**
+- All data matches resume — exact bullet points, tech tags, dates
+
+### 🏆 Achievements
+- Platform cards: LeetCode (700+ · Knight Badge) · GFG (500+ · 4★) · GitHub (1400+) · CodeChef (3★ · 1650+)
+- Each card shows large stat number with brand-accurate icon color
+- Mentor card with BitByte Programming Club logo (`tpc.png`) — responsive across all breakpoints
+
+### 🎓 Education
+- Sticky left heading + right vertical timeline
+- Glowing dot connectors per entry
+- Year badge chip, school name, percentage/score
+
+### 📝 Dev Notes (Engineering Notes)
+- 6 engineering notes with modal-based reading experience
+- Click "Open →" → full-screen blur modal renders interactive content
+- ESC / click-outside / X button closes modal
+- **`learnings/` folder** — each note is a standalone React component:
+  - `RequestFlow.jsx` — click-to-expand 11-step request lifecycle diagram
+  - `NodeVsDjango.jsx` — 3-tab comparison (observations · when Node · when Django)
+  - Future notes map to `null` → "Still Writing This One" state
+- `learnings/index.js` — simple map of `thoughtId → component`, easy to extend
+- Tone: learner documenting real project observations, not expert explanations
+
+### 📬 Contact
+- Left panel: heading + description + email + phone + location + social links + availability badge
+- Right panel: clean form with labeled fields, focus glow states
+- Success/error status with styled feedback
+- EmailJS integration
+
+### 🔗 Follow / Footer
+- CSS-only infinite marquee strip
+- Brand block + social icon grid
+- Copyright bar
+
+### 🧭 Navigation
+- Fixed 180px sidebar on desktop with icon + label items
+- Active indicator: left border glow + background gradient
+- **Scroll-tracked active state** — `IntersectionObserver` in `Display.jsx` detects which section is in view and updates nav automatically. No more stale active state on scroll.
+- Full-screen overlay on mobile with staggered Framer Motion entrance
+- Resume button at bottom of sidebar
+
+---
+
+## 🗂️ Section Order
+
+Optimised for hiring manager scroll attention:
+
+```
+Home → About → Work → Skills → Achievements → Education → Dev Notes → Contact → Follow
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Tech |
+|---|---|
+| Framework | React.js (Vite) |
+| Animations | Framer Motion |
+| Icons | React Icons |
+| Typewriter | react-simple-typewriter |
+| Email | EmailJS |
+| 3D Sphere | Vanilla JS + requestAnimationFrame |
+| Fonts | Google Fonts (Barlow Condensed, Outfit, Space Mono) |
+| Deployment | Vercel |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── Navbar/
+│   │   ├── Nav.jsx          # Scroll-tracked active state via IntersectionObserver
+│   │   └── nav.css
+│   └── Footer/
+│       ├── Footer.jsx       # Marquee strip + social links
+│       └── footer.css
+│
+├── pages/
+│   ├── Home/                # Typewriter · photo frame · floating badges · stats
+│   ├── About/               # Bio · metrics · architecture highlights · What I Build
+│   ├── Work/                # Tabbed: Projects + Experience
+│   ├── Skills/              # 3D sphere · category tabs · tech cards
+│   ├── Achievements/        # Platform stats · mentor card
+│   ├── Education/           # Timeline with sticky header
+│   ├── Thoughts/            # Dev Notes with modal system
+│   │   ├── Thoughts.jsx
+│   │   ├── thoughts.css
+│   │   └── learnings/
+│   │       ├── index.js          # thoughtId → component map
+│   │       ├── RequestFlow.jsx   # Interactive request lifecycle
+│   │       └── NodeVsDjango.jsx  # Tabbed framework comparison
+│   └── Contact/             # EmailJS form · info panel
+│
+├── Display.jsx              # Root layout · IntersectionObserver scroll tracking
+├── global.css               # CSS variables · shared utilities · orb classes
+├── display.css
+└── index.css
+```
+
+---
+
+## 📸 Screenshots
+
+| Section | Preview |
+|---|---|
+| About | ![About](https://github.com/user-attachments/assets/fba4718a-8d07-4531-9287-cae9ad4a4371) |
+| Skills | ![Skills](https://github.com/user-attachments/assets/2b79aea7-cde8-42b1-81d2-d27c29d8ee8c) |
+| Work | ![Work](https://github.com/user-attachments/assets/20c7e0ea-b58d-4cb2-b590-bff8386c140b) |
+| Achievements | ![Achievements](https://github.com/user-attachments/assets/f8b9e425-f47c-46bb-93c2-bad33c1d1721) |
+| Education | ![Education](https://github.com/user-attachments/assets/60248d0f-2368-4cbd-bc29-eccb96fb8e5f) |
+| Dev Notes | ![Dev Notes](https://github.com/user-attachments/assets/6fdbfd4d-27a0-4b8b-94ca-10cfde6e7253) |
+| Contact | ![Contact](https://github.com/user-attachments/assets/987f3743-433b-49f6-bdb6-013a0889dcd7) |
+| Mobile | ![Mobile](https://github.com/user-attachments/assets/6f638fab-74af-40e9-bf77-690c1bc23963) |
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/Kuldeepagrahari/my-portfolio.git
+
+# Install dependencies
+cd my-portfolio
+npm install
+
+# Start dev server
+npm run dev
+```
+
+### Add your profile photo
+Place your photo as `profile.png` in the `/public` folder.
+
+### Configure EmailJS
+In `Contact.jsx`, replace the three constants with your EmailJS credentials:
+```js
+emailjs.sendForm(
+  "YOUR_SERVICE_ID",
+  "YOUR_TEMPLATE_ID",
+  form.current,
+  "YOUR_PUBLIC_KEY"
+)
+```
+
+### Add a Dev Note
+1. Create `src/pages/Thoughts/learnings/YourNote.jsx` — export a default React component
+2. Import it in `learnings/index.js` and add `id: YourComponent`
+3. Set `hasContent: true` in the matching entry in `Thoughts.jsx`
+
+---
+
+## 📬 Contact
+
+| | |
+|---|---|
+| Email | kuldeepagrahari9103@gmail.com |
+| Phone | +91 88718 05535 |
+| Location | Prayagraj, Uttar Pradesh, India |
+| LinkedIn | [Kuldeepagrahari](https://www.linkedin.com/in/Kuldeepagrahari/) |
+| LeetCode | [kuldeep144](https://leetcode.com/kuldeep144/) — Knight Badge · 700+ problems |
+| GeeksForGeeks | [kuldeepagre919](https://www.geeksforgeeks.org/user/kuldeepagre919) — 4★ · Top-15 in the college |
+
+---
+
+<div align="center">
+
+Designed & built by **Kuldeep Agrahari**  
+B.Tech CSE · PDPM IIIT Jabalpur · 2022–2026
+
+</div>
