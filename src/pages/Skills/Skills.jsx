@@ -99,7 +99,8 @@ const TechSphere = () => {
     const n = tags.length;
     // const R = 1600;
     const rect = el.getBoundingClientRect();
-    const R = rect.width / 3;
+    // const R = rect.width / 3;
+    const R = Math.min(rect.width, rect.height) / 2.5;
     console.log(R)
 
     const positions = Array.from({ length: n }, (_, i) => {

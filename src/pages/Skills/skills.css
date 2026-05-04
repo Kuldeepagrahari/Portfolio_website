@@ -1,361 +1,459 @@
 /* ═══════════════════════════════════════════
-   SKILLS
+   SKILLS — fully responsive
 ═══════════════════════════════════════════ */
 
+* { box-sizing: border-box; }
+
+:root { --max-width: 1200px; }
+
+/* ── Container ───────────────────────────── */
 .skills {
   position: relative;
   min-height: 100vh;
+  width: 100%;
   background: var(--bg);
-  padding: 80px 60px 80px 240px;
-  overflow: visible;
- 
+  /* Left offset matches the sidebar nav width on desktop */
+  padding: 64px 40px 64px 280px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Decorative orbs */
 .sk-orb {
-  position: absolute; border-radius: 50%;
-  filter: blur(100px); pointer-events: none; z-index: 0;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
 }
 .sk-orb--cyan {
-  width: 480px; height: 480px; top: -100px; right: 8%;
-  background: radial-gradient(circle, rgba(0,245,212,0.11) 0%, transparent 70%);
+  width: 480px; height: 480px;
+  top: -100px; right: 8%;
+  background: radial-gradient(circle, rgba(0,245,212,0.10) 0%, transparent 70%);
 }
 .sk-orb--purple {
-  width: 340px; height: 340px; bottom: 40px; left: 260px;
-  background: radial-gradient(circle, rgba(123,94,167,0.1) 0%, transparent 70%);
+  width: 340px; height: 340px;
+  bottom: 40px; left: 200px;
+  background: radial-gradient(circle, rgba(123,94,167,0.08) 0%, transparent 70%);
 }
 
+/* Inner wrapper */
 .skills-inner {
-  position: relative; z-index: 1;
-  width: 100%;
-  display: flex; flex-direction: column; gap: 52px;
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-/* ── Header ─────────────────────────────── */
+/* ── Header ──────────────────────────────── */
 .skills-header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  gap: 16px;
   flex-wrap: wrap;
-  gap: 20px;
 }
-
 .skills-title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  font-weight: 900; text-transform: uppercase;
-  line-height: 0.9; letter-spacing: -0.02em;
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.9;
 }
 .st-solid   { display: block; color: var(--white); }
-.st-outline {
-  display: block; color: transparent;
-  -webkit-text-stroke: 2px var(--orange);
-}
+.st-outline { display: block; color: transparent; -webkit-text-stroke: 2px var(--orange); }
 
-/*
-  Typewriter container — KEY FIX:
-  Give it a fixed height so when the word changes length
-  (Backend Focused → Full Stack) the header doesn't reflow.
-  On desktop it sits beside the title; on mobile it goes below.
-*/
 .skills-typewriter {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--cyan);
-  letter-spacing: 0.1em;
-  padding-bottom: 8px;
-  /* Prevent reflow — the longest word is "Backend Focused" ~15ch */
-  min-width: 18ch;
+  letter-spacing: 0.08em;
   min-height: 1.4rem;
   display: flex;
   align-items: flex-end;
+  padding-bottom: 4px;
 }
 
-/* ── Body layout ─────────────────────────── */
+/* ── Body: sphere left + right panel ─────── */
 .skills-body {
   display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 56px;
-  align-items: flex-start;
+  grid-template-columns: 400px 1fr;
+  gap: 40px;
+  align-items: start;
+  width: 100%;
 }
 
-/* ── Sphere ──────────────────────────────── */
+/* ── Sphere area ─────────────────────────── */
 .sphere-wrap {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  gap: 20px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .sphere-container {
   position: relative;
-  width: min(80vw, 380px);   /* responsive */
-  height: min(80vw, 380px);
+  width: clamp(200px, 36vw, 360px);
+  height: clamp(200px, 36vw, 360px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
 }
 
 .sphere-glow {
-  position: absolute; top: 50%; left: 50%;
+  position: absolute;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 100px; height: 100px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,245,212,0.2) 0%, transparent 75%);
-  filter: blur(18px);
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,245,212,0.22) 0%, transparent 75%);
+  filter: blur(16px);
   animation: glow-pulse 3s ease-in-out infinite;
   pointer-events: none;
 }
-
 @keyframes glow-pulse {
   0%,100% { opacity: 0.5; transform: translate(-50%,-50%) scale(1); }
   50%      { opacity: 1;   transform: translate(-50%,-50%) scale(1.4); }
 }
 
 .s-tag {
-  position: absolute; top: 50%; left: 50%;
-  display: flex; align-items: center; gap: 5px;
-  padding: 4px 11px;
-  background: rgba(13,13,28,0.88);
-  border: 1px solid color-mix(in srgb, var(--cat-color,#00f5d4) 30%, transparent);
-  border-radius: 20px; white-space: nowrap;
-  backdrop-filter: blur(4px);
-  will-change: transform, opacity;
-  cursor: default; transition: border-color 0.2s;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: rgba(13,13,28,0.90);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+  transition: transform 0.18s ease, opacity 0.18s ease;
+  pointer-events: auto;
 }
-.s-tag:hover {
-  border-color: var(--cat-color, var(--cyan)) !important;
-  z-index: 200 !important;
-}
-.s-tag-icon {
-  font-size: 0.8rem; color: var(--cat-color, var(--cyan)); flex-shrink: 0;
-}
+.s-tag-icon { font-size: 0.75rem; }
 .s-tag-name {
-  font-family: var(--font-mono); font-size: 0.6rem;
-  color: rgba(240,240,250,0.7); letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(240,240,250,0.75);
 }
 
+/* Category legend pills */
 .sphere-legend {
-  display: flex; flex-wrap: wrap; gap: 7px;
-  justify-content: center; max-width: 380px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  width: min(100%, 380px);
 }
-
 .leg-pill {
-  display: flex; align-items: center; gap: 5px;
-  padding: 4px 11px; border-radius: 20px;
-  font-family: var(--font-mono); font-size: 0.6rem;
-  color: var(--muted); background: var(--bg2);
-  border: 1px solid var(--border); letter-spacing: 0.06em;
-  cursor: pointer; transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
 }
-.leg-pill:hover,
 .leg-pill.active {
   color: var(--c, var(--cyan));
   border-color: var(--c, var(--cyan));
+  background: color-mix(in srgb, var(--c, var(--cyan)) 8%, transparent);
 }
 .leg-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--c, var(--cyan)); flex-shrink: 0;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--c, var(--cyan));
+  flex-shrink: 0;
 }
 
 /* ── Right panel ─────────────────────────── */
 .skills-right {
-  display: flex; flex-direction: column; gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0; /* prevent overflow */
 }
 
-/* ── Tab bar ─────────────────────────────── */
+/* Tabs */
 .sk-tabs {
-  display: flex; gap: 6px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
   flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
 }
-
 .sk-tab {
-  padding: 7px 16px; border-radius: 6px;
-  border: 1px solid var(--border); background: var(--bg2);
-  color: var(--muted); font-family: var(--font-mono);
-  font-size: 0.68rem; letter-spacing: 0.06em;
-  cursor: pointer; transition: all 0.2s ease;
+  padding: 7px 13px;
+  border-radius: 8px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.18s ease;
 }
-.sk-tab:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
 .sk-tab.active {
   background: color-mix(in srgb, var(--c, var(--cyan)) 12%, transparent);
-  border-color: color-mix(in srgb, var(--c, var(--cyan)) 40%, transparent);
-  color: var(--c, var(--cyan)); font-weight: 600;
+  color: var(--c, var(--cyan));
+  border-color: color-mix(in srgb, var(--c, var(--cyan)) 30%, transparent);
+}
+.sk-tab:hover:not(.active) {
+  color: var(--white);
+  border-color: rgba(255,255,255,0.12);
 }
 
-/* ── Card grid ───────────────────────────── */
+/* Cards grid */
 .sk-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 10px;
-  animation: tab-in 0.25s ease both;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 12px;
 }
-
-@keyframes tab-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 .sk-card {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 16px;
-  background: var(--bg2); border: 1px solid var(--border);
-  border-radius: 10px; transition: all 0.22s ease;
-  cursor: default; position: relative; overflow: hidden;
-}
-.sk-card::before {
-  content: ''; position: absolute;
-  left: 0; top: 0; bottom: 0; width: 2px;
-  background: var(--c, var(--cyan)); opacity: 0;
-  transition: opacity 0.22s ease;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  min-width: 0;
 }
 .sk-card:hover {
   border-color: color-mix(in srgb, var(--c, var(--cyan)) 30%, transparent);
-  background: var(--bg3); transform: translateX(3px);
+  transform: translateY(-2px);
 }
-.sk-card:hover::before { opacity: 1; }
-
 .sk-card-icon {
-  font-size: 1.4rem; color: var(--c, var(--cyan)); flex-shrink: 0;
+  font-size: 1.35rem;
+  color: var(--c, var(--cyan));
+  flex-shrink: 0;
 }
 .sk-card-info {
-  display: flex; flex-direction: column; gap: 2px; min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
 }
 .sk-card-name {
-  font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
-  color: var(--white); white-space: nowrap;
-  overflow: hidden; text-overflow: ellipsis;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .sk-card-note {
-  font-family: var(--font-mono); font-size: 0.6rem; color: var(--muted);
-  letter-spacing: 0.04em; white-space: nowrap;
-  overflow: hidden; text-overflow: ellipsis;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Count + soft strip */
 .sk-count {
-  font-family: var(--font-mono); font-size: 0.65rem;
-  color: var(--muted); letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 0.72rem;
 }
-
-/* ── Soft skills strip ───────────────────── */
 .soft-strip {
-  display: flex; flex-wrap: wrap; gap: 9px;
-  padding-top: 8px; border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
 }
 .soft-tag {
-  font-family: var(--font-mono); font-size: 0.67rem;
-  color: var(--muted); background: var(--bg2);
-  border: 1px solid var(--border); padding: 6px 14px;
-  border-radius: 20px; letter-spacing: 0.05em;
-  transition: all 0.2s ease; cursor: default;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--bg2);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  border: 1px solid var(--border);
+  letter-spacing: 0.04em;
 }
-.soft-tag:hover { border-color: var(--border-cyan); color: var(--cyan); }
 
 /* ═══════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE BREAKPOINTS
 ═══════════════════════════════════════════ */
 
-@media (max-width: 1280px) {
-  .skills { padding: 80px 50px 80px 240px; }
-  .skills-body { grid-template-columns: 360px 1fr; gap: 40px; }
-  /* .sphere-container { width: 330px; height: 330px; } */
+/* Large desktop */
+@media (min-width: 1200px) {
+  .skills { padding: 80px 40px 80px 200px; }
+  .skills-body { grid-template-columns: 420px 1fr; gap: 48px; }
 }
 
-@media (max-width: 1100px) {
-  .skills { padding: 80px 40px 80px 220px; }
-  .skills-body { grid-template-columns: 1fr; }
-  .sphere-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 0; /* ✅ FIX */
-    width: 100%;
-    background-color: #00f5d4;
-  }
-  .sk-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+/* Medium desktop */
+@media (max-width: 1199px) and (min-width: 1001px) {
+  .skills { padding: 72px 28px 72px 280px; }
+  .skills-body { grid-template-columns: 360px 1fr; gap: 36px; }
 }
 
-/* ─── MOBILE ≤ 850px ──────────────────────
-   Key decisions:
-   1. Typewriter moves BELOW the title, full width, no wrapping shift
-   2. Tabs scroll horizontally (no wrapping) — prevents double-row ugliness
-   3. Cards: 2 columns
-   4. Soft strip stays as pills
-────────────────────────────────────────── */
-@media (max-width: 850px) {
-  .skills { padding: 80px 20px 60px 20px; }
-
-  /* Header: stack vertically so typewriter never wraps beside title */
-  .skills-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+/* Small laptop / large tablet landscape */
+@media (max-width: 1000px) and (min-width: 769px) {
+  .skills { padding: 60px 20px 60px 280px; }
+  .skills-body {
+    grid-template-columns: 300px 1fr;
+    gap: 28px;
   }
-
-  .skills-title { font-size: clamp(2.5rem, 11vw, 3.5rem); }
-
-  /*
-    Typewriter on mobile:
-    - Full width, left-aligned
-    - min-height so it never collapses when word is short
-    - No min-width needed (it's already full width)
-    This eliminates the reflow entirely because the title
-    and typewriter are now on separate lines.
-  */
-  .skills-typewriter {
-    font-size: 0.78rem;
-    min-width: 0;
-    width: 100%;
-    min-height: 1.3rem;
-    padding-bottom: 0;
-    letter-spacing: 0.08em;
-    align-items: flex-start;
+  .sphere-container {
+    width: clamp(180px, 30vw, 280px);
+    height: clamp(180px, 30vw, 280px);
   }
-
-  /*
-    Tabs: horizontally scrollable, no wrapping
-    This prevents a messy 2-row or 3-row tab layout on small screens.
-    User swipes left/right to see all categories.
-  */
+  .sk-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); }
+  /* Make tabs scroll horizontally on small laptop too */
   .sk-tabs {
     flex-wrap: nowrap;
     overflow-x: auto;
-    overflow-y: visible;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;            /* Firefox */
-    padding-bottom: 14px;
-    gap: 7px;
-    /* Extend slightly so the border-bottom isn't clipped */
+    scrollbar-width: none;
+  }
+  .sk-tabs::-webkit-scrollbar { display: none; }
+  .sk-tab { flex-shrink: 0; }
+}
+
+/* Tablet portrait + below: stack vertically */
+@media (max-width: 768px) {
+  .skills { padding: 52px 16px; } /* no left offset — nav is hamburger */
+  .skills-inner { gap: 28px; }
+
+  .skills-body {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .sphere-wrap { order: 0; width: 100%; }
+  .skills-right { order: 1; width: 100%; }
+
+  /* Center sphere on tablet */
+  .sphere-container {
+    width: clamp(220px, 56vw, 340px);
+    height: clamp(220px, 56vw, 340px);
+  }
+
+  /* Horizontal scroll tabs */
+  .sk-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 12px;
+    gap: 8px;
     margin: 0 -4px;
     padding-left: 4px;
     padding-right: 4px;
   }
   .sk-tabs::-webkit-scrollbar { display: none; }
+  .sk-tab { flex-shrink: 0; }
 
-  .sk-tab {
-    font-size: 0.64rem;
-    padding: 7px 14px;
-    flex-shrink: 0;               /* tabs never shrink — scroll instead */
+  /* 2-column grid on tablet */
+  .sk-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .skills-title { font-size: clamp(2.2rem, 7vw, 3.2rem); }
+  .skills-typewriter { font-size: 0.78rem; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .skills { padding: 44px 14px; }
+  .skills-title { font-size: clamp(1.9rem, 9vw, 2.6rem); }
+  .skills-inner { gap: 20px; }
+
+  .skills-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* Smaller sphere on phones */
+  .sphere-container {
+    width: clamp(180px, 70vw, 300px);
+    height: clamp(180px, 70vw, 300px);
   }
 
-  /* Cards: 2 columns */
-  .sk-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 9px;
-  }
+  .sphere-legend { gap: 6px; }
+  .leg-pill { font-size: 0.65rem; padding: 4px 9px; gap: 6px; }
 
-  .sk-card { padding: 12px 13px; gap: 10px; }
+  /* 1-column cards on mobile */
+  .sk-grid { grid-template-columns: 1fr; gap: 10px; }
+  .sk-card { padding: 12px; gap: 10px; }
+  .sk-card-name { font-size: 0.85rem; }
+  .sk-card-note { font-size: 0.64rem; }
   .sk-card-icon { font-size: 1.2rem; }
-  .sk-card-name { font-size: 0.78rem; }
-  .sk-card-note { font-size: 0.57rem; }
 
-  .soft-strip { gap: 7px; }
-  .soft-tag { font-size: 0.62rem; padding: 5px 11px; }
+  .sk-tabs { gap: 7px; }
+  .sk-tab { padding: 6px 11px; font-size: 0.68rem; }
 
-  .skills-inner { gap: 36px; }
+  .soft-tag { font-size: 0.68rem; padding: 6px 10px; }
 }
 
 /* Very small phones */
 @media (max-width: 420px) {
-  .skills { padding: 80px 14px 60px 14px; }
-
-  /* At very small sizes, drop to 1 column for readability */
-  .sk-grid { grid-template-columns: 1fr; }
-  .sk-card { transform: none !important; }
+  .skills { padding: 36px 12px; }
+  .skills-title { font-size: 1.9rem; }
+ 
+  .sphere-legend { gap: 5px; }
+  .leg-pill { font-size: 0.6rem; padding: 3px 8px; }
+  .sk-tabs { padding-left: 2px; padding-right: 2px; gap: 6px; }
+  
 }
+
+/* Safety: no page-level horizontal scroll */
+html, body, #root { overflow-x: hidden; }
+
+
+@media (max-width: 420px) {
+  .skills { padding: 36px 12px; }
+  .skills-title { font-size: 1.9rem; }
+  .s-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  /* Keep globe centered on very small screens */
+  .sphere-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .sphere-container {
+    /* constrain size relative to viewport to avoid overflow */
+    width: min(300px, 90vw);
+    height: min(300px, 90vw);
+    max-width: 320px;
+    max-height: 320px;
+    margin: 0 auto;        /* center horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* remove debug bg */
+    overflow: visible;
+  }
+
+  .sphere-legend { gap: 5px; }
+  .leg-pill { font-size: 0.6rem; padding: 3px 8px; }
+  .sk-tabs { padding-left: 2px; padding-right: 2px; gap: 6px; }
+}
+/* ...existing code... */

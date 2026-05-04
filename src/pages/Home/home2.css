@@ -162,5 +162,533 @@
         font-size: 1rem;
     }
 }
+/* -------------------------------- */
+/* ═══════════════════════════════════════════
+   HOME
+═══════════════════════════════════════════ */
 
+.home {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  
+  /* Grid bg */
+  .home-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  
+  /* Orbs */
+  .home-orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(100px); pointer-events: none; z-index: 0;
+  }
+  .home-orb--c {
+    width: 560px; height: 560px; top: -120px; left: 160px;
+    background: radial-gradient(circle, rgba(0,245,212,0.12) 0%, transparent 70%);
+  }
+  .home-orb--o {
+    width: 380px; height: 380px; bottom: 20px; right: 120px;
+    background: radial-gradient(circle, rgba(255,78,0,0.1) 0%, transparent 70%);
+  }
+  
+  /* ── DESKTOP LAYOUT ─────────────────────── */
+  .home-inner {
+    position: relative; z-index: 1;
+    flex: 1;
+    padding: 0 80px 60px 240px;
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: 60px;
+    align-items: center;
+    min-height: calc(100vh - 90px);
+  }
+  
+  .home-left {
+    display: flex; flex-direction: column; gap: 18px;
+    animation: hFadeUp 0.6s ease both;
+  }
+  
+  /* Role row */
+  .home-role-row {
+    display: flex; align-items: center; gap: 8px; flex-wrap: nowrap;
+    /* Fixed height prevents layout shift when typewriter changes */
+    min-height: 1.6rem;
+  }
+  .role-prefix {
+    font-family: var(--font-mono); font-size: 0.78rem;
+    color: var(--muted); flex-shrink: 0;
+  }
+  .role-txt {
+    font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+    color: var(--cyan); text-transform: uppercase; letter-spacing: 0.07em;
+    /* Prevent typewriter from reflowing surrounding elements */
+    display: inline-block; min-width: 0;
+  }
+  
+  /* Name */
+  .home-name {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 7.5vw, 7.5rem);
+    font-weight: 900; line-height: 0.88;
+    letter-spacing: -0.025em; text-transform: uppercase;
+    animation: hFadeUp 0.65s ease 0.1s both;
+  }
+  .hn-solid   { display: block; color: var(--white); }
+  .hn-outline { display: block; color: transparent; -webkit-text-stroke: 2px var(--white); }
+  .hn-accent  { color: var(--cyan); -webkit-text-stroke: 0; }
+  
+  /* Mobile combined row — hidden on desktop */
+  .home-mobile-row { display: none; }
+  
+  /* Desktop tagline / focus / college */
+  .home-tagline--desktop { animation: hFadeUp 0.65s ease 0.2s both; }
+  .home-focus-row--desktop { animation: hFadeUp 0.65s ease 0.28s both; }
+  .home-college--desktop   { animation: hFadeUp 0.65s ease 0.35s both; }
+  
+  .home-tagline {
+    font-size: 0.92rem; color: rgba(240,240,250,0.58);
+    font-weight: 300; line-height: 1.75; max-width: 440px;
+  }
+  
+  .home-focus-row {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    /* Fixed height to absorb animated focus tag size differences */
+    min-height: 2rem;
+  }
+  .focus-label {
+    font-family: var(--font-mono); font-size: 0.65rem;
+    color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .focus-tag {
+    font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border: 1px solid; padding: 4px 12px; border-radius: 20px;
+    display: inline-flex; align-items: center;
+    /* Fixed width prevents layout shift as text changes */
+    white-space: nowrap;
+  }
+  
+  .home-college {
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .hc-name {
+    font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--orange);
+  }
+  .hc-year { font-family: var(--font-mono); font-size: 0.68rem; color: var(--muted); }
+  
+  /* ── CTAs ─────────────────────────────────
+     Desktop: all items in one flex row
+     Mobile: restructured via .cta-secondary-row
+  ──────────────────────────────────────────── */
+  .home-ctas {
+    display: flex; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+    animation: hFadeUp 0.65s ease 0.44s both;
+  }
+  
+  .cta-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 26px; background: var(--cyan); color: var(--bg);
+    font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: none; border-radius: 6px; cursor: pointer;
+    text-decoration: none; transition: all 0.22s ease; flex-shrink: 0;
+  }
+  .cta-primary:hover {
+    background: var(--white);
+    box-shadow: 0 0 36px rgba(0,245,212,0.32);
+    transform: translateY(-2px);
+  }
+  
+  /* On desktop, secondary row is just a flex row — no special treatment */
+  .cta-secondary-row {
+    display: flex; align-items: center; gap: 10px;
+  }
+  
+  .cta-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 22px; background: transparent; color: var(--white);
+    font-family: var(--font-display); font-size: 0.95rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--border); border-radius: 6px;
+    cursor: pointer; text-decoration: none; transition: all 0.22s ease;
+  }
+  .cta-outline:hover { border-color: var(--white); transform: translateY(-2px); }
+  
+  .cta-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border: 1px solid var(--border);
+    background: var(--bg2); border-radius: 8px; color: var(--muted);
+    font-size: 1.1rem; text-decoration: none; transition: all 0.22s ease;
+    flex-shrink: 0;
+  }
+  .cta-icon:hover { border-color: var(--border-cyan); color: var(--cyan); background: var(--bg3); }
+  
+  /* Mobile tech strip — hidden on desktop */
+  .home-tech-strip { display: none; }
+  
+  /* ── RIGHT — photo (desktop) ─────────────── */
+  .home-right {
+    display: flex; align-items: center; justify-content: center;
+    animation: hFadeIn 0.8s ease 0.3s both;
+  }
+  
+  .photo-frame {
+    position: relative; width: 340px; height: 340px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  
+  .pf-ring {
+    position: absolute; border-radius: 50%;
+    border: 1px solid; pointer-events: none;
+  }
+  .pf-ring--1 {
+    width: 390px; height: 390px;
+    border-color: rgba(0,245,212,0.14);
+    animation: spin 24s linear infinite;
+  }
+  .pf-ring--2 {
+    width: 320px; height: 320px;
+    border-color: rgba(255,78,0,0.1);
+    animation: spin 18s linear infinite reverse;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  
+  .pf-photo {
+    position: relative; width: 240px; height: 240px;
+    border-radius: 50%; overflow: hidden; z-index: 2;
+    border: 2px solid rgba(0,245,212,0.28);
+    box-shadow: 0 0 0 6px rgba(0,245,212,0.05), 0 0 60px rgba(0,245,212,0.18);
+  }
+  .pf-img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block; transition: transform 0.5s ease;
+  }
+  .pf-photo:hover .pf-img { transform: scale(1.06); }
+  .pf-fallback {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--bg3), var(--bg2));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 3.5rem;
+    font-weight: 900; color: var(--cyan); z-index: -1;
+  }
+  
+  .pf-badge {
+    position: absolute;
+    display: flex; align-items: center; gap: 6px;
+    padding: 5px 11px;
+    background: rgba(10,10,22,0.92);
+    border: 1px solid color-mix(in srgb, var(--bc,#00f5d4) 28%, transparent);
+    border-radius: 20px;
+    font-family: var(--font-mono); font-size: 0.62rem;
+    color: rgba(240,240,250,0.7); letter-spacing: 0.05em;
+    white-space: nowrap; z-index: 3;
+    backdrop-filter: blur(8px);
+    animation: badgeFloat 3.2s ease-in-out infinite;
+    transition: all 0.22s ease;
+  }
+  .pf-badge:hover { border-color: var(--bc,var(--cyan)); color: var(--white); }
+  .pf-badge svg  { font-size: 0.88rem; }
+  .pf-badge:nth-child(4) { animation-delay: 0.5s; }
+  .pf-badge:nth-child(5) { animation-delay: 1.0s; }
+  .pf-badge:nth-child(6) { animation-delay: 1.5s; }
+  .pf-badge:nth-child(7) { animation-delay: 2.0s; }
+  .pf-badge:nth-child(8) { animation-delay: 2.5s; }
+  
+  @keyframes badgeFloat {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+  
+  .pf-status {
+    position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 7px;
+    padding: 6px 16px; background: rgba(6,6,15,0.95);
+    border: 1px solid rgba(0,245,212,0.22); border-radius: 20px;
+    font-family: var(--font-mono); font-size: 0.62rem; color: var(--cyan);
+    letter-spacing: 0.1em; white-space: nowrap; z-index: 4;
+  }
+  
+  .avail-dot {
+    width: 7px; height: 7px; background: var(--cyan);
+    border-radius: 50%; flex-shrink: 0;
+    animation: avpulse 2s ease-in-out infinite;
+  }
+  @keyframes avpulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(0,245,212,0.5); }
+    50%      { box-shadow: 0 0 0 5px rgba(0,245,212,0); }
+  }
+  
+  /* ── Stats strip ─────────────────────────── */
+  .home-stats {
+    position: relative; z-index: 1;
+    padding: 22px 80px 32px 240px;
+    display: flex; gap: 44px; flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    animation: hFadeIn 1s ease 0.7s both;
+  }
+  .hstat { display: flex; flex-direction: column; gap: 3px; }
+  .hstat-n {
+    font-family: var(--font-display); font-size: 1.9rem;
+    font-weight: 900; color: var(--cyan); line-height: 1;
+  }
+  .hstat-l {
+    font-family: var(--font-mono); font-size: 0.6rem;
+    color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  
+  /* ═══════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════ */
+  
+  /* 1280px */
+  @media (max-width: 1280px) {
+    .home-inner { padding: 0 60px 60px 240px; grid-template-columns: 1fr 380px; gap: 40px; }
+    .home-stats  { padding: 22px 60px 32px 240px; gap: 36px; }
+  }
+  
+  /* 1100px */
+  @media (max-width: 1100px) {
+    .home-inner { grid-template-columns: 1fr; padding: 80px 40px 60px 220px; min-height: auto; }
+    .home-right  { display: none; }
+    .home-stats  { padding: 22px 40px 32px 220px; }
+  }
+  
+  /* ─── MOBILE ≤ 850px ──────────────────────
+     Key decisions:
+     1. Mobile photo sits in .home-mobile-row beside text
+     2. Tagline/focus/college appear INSIDE .home-mobile-row
+     3. Desktop versions of those are hidden
+     4. CTAs: Resume full-width, then secondary-row = Work + icons in one line
+     5. Stats: 2×2 grid, not wrapping flex
+  ────────────────────────────────────────── */
+  @media (max-width: 850px) {
+    .home { min-height: 100svh; }
+  
+    .home-orb--c { width: 280px; height: 280px; top: -40px; left: -40px; }
+    .home-orb--o { display: none; }
+  
+    .home-inner {
+      grid-template-columns: 1fr;
+      padding: 66px 20px 20px 20px;
+      min-height: auto; gap: 0; align-items: flex-start;
+    }
+  
+    .home-right { display: none; }
+    .home-left  { gap: 16px; }
+  
+    /* Typewriter row — fixed height so it never pushes content */
+    .home-role-row { min-height: 1.4rem; }
+    .role-txt      { font-size: 0.88rem; letter-spacing: 0.04em; }
+    .role-prefix   { font-size: 0.66rem; }
+  
+    /* Name */
+    .home-name {
+      font-size: clamp(2.8rem, 13.5vw, 4rem);
+      line-height: 0.86;
+    }
+    .hn-outline { -webkit-text-stroke: 1.5px var(--white); }
+  
+    /* ── Mobile combined row ──────────────
+       Photo right, text left — sit beside each other
+    ──────────────────────────────────────── */
+    .home-mobile-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+  
+    .home-mobile-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+    }
+  
+    /* Tagline inside mobile row */
+    .home-mobile-text .home-tagline {
+      font-size: 0.78rem;
+      line-height: 1.6;
+      max-width: 100%;
+      color: rgba(240,240,250,0.55);
+    }
+  
+    /* Focus row inside mobile row */
+    .home-mobile-text .home-focus-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      min-height: auto;
+    }
+  
+    .home-mobile-text .focus-label { font-size: 0.58rem; }
+    .home-mobile-text .focus-tag   { font-size: 0.62rem; padding: 3px 10px; }
+  
+    /* College inside mobile row */
+    .home-mobile-text .home-college { gap: 2px; }
+    .home-mobile-text .hc-name { font-size: 0.78rem; }
+    .home-mobile-text .hc-year { font-size: 0.58rem; }
+  
+    /* Hide the duplicate desktop-only elements */
+    .home-tagline--desktop,
+    .home-focus-row--desktop,
+    .home-college--desktop { display: none; }
+  
+    /* ── Mobile photo ─────────────────────
+       Compact circle, right side of the mobile row
+    ──────────────────────────────────────── */
+    .home-photo-mobile {
+      position: relative;
+      flex-shrink: 0;
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .hpm-ring {
+      position: absolute; inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,245,212,0.25);
+      animation: spin 22s linear infinite;
+    }
+  
+    .hpm-img {
+      width: 82px; height: 82px;
+      border-radius: 50%;
+      object-fit: cover; object-position: center top;
+      border: 2px solid rgba(0,245,212,0.35);
+      box-shadow: 0 0 20px rgba(0,245,212,0.2);
+      display: block; z-index: 1; position: relative;
+    }
+  
+    .hpm-avail {
+      position: absolute; bottom: -10px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; align-items: center; gap: 4px;
+      padding: 3px 8px;
+      background: rgba(6,6,15,0.95);
+      border: 1px solid rgba(0,245,212,0.25);
+      border-radius: 20px;
+      font-family: var(--font-mono); font-size: 0.5rem;
+      color: var(--cyan); letter-spacing: 0.05em;
+      white-space: nowrap; z-index: 2;
+    }
+    .hpm-avail .avail-dot { width: 5px; height: 5px; }
+  
+    /* ── Mobile CTAs ──────────────────────
+       Row 1: Resume — full width
+       Row 2: Work button + GitHub + LinkedIn — in one line
+    ──────────────────────────────────────── */
+    .home-ctas {
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+  
+    .cta-primary {
+      width: 100%;
+      justify-content: center;
+      padding: 13px 24px;
+      font-size: 0.9rem;
+    }
+  
+    /* Secondary row: Work + icons side by side */
+    .cta-secondary-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      width: 100%;
+    }
+  
+    /* Work button takes remaining space */
+    .cta-outline {
+      flex: 1;
+      justify-content: center;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+    }
+  
+    /* Icons stay fixed size */
+    .cta-icon {
+      width: 40px; height: 40px;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+  
+    /* ── Tech strip (visible on mobile) ─── */
+    .home-tech-strip {
+      display: flex; align-items: center;
+      gap: 7px; flex-wrap: wrap;
+      padding: 10px 0 2px;
+      border-top: 1px solid var(--border);
+    }
+  
+    .hts-item {
+      width: 32px; height: 32px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 6px; display: flex; align-items: center;
+      justify-content: center; font-size: 0.95rem;
+      transition: all 0.2s ease; flex-shrink: 0;
+    }
+    .hts-item:hover { border-color: var(--border-cyan); background: var(--bg3); }
+  
+    /* ── Stats: 2×2 grid ─────────────────── */
+    .home-stats {
+      padding: 18px 20px 24px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .hstat-n { font-size: 1.5rem; }
+    .hstat-l { font-size: 0.55rem; }
+  }
+  
+  /* Very small phones */
+  @media (max-width: 380px) {
+    .home-inner { padding: 60px 14px 16px 14px; }
+  
+    .home-name { font-size: 2.5rem; }
+  
+    .home-photo-mobile { width: 76px; height: 76px; }
+    .hpm-img           { width: 70px; height: 70px; }
+  
+    .cta-secondary-row { gap: 7px; }
+    .cta-icon          { width: 36px; height: 36px; }
+  
+    .home-stats { padding: 14px 14px 20px 14px; gap: 12px; }
+    .hstat-n    { font-size: 1.3rem; }
+  }
+  
+  /* ── Animations ─────────────────────────── */
+  @keyframes hFadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes hFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
 

@@ -1,0 +1,176 @@
+/* ═══════════════════════════════════════════
+   INTRO LOADER
+   Cinematic terminal boot → name reveal → page
+═══════════════════════════════════════════ */
+
+.intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #06060f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  
+  /* Scanlines texture */
+  .intro-scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 245, 212, 0.012) 2px,
+      rgba(0, 245, 212, 0.012) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Shrink-away exit */
+  .intro-shrink {
+    animation: introExit 0.75s cubic-bezier(0.7, 0, 1, 0.3) forwards;
+  }
+  
+  @keyframes introExit {
+    0%   { opacity: 1; clip-path: inset(0% 0% 0% 0%); }
+    100% { opacity: 0; clip-path: inset(50% 0% 50% 0%); }
+  }
+  
+  /* Terminal window */
+  .intro-terminal {
+    position: relative;
+    z-index: 2;
+    width: min(480px, 90vw);
+    background: rgba(13, 13, 28, 0.95);
+    border: 1px solid rgba(0, 245, 212, 0.18);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(0, 245, 212, 0.05),
+      0 0 60px rgba(0, 245, 212, 0.08),
+      0 40px 80px rgba(0, 0, 0, 0.6);
+    animation: termSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  
+  @keyframes termSlideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Terminal title bar */
+  .intro-terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .itb-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .itb-dot--red    { background: #ff5f57; }
+  .itb-dot--yellow { background: #febc2e; }
+  .itb-dot--green  { background: #28c840; }
+  
+  .itb-title {
+    margin-left: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    color: rgba(240, 240, 250, 0.3);
+    letter-spacing: 0.05em;
+  }
+  
+  /* Terminal body */
+  .intro-terminal-body {
+    padding: 20px 24px 24px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .intro-line {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    animation: lineIn 0.22s ease both;
+  }
+  
+  @keyframes lineIn {
+    from { opacity: 0; transform: translateX(-8px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  
+  .intro-line--cmd { color: rgba(240, 240, 250, 0.75); }
+  .intro-line--ok  { color: #00f5d4; }
+  
+  .intro-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background: #00f5d4;
+    vertical-align: text-bottom;
+    margin-left: 3px;
+    animation: blink 0.8s step-end infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+  
+  /* Name reveal */
+  .intro-name {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+  }
+  
+  .intro-name--show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .in-first {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.8rem, 10vw, 5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: #f0f0fa;
+    line-height: 0.9;
+  }
+  
+  .in-last {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.8rem, 10vw, 5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #00f5d4;
+    line-height: 0.9;
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 500px) {
+    .intro-terminal-body { padding: 16px 18px 20px; }
+    .intro-line { font-size: 0.72rem; }
+    .itb-title { display: none; }
+  }
