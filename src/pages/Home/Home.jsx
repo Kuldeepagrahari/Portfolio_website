@@ -6,18 +6,19 @@ import { FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiArrowRight } from "react-icons/hi";
 import {
   SiNodedotjs, SiMongodb, SiPostgresql, SiDocker,
-  SiApachekafka, SiRedis,
+  SiApachekafka, SiRedis, SiJavascript,
+  SiReact, SiPython,
 } from "react-icons/si";
 import "./home.css";
 
-/* ── Tech badges around desktop photo ────── */
+
 const badges = [
   { Icon: SiNodedotjs,   label: 'Node.js',    color: '#68a063', pos: { top: '8%',    left: '-22%'  } },
   { Icon: SiPostgresql,  label: 'PostgreSQL', color: '#336791', pos: { top: '24%',   right: '-22%' } },
   { Icon: SiMongodb,     label: 'MongoDB',    color: '#47a248', pos: { bottom: '32%',left: '-24%'  } },
-  { Icon: SiApachekafka, label: 'Kafka',      color: '#e8e8e8', pos: { top: '58%',   right: '-20%' } },
-  { Icon: SiRedis,       label: 'Redis',      color: '#dc382d', pos: { bottom: '10%',left: '-12%'  } },
-  { Icon: SiDocker,      label: 'Docker',     color: '#2496ed', pos: { top: '4%',    right: '-10%' } },
+  { Icon: SiJavascript,  label: 'JavaScript', color: '#f7df1e', pos: { top: '58%',   right: '-20%' } },
+  { Icon: SiReact,       label: 'React.js',   color: '#61dafb', pos: { bottom: '10%',left: '-12%'  } },
+  { Icon: SiPython,      label: 'Python',     color: '#3776ab', pos: { top: '4%',    right: '-10%' } },
 ];
 
 /* ── Rotating focus tags ─────────────────── */

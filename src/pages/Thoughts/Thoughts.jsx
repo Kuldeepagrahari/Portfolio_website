@@ -5,14 +5,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import learningMap from './learnings/index';
 import './thoughts.css';
 
-/* ─────────────────────────────────────────────────────────────────
-   THOUGHTS ARRAY
-   Tone rules:
-     - Sounds like a learner building things, not an expert explaining
-     - No "at scale", "production-grade", "enterprise-level"
-     - Grounded in actual project experience
-     - Titles are observations or questions, not claims
-   ───────────────────────────────────────────────────────────────── */
+
+const blogs = [
+  {
+    id: 1,
+    title: 'Why Your Comparator Isn’t Enough: The Hidden Stability Problem in C++ STL',
+    excerpt: 'Uncover the mystery behind comparator stability in C++ STL. Learn how subtle mistakes can lead to unexpected sorting behavior and how to fix them.',
+    link: 'https://medium.com/@kuldeepagrahari9103/why-your-comparator-isnt-enough-the-hidden-stability-problem-in-c-stl-d7e5ea99f9dd',
+    tag: 'C++ | STL | Competitive Programming',
+    tagColor: '#61dafb',
+    date: 'May 4, 2026',
+  },
+]
+
 const thoughts = [
   {
     id: 1,
@@ -177,8 +182,9 @@ const Thoughts = () => {
   const rest     = thoughts.slice(1);
 
   return (
+   
     <div className="thoughts">
-      <div className="tg-orb tg-orb--cyan"   />
+      <div className="tg-orb tg-orb--cyan" />
       <div className="tg-orb tg-orb--orange" />
 
       <div className="thoughts-inner">
@@ -287,12 +293,47 @@ const Thoughts = () => {
           ))}
         </div>
 
-        {/* ── Quote ────────────────────────── */}
-        <div className="thoughts-quote">
-          <span className="tq-mark">"</span>
-          The best debugging session is the one that forces you to understand
-          something you assumed you already knew.
-          <span className="tq-attr">— Something I believe after the drone project</span>
+        {/* ── Medium Blogs Section ─────────── */}
+        <div className="thoughts-medium">
+          <h3 className="medium-title">My Medium Blogs</h3>
+          <div className="medium-grid">
+            {blogs.map((blog) => (
+              <a
+                key={blog.id}
+                href={blog.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="medium-card"
+                style={{ '--tc': blog.tagColor }}
+              >
+                <div className="medium-meta">
+                  <span
+                    className="medium-tag"
+                    style={{
+                      color: blog.tagColor,
+                      background: blog.tagColor + '18',
+                      borderColor: blog.tagColor + '40',
+                    }}
+                  >
+                    {blog.tag}
+                  </span>
+                  <span className="medium-date">{blog.date}</span>
+                </div>
+                <h4 className="medium-title">{blog.title}</h4>
+                <p className="medium-excerpt">{blog.excerpt}</p>
+                <button
+                  className="medium-readmore"
+                  style={{
+                    color: blog.tagColor,
+                    background: blog.tagColor + '18',
+                    borderColor: blog.tagColor + '44',
+                  }}
+                >
+                  Read on Medium →
+                </button>
+              </a>
+            ))}
+          </div>
         </div>
 
       </div>
@@ -303,6 +344,7 @@ const Thoughts = () => {
       </AnimatePresence>
     </div>
   );
+  
 };
 
 export default Thoughts;
