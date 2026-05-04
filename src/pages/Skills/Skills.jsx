@@ -97,7 +97,10 @@ const TechSphere = () => {
     if (!el) return;
     const tags = el.querySelectorAll('.s-tag');
     const n = tags.length;
-    const R = 160;
+    // const R = 1600;
+    const rect = el.getBoundingClientRect();
+    const R = rect.width / 3;
+    console.log(R)
 
     const positions = Array.from({ length: n }, (_, i) => {
       const phi   = Math.acos(1 - (2 * (i + 0.5)) / n);

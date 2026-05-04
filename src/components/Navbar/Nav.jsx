@@ -14,7 +14,7 @@ const NAV_ITEMS = [
   { id: "skills",       label: "Skills",    Icon: HiCode        },
   { id: "achievements", label: "Wins",      Icon: HiStar        },
   { id: "education",    label: "Education", Icon: HiAcademicCap },
-  { id: "thoughts",     label: "Dev Notes", Icon: HiPencil      },
+  { id: "thoughts",     label: "Blogs",     Icon: HiPencil      },
   { id: "contact",      label: "Contact",   Icon: HiMail        },
   { id: "follow",       label: "Follow",    Icon: HiShare       },
 ];

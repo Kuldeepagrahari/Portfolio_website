@@ -7,7 +7,8 @@
   min-height: 100vh;
   background: var(--bg);
   padding: 80px 60px 80px 240px;
-  overflow: hidden;
+  overflow: visible;
+ 
 }
 
 .sk-orb {
@@ -84,7 +85,9 @@
 }
 
 .sphere-container {
-  position: relative; width: 380px; height: 380px; flex-shrink: 0;
+  position: relative;
+  width: min(80vw, 380px);   /* responsive */
+  height: min(80vw, 380px);
 }
 
 .sphere-glow {
@@ -251,13 +254,20 @@
 @media (max-width: 1280px) {
   .skills { padding: 80px 50px 80px 240px; }
   .skills-body { grid-template-columns: 360px 1fr; gap: 40px; }
-  .sphere-container { width: 330px; height: 330px; }
+  /* .sphere-container { width: 330px; height: 330px; } */
 }
 
 @media (max-width: 1100px) {
   .skills { padding: 80px 40px 80px 220px; }
   .skills-body { grid-template-columns: 1fr; }
-  .sphere-wrap { display: none; }
+  .sphere-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0; /* ✅ FIX */
+    width: 100%;
+    background-color: #00f5d4;
+  }
   .sk-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 }
 

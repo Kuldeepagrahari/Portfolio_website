@@ -365,3 +365,131 @@
   .tmodal-divider { margin: 12px 18px 0; }
   .tmodal-body { padding: 14px 18px 22px; }
 }
+
+/* Medium Blogs Section */
+.thoughts-medium {
+  margin-top: 3rem;
+}
+
+.medium-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.medium-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.medium-card {
+  background: var(--bg3);
+  border: 1px solid color-mix(in srgb, var(--tc, var(--cyan)) 18%, transparent);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--white);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.medium-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+  border-color: color-mix(in srgb, var(--tc, var(--cyan)) 38%, transparent);
+}
+
+.medium-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.medium-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border: 1px solid var(--tc, var(--cyan));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--tc, var(--cyan)) 10%, transparent);
+  color: var(--tc, var(--cyan));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.medium-date {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.medium-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.medium-excerpt {
+  font-size: 0.85rem;
+  color: rgba(240, 240, 250, 0.6);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.medium-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--tc, var(--cyan));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.medium-card:hover::after {
+  opacity: 1;
+}
+/* Medium Blogs Section - Read on Medium Button */
+.medium-readmore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid var(--tc, var(--cyan));
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tc, var(--cyan));
+  background: color-mix(in srgb, var(--tc, var(--cyan)) 10%, transparent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.medium-readmore:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--tc, var(--cyan)) 20%, transparent);
+}
