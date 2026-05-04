@@ -1,33 +1,8 @@
-// // import React from 'react'
-// import "./footer.css"
-// import { FaSquareXTwitter } from "react-icons/fa6";
-// import { FaGithubSquare } from "react-icons/fa";
-// import { FaLinkedin } from "react-icons/fa";
-// import { Link } from "react-router-dom"
-// import { RiUserFollowLine } from "react-icons/ri";
-// import { FaYoutube } from "react-icons/fa";
-// const Footer = () => {
-//     return (
-//         <div className='footer'>
-//             <h2><RiUserFollowLine /><br />follow me </h2>
-//             <div className="links">
-//             <Link to="https://github.com/Kuldeepagrahari">
-//                 <FaGithubSquare style={{ fontSize: "50px", color: "white" }} /></Link> 
-//             <Link to="https://x.com/kuldeep_106">
-//                 <FaSquareXTwitter style={{fontSize: "50px", color: "white" }} /></Link>  
-//             <Link to="https://www.linkedin.com/in/kuldeep-agrahari-56b159260">
-//                 <FaLinkedin style={{ fontSize: "50px", color: "white" }} /></Link>
-//             <Link to="https://www.youtube.com/@0x0Kuldeep">
-//                 <FaYoutube  style={{ fontSize: "50px", color: "white" }} /></Link>
-//         </div></div>
-//     )
-// }
-
-// export default Footer
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaMedium } from "react-icons/fa"; 
 import "./footer.css";
 
 const marqueeItems = [
@@ -49,6 +24,7 @@ const socialLinks = [
   { Icon: FaSquareXTwitter, href: "https://x.com/kuldeep_106", label: "Twitter/X" },
   { Icon: FaLinkedin, href: "https://www.linkedin.com/in/Kuldeepagrahari", label: "LinkedIn" },
   { Icon: FaYoutube, href: "https://www.youtube.com/@BeSWE", label: "YouTube" },
+  { Icon: FaMedium, href: "https://medium.com/@kuldeepagrahari9103", label: "Medium" },
 ];
 
 const Footer = () => {
