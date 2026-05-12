@@ -3,16 +3,16 @@
 
 import RequestFlow    from './RequestFlowDiagram';
 import WhyNodeForAPIs from './WhyNodeForAPIs';
+import InterviewCommunication from './InterviewCommunication';
 
-// Map: thought.id → learning component
-// If a thought has no learning yet, map it to null (shows "Coming Soon")
 const learningMap = {
   1: RequestFlow,
   2: WhyNodeForAPIs,
+  7: InterviewCommunication,
   3: null, // DSA Mindset — coming soon
-  4: null, // Docker Changed Deployment — coming soon
-  5: null, // RBAC Patterns — coming soon
-  6: null, // Kafka vs HTTP — coming soon
+  4: null, // RBAC Patterns — coming soon
+  5: null, // The Bug That Taught Me — coming soon
+  6: null, // Docker for Small Projects — coming soon
 };
 
 export default learningMap;
