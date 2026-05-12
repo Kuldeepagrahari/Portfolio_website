@@ -1,15 +1,15 @@
 import { useState, useEffect, useCallback } from 'react';
 import { HiX, HiClock, HiTag, HiCode } from 'react-icons/hi';
-import { FaServer, FaBrain, FaCode, FaTools, FaBug, FaProjectDiagram } from 'react-icons/fa';
+import { FaServer, FaBrain, FaCode, FaTools, FaBug, FaProjectDiagram, FaMicrophone } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import learningMap from './learnings/index';
+import learningMap from './learnings/index.jsx';
 import './thoughts.css';
 
 
 const blogs = [
   {
     id: 1,
-    title: 'Why Your Comparator Isn’t Enough: The Hidden Stability Problem in C++ STL',
+    title: "Why Your Comparator Isn't Enough: The Hidden Stability Problem in C++ STL",
     excerpt: 'Uncover the mystery behind comparator stability in C++ STL. Learn how subtle mistakes can lead to unexpected sorting behavior and how to fix them.',
     link: 'https://medium.com/@kuldeepagrahari9103/why-your-comparator-isnt-enough-the-hidden-stability-problem-in-c-stl-d7e5ea99f9dd',
     tag: 'C++ | STL | Competitive Programming',
@@ -41,6 +41,18 @@ const thoughts = [
     title: 'Node.js vs Django: What I Noticed Building Both',
     excerpt:
       'I built REST APIs in both. Node\'s event loop handles concurrent I/O cheaply; Django felt more structured for data-heavy routes. Neither is universally better — depends on what you\'re building.',
+    hasContent: true,
+  },
+  {
+    id: 7,
+    Icon: FaMicrophone,
+    tag: 'Communication',
+    tagColor: '#ff85d9',
+    date: 'May 12, 2026',
+    readTime: '4 min',
+    title: 'Eye Contact, Enthusiasm & Brevity: Why Your Technical Answers Miss Half the Picture',
+    excerpt:
+      'My trainer\'s feedback after the HR round: Your content is good, but it\'s only half the story. Eye contact, vocal energy, body language, and concise answers are what get people hired. Here\'s the framework.',
     hasContent: true,
   },
   {
