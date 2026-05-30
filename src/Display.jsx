@@ -171,6 +171,7 @@ import IntroLoader from "./components/Intro/IntroLoader.jsx";
 import "./global.css";
 import "./display.css";
 
+import { ThemeProvider } from "./hooks/useTheme.jsx";
 const SECTION_KEYS = [
   "home", "about", "projects", "skills",
   "achievements", "education", "thoughts", "contact", "follow",
@@ -252,7 +253,11 @@ const Display = () => {
           <section ref={refs.skills}><Skills /></section>
           <section ref={refs.achievements}><Achievement /></section>
           <section ref={refs.education}><Education /></section>
-          <section ref={refs.thoughts}><Thoughts /></section>
+          <section ref={refs.thoughts}>
+            <ThemeProvider>
+              <Thoughts />
+            </ThemeProvider>
+            </section>
           <section ref={refs.contact}><Contact /></section>
           <section ref={refs.follow} className="follow-section"><Footer /></section>
         </main>

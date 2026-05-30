@@ -1,10 +1,11 @@
+
 import { useState, useEffect, useCallback } from 'react';
-import { HiX, HiClock, HiTag, HiCode } from 'react-icons/hi';
+import { HiX, HiClock, HiTag, HiCode, HiSun, HiMoon } from 'react-icons/hi';
 import { FaServer, FaBrain, FaCode, FaTools, FaBug, FaProjectDiagram, FaMicrophone } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import learningMap from './learnings/index.jsx';
+import learningMap from './learnings/index';
+import { useTheme } from '../../hooks/useTheme';
 import './thoughts.css';
-
 
 const blogs = [
   {
@@ -360,3 +361,4 @@ const Thoughts = () => {
 };
 
 export default Thoughts;
+

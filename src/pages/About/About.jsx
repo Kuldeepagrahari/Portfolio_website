@@ -106,7 +106,7 @@ const About = () => (
         <div className="abt-hero-right">
           <div className="abt-photo-wrap">
             <div className="apw-tl" /><div className="apw-br" />
-            <img src="profile.png" alt="Kuldeep Agrahari" className="abt-photo"
+            <img src="hero-image.png" alt="Kuldeep Agrahari" className="abt-photo"
               onError={e => e.target.style.display='none'} />
             <div className="apw-badge">
               <SiNodedotjs style={{ color: '#68a063', fontSize: '1.1rem' }} />

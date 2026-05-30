@@ -402,7 +402,7 @@ const Home = ({ onScrollTo }) => {
             <div className="home-photo-mobile">
               <div className="hpm-ring" />
               <img
-                src="profile.png"
+                src="hero-image.png"
                 alt="Kuldeep"
                 className="hpm-img"
                 onError={e => (e.target.style.display = 'none')}
@@ -492,7 +492,7 @@ const Home = ({ onScrollTo }) => {
 
             <div className="pf-photo">
               <img
-                src="profile.png"
+                src="hero-image.png"
                 alt="Kuldeep Agrahari"
                 className="pf-img"
                 onError={e => (e.target.style.display = 'none')}
