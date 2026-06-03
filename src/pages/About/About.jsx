@@ -173,7 +173,7 @@ export default function About() {
             </div>
 
             <p className="abt-sub">
-              Final-year CSE · IIITDM Jabalpur · Prayagraj, India · Graduating Jun 2026
+              Final-year · B.Tech · CSE · Indian Institute of Information Technology, Design & Manufacturing Jabalpur (IIITDMJ) · Jabalpur, India · Graduating Jun 2026
             </p>
 
             <div className="abt-badge-row">
