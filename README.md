@@ -14,7 +14,13 @@
 
 ## 🖥️ Live Preview
 
-![Home](https://github.com/user-attachments/assets/ee0d3b32-a159-4a54-a151-5d6cef8f1816)
+<img width="1919" height="848" alt="image" src="https://github.com/user-attachments/assets/4ad974a1-2631-4330-a4b3-e3a7a961c723" />
+<img width="1919" height="859" alt="image" src="https://github.com/user-attachments/assets/9be36e75-3fd5-4c64-9742-86e31c545256" />
+<img width="1919" height="849" alt="image" src="https://github.com/user-attachments/assets/9e28263f-40dd-40fa-a366-35fdf513c823" />
+<img width="1919" height="859" alt="image" src="https://github.com/user-attachments/assets/bf5feb1e-45b9-438b-a887-df4666e6181b" />
+<img width="1919" height="846" alt="image" src="https://github.com/user-attachments/assets/6d673fa9-03b6-4f11-924d-6b1d59bd31eb" />
+<img width="1919" height="851" alt="image" src="https://github.com/user-attachments/assets/916c9c5e-3db3-400f-8197-5ecb60fa32da" />
+
 
 ---
 
