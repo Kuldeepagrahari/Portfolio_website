@@ -5,7 +5,7 @@ import { SiMedium } from "react-icons/si";
 import "./home.css";
 
 const RESUME_URL =
-  "https://drive.google.com/file/d/1kU14QelhblMZNnAsFZeEhax2v5hOOltf/view?usp=sharing";
+  "https://drive.google.com/file/d/1ynp4P-dIj4jmG16nJgN-es3N0fXGMbpi/view?usp=sharing";
 
 const LINKS = [
   { Icon: FaGithub,         href: "https://github.com/Kuldeepagrahari",          label: "GitHub" },
